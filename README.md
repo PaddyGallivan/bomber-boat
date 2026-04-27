@@ -1,42 +1,30 @@
-# bomber-boat
+# Bomber Boat
 
-bomberboat.com.au — public site (`/site`) + worker API (`/worker`).
+Fan ferry service to Essendon Bombers home games at Marvel Stadium. Departs Cafe Riviera on the Maribyrnong River, complimentary finger food and bar prices on board.
 
-**Deploys are 100% GitHub-driven. NO LOCAL INFRA.**
+Live: **https://bomberboat.com.au**
 
-## Layout
+## Repo layout
 
-- `site/` — static site shipped to Cloudflare Pages project `bomber-boat`
-- `worker/` — Cloudflare Worker `bomber-boat-api` (handles `/api/*`, `/admin`, `/captain`, `/staff`, `/board`)
-- `.github/workflows/deploy.yml` — push to `main` → Pages + Worker deploy
-
-## Edit anywhere
-
-GitHub web UI, github.dev, VS Code, your phone. No watcher, no Drive sync, no `.bat` files.
-
-## Required GH Actions secrets (one-time)
-
-| Secret | Value source |
+| Path | What |
 |---|---|
-| `CLOUDFLARE_API_TOKEN` | `https://asgard-vault.pgallivan.workers.dev/secret/CF_API_TOKEN` (PIN 2967) |
-| `CLOUDFLARE_ACCOUNT_ID` | `a6f47c17811ee2f8b6caeb8f38768c20` |
+| `site/` | Public CF Pages site (HTML/CSS/JS) |
+| `worker/` | CF Worker API (`bomber-boat-api`) — bookings, Stripe, Resend, D1 |
+| `scripts/` | `preflight.sh` + `postflight.sh` — deploy guards |
+| `.github/workflows/deploy.yml` | CI/CD |
+| `docs/HANDOVER.md` | **Read this first.** Live state, login URLs, deploy pipeline, open punch list |
+| `docs/ARCHITECTURE.md` | System design |
 
-## Worker secrets (already set in CF, NOT in this repo)
+## Edit + deploy
 
-`API_KEY`, `ADMIN_PASSWORD`, `CAPTAIN_PASSWORD`, `STAFF_PASSWORD`, `STRIPE_SECRET_KEY`, `RESEND_API_KEY`, `CF_API_TOKEN`, `ANTHROPIC_API_KEY`. The deploy uses `--keep-vars` so secrets are preserved across deploys.
+- Edit anywhere: github.com web UI, github.dev (press `.` on any repo file → full VS Code in browser), `git clone` locally if you must.
+- Push to `main` → preflight checks size thresholds → wrangler deploys → postflight checks live URLs return HTTP 200 with non-blank bodies → done. Typical run takes ~1–2 minutes.
+- Rollback: revert the offending commit on GitHub and push.
 
-## Safety guards
+## Stack
 
-The deploy workflow runs `scripts/preflight.sh` before pushing the site (refuses to deploy a too-small `bomberboat-admin.html` etc.) and `scripts/postflight.sh` after (verifies live URL sizes; fails the run if anything blanks out).
-
-## D1
-
-```
-DB binding -> bomber-boat-db (c7dda294-5bba-41c1-a85d-bcc5a9bf1d29)
-```
-
-## KV
-
-```
-MEMORY binding -> 33318695818d4235b358165b4a6f88dc
-```
+- **Frontend:** vanilla HTML/CSS/JS (no framework). Single-file deploy.
+- **Backend:** Cloudflare Worker (`bomber-boat-api`) on `bomberboat.com.au/api/*`.
+- **DB:** Cloudflare D1 (`bomber-boat-db`).
+- **Payments:** Stripe Checkout (Luck Dragon Pty Ltd, AUD).
+- **Email:** Resend for outbound (`bookings@bomberboat.com.au`); CF Email Routing for inbound (`hello@bomberboat.com.au`).
