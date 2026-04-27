@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cancel Booking | Bomber Boat</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a; --card: #1a1a1a; --border: rgba(255,255,255,0.10);
+  --gold: #f0b429; --red: #CC0000; --muted: #aaa;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg); color: white;
+  font-family: 'Barlow', sans-serif;
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; padding: 20px;
+}
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 32px; max-width: 440px; width: 100%;
+  text-align: center;
+}
+.logo { font-family: 'Anton', sans-serif; font-size: 28px; margin-bottom: 4px; }
+.logo span { color: var(--red); }
+.sub { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+.detail { margin: 16px 0; }
+.detail-label { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+.detail-value { font-family: 'Oswald', sans-serif; font-size: 18px; margin-top: 2px; }
+.game-value { color: var(--gold); }
+.cancel-btn {
+  background: var(--red); color: white; border: none; border-radius: 10px;
+  padding: 14px 28px; font-family: 'Anton', sans-serif; font-size: 16px;
+  letter-spacing: 1px; cursor: pointer; margin-top: 20px; width: 100%;
+}
+.cancel-btn:hover { opacity: 0.9; }
+.cancel-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.msg { margin-top: 16px; font-size: 14px; }
+.msg.ok { color: var(--gold); }
+.msg.err { color: var(--red); }
+.loading { color: var(--muted); font-size: 14px; }
+.back-link {
+  display: inline-block; margin-top: 20px; color: var(--gold);
+  font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1px;
+  text-decoration: none; text-transform: uppercase;
+}
+.back-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">BOMBER <span>BOAT</span></div>
+  <div class="sub">Cancel Booking</div>
+
+  <div id="content">
+    <div class="loading">Loading your booking...</div>
+  </div>
+</div>
+
+<script>
+const API_URL = 'https://bomber-boat-api.pgallivan.workers.dev/api';
+
+// Get token from URL path: /cancel/XXXXXXXX
+const pathParts = window.location.pathname.split('/');
+const token = pathParts[pathParts.length - 1];
+
+async function loadBooking() {
+  const el = document.getElementById('content');
+  if (!token || token.length < 6) {
+    el.innerHTML = '<div class="msg err">Invalid cancel link.</div><a href="/" class="back-link">← Back to Bomber Boat</a>';
+    return;
+  }
+
+  try {
+    const res = await fetch(`${API_URL}/cancel/${token}`);
+    if (!res.ok) {
+      el.innerHTML = '<div class="msg err">Booking not found — it may have already been cancelled.</div><a href="/" class="back-link">← Back to Bomber Boat</a>';
+      return;
+    }
+    const booking = await res.json();
+
+    // Extract opponent
+    const vs = booking.game.match(/vs\s+(.+?)\s*\(/);
+    const opponent = vs ? vs[1] : 'the game';
+    const fareLabel = booking.fare === 'return' ? 'Return' : 'One Way';
+
+    el.innerHTML = `
+      <div class="detail">
+        <div class="detail-label">Passenger</div>
+        <div class="detail-value">${esc(booking.name)}</div>
+      </div>
+      <div class="detail">
+        <div class="detail-label">Game</div>
+        <div class="detail-value game-value">${esc(booking.game)}</div>
+      </div>
+      <div class="detail">
+        <div class="detail-label">Ticket</div>
+        <div class="detail-value">${esc(booking.pass_type)} ${esc(fareLabel)} — $${booking.price}</div>
+      </div>
+      <button class="cancel-btn" id="cancelBtn" onclick="cancelBooking()">🚫 CANCEL THIS BOOKING</button>
+      <div class="msg" id="cancelMsg"></div>
+      <a href="/" class="back-link">← Back to Bomber Boat</a>
+    `;
+  } catch (e) {
+    el.innerHTML = '<div class="msg err">Something went wrong. Please try again.</div><a href="/" class="back-link">← Back to Bomber Boat</a>';
+  }
+}
+
+async function cancelBooking() {
+  const btn = document.getElementById('cancelBtn');
+  const msg = document.getElementById('cancelMsg');
+  btn.disabled = true;
+  btn.textContent = 'Cancelling...';
+
+  try {
+    const res = await fetch(`${API_URL}/cancel/${token}`, { method: 'POST' });
+    if (res.ok) {
+      const data = await res.json();
+      document.getElementById('content').innerHTML = `
+        <div style="font-size:40px;margin-bottom:12px">✅</div>
+        <div class="detail-value" style="margin-bottom:8px">Booking Cancelled</div>
+        <div style="color:var(--muted);font-size:14px">Your spot for ${esc(data.game)} has been freed up.</div>
+        <a href="/" class="back-link">← Book another game</a>
+      `;
+    } else {
+      msg.className = 'msg err';
+      msg.textContent = 'Could not cancel — booking may have already been removed.';
+      btn.disabled = false;
+      btn.textContent = '🚫 CANCEL THIS BOOKING';
+    }
+  } catch (e) {
+    msg.className = 'msg err';
+    msg.textContent = 'Network error — please try again.';
+    btn.disabled = false;
+    btn.textContent = '🚫 CANCEL THIS BOOKING';
+  }
+}
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+loadBooking();
+</script>
+</body>
+</html>

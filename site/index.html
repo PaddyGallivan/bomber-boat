@@ -1,0 +1,2400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bomber Boat | bomberboat.com.au</title>
+<meta name="build-id" content="bb-20260427-bugfix-v1">
+<meta name="description" content="The Bombers fan boat to and from AFL Western Bombers home games at Marvel Stadium. Departs Cafe Riviera, Maribyrnong with finger food &amp; cheap drinks on board.">
+<meta property="og:title" content="Bomber Boat — The Bombers Fan Boat to and from Marvel Stadium">
+<meta property="og:description" content="Sail to every Bombers home game from Cafe Riviera, Maribyrnong. Complimentary finger food, cheap bar &amp; good company. Book your spot now!">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bomberboat.com.au">
+<meta property="og:site_name" content="Bomber Boat">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bomber Boat — Sail to the Game">
+<meta name="twitter:description" content="Bombers fan boat to every Western Bombers home game. Departs Cafe Riviera, Maribyrnong. Book now!">
+<meta name="theme-color" content="#E2181A">
+<link rel="manifest" href="/manifest-public.json">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-public-192.png">
+<link rel="apple-touch-icon" href="/icon-public-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Bomber Boat">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- Structured Data for Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Bomber Boat",
+  "description": "Fan ferry service to AFL Western Bombers home games at Marvel Stadium. Departs Cafe Riviera, Maribyrnong with complimentary finger food and cheap drinks.",
+  "url": "https://bomberboat.com.au",
+  "telephone": "",
+  "email": "hello@bomberboat.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "55 Cumberland Dr",
+    "addressLocality": "Maribyrnong",
+    "addressRegion": "VIC",
+    "postalCode": "3016",
+    "addressCountry": "AU"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -37.8642,
+    "longitude": 144.8976
+  },
+  "priceRange": "$15-$55",
+  "currenciesAccepted": "AUD",
+  "paymentAccepted": "Credit Card",
+  "sameAs": []
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Bomber Boat — vs Essendon",
+  "description": "Sail to the AFL Western Bombers vs Essendon game from Cafe Riviera, Maribyrnong. Complimentary finger food, cheap drinks, and scenic harbour cruise.",
+  "startDate": "2026-04-05T17:50:00+10:00",
+  "endDate": "2026-04-05T22:30:00+10:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Cafe Riviera, Maribyrnong",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "55 Cumberland Dr",
+      "addressLocality": "Maribyrnong",
+      "addressRegion": "VIC",
+      "postalCode": "3016",
+      "addressCountry": "AU"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Bomber Boat",
+    "legalName": "Luck Dragon Pty Ltd",
+    "taxID": "ACN 697 434 898",
+    "url": "https://bomberboat.com.au"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://bomberboat.com.au",
+    "price": "35.00",
+    "priceCurrency": "AUD",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "2026-03-01"
+  }
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #E2181A;
+  --red-dark: #b01015;
+  --red-glow: rgba(226,24,26,0.35);
+  --blue: #1a1a1a;
+  --blue-mid: #111111;
+  --blue-light: #2a2a2a;
+  --white: #ffffff;
+  --cream: #f5f0e8;
+  --gold: #f0b429;
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --card: #1a1a1a;
+  --card2: #1f1f1f;
+  --border: rgba(255,255,255,0.10);
+  --muted: rgba(255,255,255,0.45);
+  --green: #22c55e;
+  --green-dim: rgba(34,197,94,0.15);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Diagonal stripe texture removed in v5 — cleaner background. */
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(175deg, var(--blue) 0%, var(--bg2) 65%);
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 60px;
+  background: var(--bg);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+/* paw watermark */
+
+
+.hero-inner {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 40px 20px 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+
+
+
+
+
+
+
+.hero h1 em {
+  color: var(--red);
+  font-style: normal;
+  display: block;
+}
+
+.hero-sub {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 14px 0 28px;
+}
+
+/* Route pill */
+.route-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  max-width: 100%;
+}
+
+.route-stop {
+  padding: 10px 16px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.route-stop.dep { color: var(--gold); }
+.route-stop.arr { color: #7dd3fc; }
+
+.route-arrow {
+  font-size: 18px;
+  color: var(--muted);
+  padding: 0 4px;
+}
+
+/* Perks strip */
+
+
+
+
+@keyframes scroll-perks {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+
+
+
+
+/* ── MAIN CONTENT ── */
+.main {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── SPOTS REMAINING BANNER ── */
+
+
+
+
+
+
+.spots-banner.sold-out {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+  border-color: rgba(255,255,255,0.15);
+}
+
+@keyframes pulse-border {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(204,32,49,0); }
+  50% { box-shadow: 0 0 0 6px rgba(204,32,49,0.2); }
+}
+
+
+
+
+
+
+.spots-banner.sold-out .spots-num { color: var(--muted); }
+
+
+
+
+
+
+
+
+
+@keyframes bob2 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+
+
+
+
+
+.spots-banner.sold-out .spots-sub { display: none; }
+
+
+
+.spots-banner.sold-out .spots-sold-msg { display: block; }
+
+/* ── INFO CARDS ── */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ── FARE SELECTOR ── */
+.section-heading {
+  font-family: 'Anton', sans-serif;
+  font-size: 32px;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-heading::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, var(--red), transparent);
+  border-radius: 99px;
+}
+
+/* ── BOOKING FORM ── */
+.form-wrap {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px;
+  margin-bottom: 36px;
+}
+
+.form-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+
+
+
+
+.field { display: flex; flex-direction: column; gap: 5px; }
+
+.field label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.field input, .field select {
+  background: var(--bg2);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.field select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 42px;
+  cursor: pointer;
+}
+
+.field input:focus, .field select:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(204,32,49,0.15);
+}
+
+.field input::placeholder { color: rgba(255,255,255,0.2); }
+
+.field select option { background: var(--bg2); color: var(--white); }
+
+/* Payment method */
+.payment-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 18px 0 8px;
+}
+
+
+
+
+
+/* Ticket grid — 1 col mobile, 3 col desktop (auto-fit was sometimes computing 2 cols) */
+.ticket-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+@media (min-width: 720px) {
+  .ticket-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.spots-avail { display: none; margin-top: 10px; padding: 10px 14px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 10px; font-family: Barlow, sans-serif; font-size: 14px; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+.spots-avail.show { display: flex; }
+.spots-avail-label { font-family: Oswald, sans-serif; font-size: 11px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
+.spots-avail-nums { display: flex; gap: 14px; flex-wrap: wrap; font-family: Anton, sans-serif; }
+.spots-avail-item { white-space: nowrap; }
+.spots-avail-n { font-size: 20px; color: var(--gold); }
+.spots-avail-lbl { font-size: 13px; color: var(--muted); }
+@media(max-width: 480px) {
+  .spots-avail { flex-direction: column; align-items: flex-start; }
+  .spots-avail-nums { width: 100%; justify-content: space-between; }
+}
+
+.ticket-type {
+  background: var(--bg2); border: 2px solid var(--border); border-radius: 14px;
+  padding: 16px; transition: border-color 0.2s;
+  display: flex; flex-direction: column; /* tiles align uniformly across the grid */
+}
+.ticket-type-header {
+  font-family: 'Anton', sans-serif; font-size: 18px; letter-spacing: 1px;
+  margin-bottom: 2px;
+  min-height: 24px;
+}
+.ticket-type-sub {
+  font-size: 11px; color: var(--muted); margin-bottom: 14px;
+  min-height: 30px; /* absorbs sub-line wrap so tiles below stay aligned */
+}
+.ticket-rows { margin-top: auto; }
+.ticket-rows { display: flex; flex-direction: column; gap: 10px; }
+.ticket-row {
+  display: flex; align-items: center; gap: 10px;
+}
+.ticket-label { font-size: 14px; font-weight: 600; min-width: 70px; }
+.ticket-price {
+  font-family: 'Anton', sans-serif; font-size: 16px; color: var(--green);
+  min-width: 36px;
+}
+.qty-ctrl { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+.qty-btn {
+  width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border);
+  background: var(--card); color: var(--white); font-size: 18px; font-weight: 700;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+}
+.qty-btn:hover { border-color: var(--gold); color: var(--gold); }
+.qty-val {
+  font-family: 'Anton', sans-serif; font-size: 20px; width: 28px;
+  text-align: center; color: var(--white);
+}
+.total-preview {
+  background: linear-gradient(135deg, rgba(0,40,100,0.6), rgba(0,30,80,0.8));
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 14px 18px; margin-bottom: 20px;
+  font-family: 'Barlow', sans-serif; font-size: 14px; color: var(--muted);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.total-preview .total-amount {
+  font-family: 'Anton', sans-serif; font-size: 28px; color: var(--green);
+}
+
+/* Per-passenger detail rows */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.book-btn {
+  width: 100%;
+  padding: 17px;
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-family: 'Anton', sans-serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 20px rgba(204,32,49,0.35);
+}
+
+.book-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(204,32,49,0.5);
+}
+
+.book-btn:active { transform: translateY(0); }
+
+.book-btn:disabled {
+  background: var(--card2);
+  color: var(--muted);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ── CAPACITY BAR ── */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cap-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--blue-light), var(--red));
+  transition: width 0.6s cubic-bezier(0.34,1.56,0.64,1);
+  position: relative;
+}
+
+.cap-fill.danger { background: linear-gradient(90deg, var(--red-dark), #ff6b6b); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ── FULL BANNER ── */
+.full-banner {
+  background: linear-gradient(135deg, rgba(204,32,49,0.2), rgba(204,32,49,0.06));
+  border: 1px solid rgba(204,32,49,0.4);
+  border-radius: 12px;
+  padding: 16px 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  display: none;
+}
+
+.full-banner.show { display: block; }
+
+.full-banner p {
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: var(--red);
+}
+
+.waitlist-form { margin-top: 12px; }
+.waitlist-sub {
+  font-family: 'Barlow', sans-serif !important;
+  font-size: 14px !important;
+  letter-spacing: 0 !important;
+  color: var(--muted) !important;
+  margin-bottom: 10px;
+}
+.waitlist-fields {
+  display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+}
+.wl-input {
+  background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+  color: white; padding: 10px 14px; font-family: 'Barlow', sans-serif; font-size: 14px;
+  flex: 1; min-width: 140px;
+}
+.wl-input::placeholder { color: var(--muted); }
+.wl-btn {
+  background: var(--gold); color: var(--bg); border: none; border-radius: 8px;
+  padding: 10px 18px; font-family: 'Anton', sans-serif; font-size: 14px;
+  letter-spacing: 1px; cursor: pointer; white-space: nowrap;
+}
+.wl-btn:hover { opacity: 0.9; }
+.waitlist-msg {
+  font-family: 'Barlow', sans-serif; font-size: 13px; margin-top: 8px;
+  color: var(--gold);
+}
+
+
+/* ── TOAST ── */
+.toast {
+  position: fixed;
+  top: 20px; right: 20px;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  z-index: 999;
+  transform: translateX(130%);
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  max-width: 320px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+
+.toast.show { transform: translateX(0); }
+.toast.success { background: #166534; border: 1px solid var(--green); color: white; }
+.toast.error { background: var(--red-dark); border: 1px solid var(--red); color: white; }
+
+/* ── MODAL ── */
+
+
+.modal-overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+
+/* Boarding pass ticket details */
+
+
+
+
+
+
+
+.modal-overlay.show .modal-box {
+  transform: translateY(0) scale(1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ── GALLERY ── */
+
+
+
+
+
+
+
+/* Lightbox */
+.lightbox {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.92); z-index: 9999;
+  justify-content: center; align-items: center;
+  padding: 20px;
+}
+.lightbox.active { display: flex; }
+.lightbox-content {
+  max-width: 90vw; max-height: 85vh; border-radius: 12px;
+}
+
+
+/* ── WHATS INCLUDED — Bombers red & black ── */
+.included-section {
+  position: relative; z-index: 1;
+  max-width: 920px; margin: 0 auto;
+  padding: 48px 16px 20px;
+}
+.included-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 28px;
+  text-transform: uppercase; letter-spacing: 4px;
+  text-align: center; margin-bottom: 6px;
+  color: var(--white);
+}
+.included-title::after {
+  content: '';
+  display: block;
+  width: 64px; height: 3px;
+  background: var(--red, #E2181A);
+  margin: 10px auto 24px;
+}
+.included-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+@media (min-width: 720px) { .included-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1000px) { .included-grid { grid-template-columns: repeat(6, 1fr); } }
+.included-item {
+  background: #0d0d0d;
+  border: 1px solid rgba(226,24,26,0.35);
+  border-top: 3px solid var(--red, #E2181A);
+  border-radius: 6px;
+  padding: 18px 12px 16px;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.included-item:hover {
+  border-color: var(--red, #E2181A);
+  transform: translateY(-2px);
+}
+.included-item .inc-icon { display: none; }
+.included-item .inc-label {
+  font-family: 'Anton', sans-serif;
+  font-size: 16px; letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.included-item .inc-sub {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px; letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-top: 4px;
+}
+
+/* ── FAQ ── */
+.faq-section {
+  position: relative; z-index: 1;
+  max-width: 700px; margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+.faq-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 3px;
+  text-align: center; margin-bottom: 20px;
+}
+.faq-item {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 0; cursor: pointer;
+  font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 600;
+  color: var(--white); user-select: none;
+}
+.faq-q:hover { color: var(--gold); }
+.faq-q .faq-toggle {
+  font-size: 18px; color: var(--muted); transition: transform 0.2s;
+  flex-shrink: 0; margin-left: 12px;
+}
+.faq-item.open .faq-toggle { transform: rotate(45deg); color: var(--gold); }
+.faq-a {
+  max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+  font-family: 'Barlow', sans-serif; font-size: 14px;
+  color: var(--muted); line-height: 1.6;
+}
+.faq-item.open .faq-a { max-height: 200px; }
+.faq-a-inner { padding: 0 0 16px; }
+
+/* old footer tag style removed — using .footer-main now */
+
+/* ── FIND US MAP ── */
+.map-section {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  padding: 0 16px;
+  text-align: center;
+}
+.map-title {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(28px, 5vw, 40px);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 8px;
+}
+.map-sub {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+.map-wrap {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  position: relative;
+}
+.map-wrap iframe {
+  width: 100%;
+  height: 300px;
+  border: 0;
+  display: block;
+}
+.map-directions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.map-directions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.map-directions a:hover {
+  background: var(--card2);
+  border-color: var(--blue-light);
+}
+
+/* ── ENHANCED FOOTER ── */
+.footer-main {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--border);
+  padding: 40px 20px 20px;
+  text-align: center;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.footer-links a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 13px;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold); }
+.footer-contact {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.footer-contact a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+
+
+/* ── ADD TO CALENDAR BTN ── */
+
+
+
+/* ── GROUP NUDGE ── */
+.group-nudge {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: -10px auto 20px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, rgba(240,180,41,0.12), rgba(204,32,49,0.08));
+  border: 1px solid rgba(240,180,41,0.25);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--gold);
+  display: none;
+}
+.group-nudge strong { color: var(--white); }
+
+/* Game selector dropdown */
+.game-select-wrap {
+  margin-bottom: 28px;
+}
+
+.game-select-wrap .field select {
+  font-size: 14px;
+  padding: 13px 14px;
+  cursor: pointer;
+}
+
+
+
+/* Countdown */
+.cd-box {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 10px 14px;
+  min-width: 64px;
+  text-align: center;
+}
+.cd-num {
+  font-family: 'Anton', sans-serif;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--white);
+}
+.cd-lbl {
+  font-family: 'Oswald', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Share button hover */
+#shareBtn:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.25); }
+
+/* ── Seats-remaining sliders (bulldogs-style, both directions) ── */
+.seats-card { background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:14px; padding:14px 18px; display:flex; flex-direction:column; gap:12px; }
+
+
+
+
+
+.seats-bar-fill.danger { background:linear-gradient(90deg, #ef4444, #fca5a5); }
+
+
+
+
+/* ── Seats remaining (bulldogs exact match) ── */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ── REDESIGN 26 Apr 2026: photo-led editorial look ── */
+.hero {
+  background:
+    linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.45) 40%, rgba(10,10,10,0.85) 95%, var(--bg) 100%),
+    url('/hero.jpg') center/cover no-repeat;
+}
+
+.bb-logo {
+  display: block;
+  width: clamp(96px, 14vw, 132px);
+  height: clamp(96px, 14vw, 132px);
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.18);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+  background: rgba(0,0,0,0.4);
+}
+
+/* Image carousel — pure CSS, scroll-snap */
+
+
+
+
+
+
+
+</style>
+<!-- v2 --></head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="logo-row">
+      <img class="bb-logo" src="/logo.png" alt="Bomber Boat logo">
+    </div>
+    <p class="hero-sub">The Bombers fan boat to and from Marvel Stadium</p>
+    <div class="route-pill">
+      <span class="route-stop dep">Cafe Riviera, Maribyrnong</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop arr" id="routeArrStop">Marvel Stadium</span>
+    </div>
+    <!-- Countdown to next game (hidden by default; shown only when an active game is upcoming) -->
+    <div id="countdown" style="margin-top:24px;display:none;">
+      <div style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;" id="countdownLabel">Next sailing</div>
+      <div style="display:flex;gap:12px;justify-content:center;" id="countdownBoxes"></div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT'S INCLUDED — static perks (replaces v4 scrolling ticker) -->
+<section class="included-section">
+  <div class="included-title">What's Included</div>
+  <div class="included-grid">
+    <div class="included-item"><div class="inc-label">Free Drink</div><div class="inc-sub">On arrival</div></div>
+    <div class="included-item"><div class="inc-label">Finger Food</div><div class="inc-sub">Complimentary</div></div>
+    <div class="included-item"><div class="inc-label">Cheap Bar</div><div class="inc-sub">Bar prices on board</div></div>
+    <div class="included-item"><div class="inc-label">Card Payment</div><div class="inc-sub">Secure via Stripe</div></div>
+    <div class="included-item"><div class="inc-label">Departs</div><div class="inc-sub">1.5 hrs before bounce</div></div>
+    <div class="included-item"><div class="inc-label">Returns</div><div class="inc-sub">30 min after final siren</div></div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- ── REGISTER INTEREST (fallback when no active games) ── -->
+  <div id="registerSection" style="max-width:560px;margin:20px auto 24px;padding:0 20px;display:none;">
+    <div style="background:linear-gradient(135deg,var(--red),#8B0000);border-radius:20px;padding:36px 32px;text-align:center;box-shadow:0 16px 60px rgba(204,0,0,0.35);">
+      <div style="font-family:'Anton',sans-serif;font-size:28px;letter-spacing:2px;color:white;margin-bottom:8px;">NOT CURRENTLY TAKING BOOKINGS</div>
+      <div style="font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:1px;color:rgba(255,255,255,0.85);margin-bottom:6px;line-height:1.6;">Register your interest below and we'll let you know the moment bookings open.</div>
+      <div style="font-family:'Barlow',sans-serif;font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:22px;">No spam — just one text when it's time to grab your seat.</div>
+
+      <div id="regForm">
+        <input type="text" id="regName" placeholder="Your name" style="width:100%;background:rgba(255,255,255,0.12);border:2px solid rgba(255,255,255,0.25);border-radius:12px;padding:14px 18px;color:white;font-family:'Barlow',sans-serif;font-size:17px;margin-bottom:12px;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(255,255,255,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.25)'">
+        <input type="text" id="regPhone" placeholder="Mobile number" style="width:100%;background:rgba(255,255,255,0.12);border:2px solid rgba(255,255,255,0.25);border-radius:12px;padding:14px 18px;color:white;font-family:'Barlow',sans-serif;font-size:17px;margin-bottom:18px;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(255,255,255,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.25)'">
+        <button onclick="registerInterest()" style="width:100%;padding:16px;background:white;border:none;border-radius:12px;color:var(--red);font-family:'Anton',sans-serif;font-size:20px;letter-spacing:3px;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 20px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+          NOTIFY ME WHEN OPEN
+        </button>
+        <div id="regMsg" style="margin-top:14px;font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:1px;min-height:20px;"></div>
+      </div>
+    </div>
+
+    <!-- Upcoming games teaser -->
+    <div style="margin-top:24px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 24px;">
+      <div style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">2026 SAILING SCHEDULE</div>
+      <div id="upcomingGamesList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:10px;"></div>
+    </div>
+  </div>
+
+  <!-- BOOKING SECTION (hidden until a game is active) -->
+  <div id="bookingSection" style="max-width:880px;margin:0 auto;padding:0 20px;">
+
+  <!-- Hidden stubs kept so legacy render() doesn't null-deref. updateSpotsAvail() also has defensive null checks. -->
+  <div style="display:none;">
+    <span id="capDisplay"></span><span id="capTotalDisp"></span>
+    <span id="capFill"></span><span id="capLeft"></span><span id="onewayNote"></span>
+    <input id="limInp" type="hidden" value="60">
+  </div>
+
+  <!-- Full banner -->
+  <div class="full-banner" id="fullBanner">
+    <p>BOAT IS FULLY BOOKED FOR THIS GAME</p>
+    <div class="waitlist-form" id="waitlistForm">
+      <p class="waitlist-sub">Join the waitlist — we'll text you if a spot opens up!</p>
+      <div style="display:flex;flex-direction:column;gap:8px;max-width:420px;margin:0 auto;">
+        <select id="wlGame" class="wl-input" style="width:100%;font-size:15px;">
+          <option value="">Select a game…</option>
+        </select>
+        <div style="display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:9px 14px;">
+          <span style="font-family:'Barlow',sans-serif;font-size:14px;color:rgba(255,255,255,0.7);flex:1;">Passengers</span>
+          <button type="button" onclick="wlChangeAdults(-1)" style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:white;width:32px;height:32px;font-size:20px;cursor:pointer;line-height:1;">−</button>
+          <span id="wlAdults" style="font-family:'Anton',sans-serif;font-size:22px;min-width:28px;text-align:center;color:var(--gold);">1</span>
+          <button type="button" onclick="wlChangeAdults(1)" style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:white;width:32px;height:32px;font-size:20px;cursor:pointer;line-height:1;">+</button>
+        </div>
+        <div class="waitlist-fields" style="flex-wrap:wrap;">
+          <input type="text" id="wlName" placeholder="Your name" class="wl-input">
+          <input type="tel" id="wlPhone" placeholder="Mobile number" class="wl-input">
+        </div>
+        <button class="wl-btn" onclick="joinWaitlist()" style="width:100%;padding:12px;font-size:16px;">Join Waitlist</button>
+      </div>
+      <div class="waitlist-msg" id="wlMsg"></div>
+    </div>
+  </div>
+
+  <!-- STEP 1 — SELECT GAME -->
+  <div class="section-heading">① Select Your Game</div>
+  <div class="game-select-wrap field">
+    <select id="gameSelect" onchange="showWhoIsGoing()" style="font-size:16px;">
+    </select>
+    <div id="spotsAvail" class="spots-avail">
+      <div class="spots-avail-label">Seats available</div>
+      <div class="spots-avail-nums">
+        <div class="spots-avail-item"><span id="spotsOut" class="spots-avail-n">—</span> <span class="spots-avail-lbl">to the game</span></div>
+        <div class="spots-avail-item"><span id="spotsBack" class="spots-avail-n">—</span> <span class="spots-avail-lbl">coming back</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — TICKETS -->
+  <div class="section-heading">② Add Your Tickets</div>
+
+  <div class="ticket-grid">
+    <!-- RETURN — main fare -->
+    <div class="ticket-type ticket-type-return">
+      <div class="ticket-type-header">Both ways — full return</div>
+      <div class="ticket-type-sub">Main fare · includes drink on arrival + finger food</div>
+      <div class="ticket-rows">
+        <div class="ticket-row">
+          <span class="ticket-label">Adult</span>
+          <span class="ticket-price ticket-price-adult-return">$90</span>
+          <div class="qty-ctrl">
+            <button class="qty-btn" onclick="changeTicket('adult','return',-1)">−</button>
+            <span class="qty-val" id="qty_adult_return">0</span>
+            <button class="qty-btn" onclick="changeTicket('adult','return',1)">+</button>
+          </div>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">Child / U18</span>
+          <span class="ticket-price ticket-price-child-return">$40</span>
+          <div class="qty-ctrl">
+            <button class="qty-btn" onclick="changeTicket('child','return',-1)">−</button>
+            <span class="qty-val" id="qty_child_return">0</span>
+            <button class="qty-btn" onclick="changeTicket('child','return',1)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ONE WAY TO GAME -->
+    <div class="ticket-type ticket-type-oneway-to">
+      <div class="ticket-type-header">One-way to the game</div>
+      <div class="ticket-type-sub">Cafe Riviera → Marvel Stadium</div>
+      <div class="ticket-rows">
+        <div class="ticket-row">
+          <span class="ticket-label">Adult</span>
+          <span class="ticket-price ticket-price-adult-oneway">$55</span>
+          <div class="qty-ctrl">
+            <button class="qty-btn" onclick="changeTicket('adult','oneway_to',-1)">−</button>
+            <span class="qty-val" id="qty_adult_oneway_to">0</span>
+            <button class="qty-btn" onclick="changeTicket('adult','oneway_to',1)">+</button>
+          </div>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">Child / U18</span>
+          <span class="ticket-price ticket-price-child-oneway">$25</span>
+          <div class="qty-ctrl">
+            <button class="qty-btn" onclick="changeTicket('child','oneway_to',-1)">−</button>
+            <span class="qty-val" id="qty_child_oneway_to">0</span>
+            <button class="qty-btn" onclick="changeTicket('child','oneway_to',1)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ONE WAY RETURN LEG -->
+    <div class="ticket-type ticket-type-oneway-from">
+      <div class="ticket-type-header">Return leg only</div>
+      <div class="ticket-type-sub">Marvel → Cafe Riviera · pay by card at booking</div>
+      <div class="ticket-rows">
+        <div class="ticket-row">
+          <span class="ticket-label">Adult</span>
+          <span class="ticket-price ticket-price-adult-oneway">$35</span>
+          <div class="qty-ctrl">
+            <button class="qty-btn" onclick="changeTicket('adult','oneway_from',-1)">−</button>
+            <span class="qty-val" id="qty_adult_oneway_from">0</span>
+            <button class="qty-btn" onclick="changeTicket('adult','oneway_from',1)">+</button>
+          </div>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">Child / U18</span>
+          <span class="ticket-price ticket-price-child-oneway">$15</span>
+          <div class="qty-ctrl">
+            <button class="qty-btn" onclick="changeTicket('child','oneway_from',-1)">−</button>
+            <span class="qty-val" id="qty_child_oneway_from">0</span>
+            <button class="qty-btn" onclick="changeTicket('child','oneway_from',1)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="total-preview" id="totalPreview" style="display:none"></div>
+  <div class="group-nudge" id="groupNudge"><strong>Group of 5+?</strong> Great stuff — the more the merrier on the boat!</div>
+
+
+  <!-- PASSENGER DETAILS (dynamic per ticket) -->
+  <div class="form-wrap" id="formWrap" style="display:none">
+    <div class="form-title">③ Passenger Details</div>
+    <div class="form-subtitle" style="font-size:12px;color:var(--muted);margin:-8px 0 16px;font-family:Barlow,sans-serif;">Enter details for each passenger</div>
+    <div id="paxFields"></div>
+
+    <!-- Contact email for booking confirmation + Stripe receipt -->
+    <div style="margin:14px 0 4px;font-family:Oswald,sans-serif;font-size:13px;letter-spacing:1.5px;color:var(--red);text-transform:uppercase;">Contact email for your confirmation</div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:8px;font-family:Barlow,sans-serif;">We'll send your booking confirmation + boarding reminder here.</div>
+    <input type="email" id="contactEmail" placeholder="you@example.com" autocomplete="email" style="width:100%;background:white;border:2px solid #ddd;border-radius:10px;padding:12px 14px;color:#111;font-family:'Barlow',sans-serif;font-size:16px;margin-bottom:18px;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='var(--red)'" onblur="this.style.borderColor='#ddd'">
+
+    <div class="payment-title">④ Pay by card — Book your tickets here</div>
+    <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:12px;border:2px solid var(--green);background:var(--green-dim);margin-bottom:4px;">
+      <div style="font-size:28px;"></div>
+      <div style="font-family:Barlow,sans-serif;font-size:14px;line-height:1.4;">
+        <strong style="color:var(--white);">Secure card payment via Stripe</strong><br>
+        <span style="color:var(--muted);font-size:13px;">Your seat is locked in instantly. Receipt by email.</span>
+      </div>
+    </div>
+    <input type="hidden" name="pay" value="stripe" id="payHidden">
+
+    <button class="book-btn" id="bookBtn" onclick="addBooking()">BOOK MY SPOT — UP THE BOMBERS!</button>
+  </div>
+
+  </div><!-- end hidden booking section -->
+
+  <!-- ── REGISTER INTEREST — other games at Marvel / MCG ── -->
+  <div id="otherGamesSection" style="max-width:880px;margin:32px auto 24px;padding:0 20px;">
+    <div style="background:linear-gradient(135deg,#1a2332,#0a1929);border:1px solid var(--border);border-radius:20px;padding:32px 28px;box-shadow:0 16px 60px rgba(0,0,0,0.35);">
+      <div style="text-align:center;margin-bottom:22px;">
+        <div style="font-family:'Anton',sans-serif;font-size:26px;letter-spacing:2px;color:var(--gold);margin-bottom:6px;text-transform:uppercase;">Boat to any game</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:1.5px;color:rgba(255,255,255,0.75);text-transform:uppercase;">Marvel Stadium · MCG</div>
+        <div style="font-family:'Barlow',sans-serif;font-size:14px;color:var(--muted);margin-top:10px;line-height:1.55;">Want a boat to a different game? Register your interest. If enough people want it, we charter a boat and email you the booking link.</div>
+      </div>
+
+      <div id="oiForm" style="display:grid;gap:12px;">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <label style="flex:1;min-width:140px;cursor:pointer;background:rgba(255,255,255,0.04);border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:1.5px;color:var(--white);transition:all .15s;" id="oiVenueMarvelLbl">
+            <input type="radio" name="oiVenue" value="Marvel Stadium" id="oiVenueMarvel" style="margin-right:6px;accent-color:var(--gold);" onchange="oiVenueChange()"> MARVEL
+          </label>
+          <label style="flex:1;min-width:140px;cursor:pointer;background:rgba(255,255,255,0.04);border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:1.5px;color:var(--white);transition:all .15s;" id="oiVenueMcgLbl">
+            <input type="radio" name="oiVenue" value="MCG" id="oiVenueMcg" style="margin-right:6px;accent-color:var(--gold);" onchange="oiVenueChange()"> MCG
+          </label>
+        </div>
+
+        <div>
+          <label style="display:block;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:6px;">Which way?</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <label style="flex:1;min-width:120px;cursor:pointer;background:rgba(255,255,255,0.04);border:2px solid var(--border);border-radius:10px;padding:12px 8px;text-align:center;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1px;color:var(--white);" id="oiFareReturnLbl">
+              <input type="radio" name="oiFare" value="return" id="oiFareReturn" checked style="margin-right:4px;accent-color:var(--gold);" onchange="oiFareChange()"> RETURN
+            </label>
+            <label style="flex:1;min-width:120px;cursor:pointer;background:rgba(255,255,255,0.04);border:2px solid var(--border);border-radius:10px;padding:12px 8px;text-align:center;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1px;color:var(--white);" id="oiFareToLbl">
+              <input type="radio" name="oiFare" value="oneway_to" id="oiFareTo" style="margin-right:4px;accent-color:var(--gold);" onchange="oiFareChange()"> → WAY THERE
+            </label>
+            <label style="flex:1;min-width:120px;cursor:pointer;background:rgba(255,255,255,0.04);border:2px solid var(--border);border-radius:10px;padding:12px 8px;text-align:center;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1px;color:var(--white);" id="oiFareFromLbl">
+              <input type="radio" name="oiFare" value="oneway_from" id="oiFareFrom" style="margin-right:4px;accent-color:var(--gold);" onchange="oiFareChange()"> ← WAY BACK
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label for="oiGame" style="display:block;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:6px;">Which game?</label>
+          <select id="oiGame" disabled style="width:100%;background:#0a1929;border:2px solid var(--gold);border-radius:10px;padding:14px 16px;color:var(--white);font-family:'Barlow',sans-serif;font-size:16px;outline:none;cursor:pointer;" onfocus="this.style.borderColor='#fff'" onblur="this.style.borderColor='var(--gold)'">
+            <option value="">— Pick a venue above first —</option>
+          </select>
+        </div>
+
+        <input type="text" id="oiName" placeholder="Your name" style="background:rgba(255,255,255,0.06);border:2px solid var(--border);border-radius:10px;padding:14px 16px;color:var(--white);font-family:'Barlow',sans-serif;font-size:16px;outline:none;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--border)'">
+
+        <div>
+          <label for="oiParty" style="display:block;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:6px;">How many people in your group?</label>
+          <input type="number" id="oiParty" min="1" max="50" value="2" style="width:100%;background:rgba(255,255,255,0.06);border:2px solid var(--gold);border-radius:10px;padding:14px 16px;color:var(--white);font-family:'Anton',sans-serif;font-size:22px;outline:none;text-align:center;letter-spacing:2px;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--gold)'">
+          <div style="font-family:'Barlow',sans-serif;font-size:12px;color:var(--muted);margin-top:6px;text-align:center;">Including yourself — helps us size the boat</div>
+        </div>
+
+        <input type="email" id="oiEmail" placeholder="Email — we'll let you know if we charter" style="background:rgba(255,255,255,0.06);border:2px solid var(--border);border-radius:10px;padding:14px 16px;color:var(--white);font-family:'Barlow',sans-serif;font-size:16px;outline:none;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--border)'">
+
+        <input type="tel" id="oiPhone" placeholder="Mobile (optional)" style="background:rgba(255,255,255,0.06);border:2px solid var(--border);border-radius:10px;padding:14px 16px;color:var(--white);font-family:'Barlow',sans-serif;font-size:16px;outline:none;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--border)'">
+
+        <button onclick="submitInterest()" id="oiBtn" style="background:var(--gold);border:none;border-radius:12px;padding:18px;color:#000;font-family:'Anton',sans-serif;font-size:18px;letter-spacing:3px;cursor:pointer;text-transform:uppercase;box-shadow:0 6px 20px rgba(240,180,41,0.25);transition:all .15s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Register Interest</button>
+
+        <div id="oiMsg" style="font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:1px;text-align:center;min-height:20px;"></div>
+      </div>
+    </div>
+  </div>
+
+<script>
+// 2026 fixture lists for the Boat-to-any-game dropdown.
+// 2026 fixture from afltables.com
+const OI_FIXTURES = {
+  // Essendon home games at Marvel + MCG (real 2026 fixture, afltables.com)
+  'Marvel Stadium': [
+    "Round 9 — Essendon v Brisbane Lions (Sat 2 May)",
+    "Round 18 — Essendon v St Kilda (week of 29 Jun)",
+    "Round 20 — Essendon v Greater Western Sydney (week of 13 Jul)",
+    "Round 22 — Essendon v Adelaide (week of 27 Jul)",
+    "Round 25 — Essendon v Port Adelaide (week of 17 Aug)"
+  ],
+  'MCG': [
+    "Round 8 — Essendon v Collingwood (Sat 25 Apr)",
+    "Round 11 — Essendon v Fremantle (Sun 17 May)",
+    "Round 14 — Essendon v Carlton (Sun 7 Jun)",
+    "Round 24 — Essendon v Sydney (week of 10 Aug)"
+  ]
+};
+
+function oiActiveGameSignatures() {
+  // Build fingerprint set: "DD-MMM|opponent-snippet" for each active booking-game on the schedule
+  const out = new Set();
+  const cache = window.SCHEDULE_CACHE || (typeof homeGames !== 'undefined' ? homeGames : null);
+  const games = (cache && cache.games) || cache || [];
+  (Array.isArray(games) ? games : []).forEach(g => {
+    if (!g || g.active === false || g.active === 0) return;
+    const text = (g.game || '').toString();
+    // Capture date "D MMM" and opponent token from "Round X — D MMM YYYY vs OPP ..."
+    const m = text.match(/(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{4}\s+vs\s+([^()·]+?)\s*(?:[(·]|$)/i);
+    if (m) {
+      const day = parseInt(m[1]); const mon = m[2].slice(0,3);
+      const opp = m[3].trim().toLowerCase().split(/\s+/)[0]; // first word of opponent
+      out.add(day + '-' + mon + '|' + opp);
+    }
+  });
+  return out;
+}
+function oiFixtureMatchesActive(fixture, activeSet) {
+  // fixture: "Round 9 — Essendon v Brisbane Lions (Sat 2 May)"
+  const m = fixture.match(/Essendon v ([^(]+?)\s*\((?:[A-Za-z]{3,}\s+)?(?:week of\s+)?(\d{1,2})\s+(\w{3})/);
+  if (!m) return false;
+  const opp = m[1].trim().toLowerCase().split(/\s+/)[0];
+  const sig = parseInt(m[2]) + '-' + m[3] + '|' + opp;
+  return activeSet.has(sig);
+}
+function oiPopulateGames(venue) {
+  const sel = document.getElementById('oiGame');
+  if (!sel) return;
+  const list = OI_FIXTURES[venue] || [];
+  const activeSet = oiActiveGameSignatures();
+  const filtered = list.filter(g => !oiFixtureMatchesActive(g, activeSet));
+  sel.innerHTML = '<option value="">— Choose a game —</option>' + filtered.map(g => `<option value="${g.replace(/"/g,'&quot;')}">${g}</option>`).join('');
+  sel.disabled = filtered.length === 0;
+  // Show empty-state hint
+  if (filtered.length === 0 && list.length > 0) {
+    sel.innerHTML = '<option value="">All games for this venue are open for booking — use the form above ↑</option>';
+  }
+}
+
+function oiFareChange() {
+  ['Return','To','From'].forEach(v => {
+    const lbl = document.getElementById('oiFare' + v + 'Lbl');
+    const radio = document.getElementById('oiFare' + v);
+    if (lbl && radio) {
+      if (radio.checked) { lbl.style.borderColor = 'var(--gold)'; lbl.style.background = 'rgba(240,180,41,0.12)'; }
+      else { lbl.style.borderColor = 'var(--border)'; lbl.style.background = 'rgba(255,255,255,0.04)'; }
+    }
+  });
+}
+
+function oiVenueChange() {
+  ['Marvel','Mcg'].forEach(v => {
+    const lbl = document.getElementById('oiVenue' + v + 'Lbl');
+    const radio = document.getElementById('oiVenue' + v);
+    if (lbl && radio) {
+      if (radio.checked) { lbl.style.borderColor = 'var(--gold)'; lbl.style.background = 'rgba(240,180,41,0.12)'; }
+      else { lbl.style.borderColor = 'var(--border)'; lbl.style.background = 'rgba(255,255,255,0.04)'; }
+    }
+  });
+  const checked = document.querySelector('input[name="oiVenue"]:checked');
+  if (checked) oiPopulateGames(checked.value);
+}
+async function submitInterest() {
+  const venue = document.querySelector('input[name="oiVenue"]:checked')?.value;
+  const fare_type = document.querySelector('input[name="oiFare"]:checked')?.value || 'return';
+  const game_text = document.getElementById('oiGame').value.trim();
+  const name = document.getElementById('oiName').value.trim();
+  const email = document.getElementById('oiEmail').value.trim();
+  const phone = document.getElementById('oiPhone').value.trim();
+  const party_size = parseInt(document.getElementById('oiParty').value) || 1;
+  const msg = document.getElementById('oiMsg');
+  msg.innerHTML = '';
+  if (!venue) { msg.innerHTML = '<span style="color:#fca5a5;">Pick a venue</span>'; return; }
+  if (!game_text) { msg.innerHTML = '<span style="color:#fca5a5;">Enter the game/event</span>'; return; }
+  if (!email || !email.includes('@')) { msg.innerHTML = '<span style="color:#fca5a5;">Valid email needed so we can reach you</span>'; return; }
+  if (!name) { msg.innerHTML = '<span style="color:#fca5a5;">Enter your name</span>'; return; }
+  const btn = document.getElementById('oiBtn');
+  btn.disabled = true; btn.style.opacity = '0.6'; btn.textContent = 'Registering...';
+  try {
+    const r = await fetch(API_URL + '/interest', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, phone, venue, game_text, party_size, fare_type })
+    });
+    if (r.ok) {
+      document.getElementById('oiForm').innerHTML = `
+        <div style="text-align:center;padding:30px 16px;">
+          <div style="font-size:56px;margin-bottom:14px;"></div>
+          <div style="font-family:'Anton',sans-serif;font-size:24px;letter-spacing:2px;color:var(--gold);margin-bottom:10px;">YOU'RE ON THE LIST</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:15px;color:var(--white);line-height:1.5;">Thanks ${name}! If we get enough interest for <strong>${game_text}</strong> at ${venue}, you'll get a booking link before anyone else.</div>
+          <div style="font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1px;color:var(--muted);margin-top:14px;">Confirmation email on its way to ${email}</div>
+        </div>`;
+    } else {
+      const err = await r.json().catch(() => ({}));
+      msg.innerHTML = '<span style="color:#fca5a5;">' + (err.error || 'Something went wrong, try again') + '</span>';
+      btn.disabled = false; btn.style.opacity = '1'; btn.textContent = 'REGISTER INTEREST';
+    }
+  } catch (e) {
+    msg.innerHTML = '<span style="color:#fca5a5;">Network error — try again</span>';
+    btn.disabled = false; btn.style.opacity = '1'; btn.textContent = 'REGISTER INTEREST';
+  }
+}
+
+// Apply default fare highlight (Return is checked)
+try { oiFareChange(); } catch(e) {}
+</script>
+
+  <!-- ── FAQ ── -->
+<div class="faq-section" id="faqSection">
+  <div class="faq-title">Common Questions</div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Where does the boat depart from? <span class="faq-toggle">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Cafe Riviera, Maribyrnong (Cafe Riviera, 55 Cumberland Dr, Maribyrnong VIC 3032). Street parking available nearby. Arrive 15 minutes before departure. We recommend arriving 15 minutes before departure. <a href="https://maps.google.com/?q=-37.7864767,144.9010555" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline">Open in Google Maps &rarr;</a></div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What time does the boat leave? <span class="faq-toggle">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">We depart 1.5 hours before the first bounce. For a 7:30pm game, that's 6:00pm departure. The trip to Marvel Stadium takes about 30 minutes, giving you time to soak up the atmosphere before the game.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is food and drink included? <span class="faq-toggle">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Yes — <b>free drink on arrival</b> and <b>complimentary finger food on board</b>. The bar stays open during the trip with drinks at bar prices. BYO is not permitted.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I pay? <span class="faq-toggle">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner"><b>Card online (Stripe)</b> — all bookings are prepaid at booking and your seat is locked in the moment payment clears. Secure, instant, receipt by email.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I cancel my booking? <span class="faq-toggle">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Yes! You'll receive an SMS with a cancel link when you book. Just tap the link to free up your spot. If the game is sold out, the next person on the waitlist will be notified automatically.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I bring kids? <span class="faq-toggle">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Absolutely! Children are welcome and travel at a reduced fare: $25 one-way or $15 return leg (soft drink on arrival included). All children must be accompanied by an adult.</div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What time do we depart and return? <span class="faq-toggle">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">We depart Cafe Riviera, Maribyrnong <b>90 minutes before first bounce</b> (for a 12:35pm game that's boarding 10:50am, depart 11:00am). The trip to Marvel takes ~60 minutes — you arrive with plenty of time to soak up the atmosphere. After the game, the return boat leaves Marvel Stadium <b>approximately 30 minutes after the final siren</b> and drops you back at Cafe Riviera.</div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is a one-way ticket? <span class="faq-toggle">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">One-way ($55 adult / $25 child) is the main trip out to Marvel Stadium, and includes your free drink and finger food on board. Return ($35 adult / $15 child) is for the return leg only — useful if you are getting the boat back to Cafe Riviera after the game.</div></div>
+  </div>
+</div>
+
+<!-- ── FIND US ── -->
+<div class="map-section">
+  <div class="map-title">Find Us</div>
+  <div class="map-sub">Cafe Riviera, Maribyrnong — right on the waterfront</div>
+  <div class="map-wrap">
+    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=144.8985%2C-37.7885%2C144.9040%2C-37.7845&layer=mapnik&marker=-37.7864767%2C144.9010555" loading="lazy" style="width:100%;height:300px;border:0;" allowfullscreen></iframe>
+  </div>
+  <div class="map-directions">
+    <a href="https://maps.google.com/?q=-37.7864767,144.9010555" target="_blank" rel="noopener">Google Maps</a>
+    <a href="https://maps.apple.com/?q=-37.7864767,144.9010555" target="_blank" rel="noopener">Apple Maps</a>
+    <a href="https://www.ptv.vic.gov.au" target="_blank" rel="noopener">Public Transport</a>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="footer-main">
+  <div class="footer-links">
+    <a href="#tickets">Book Now</a>
+    <a href="#faqSection">FAQ</a>
+    <a href="/cdn-cgi/l/email-protection#6e060b0202012e0c01030c0b1c0c010f1a400d0103400f1b">Contact Us</a>
+    <a href="https://maps.google.com/?q=-37.7864767,144.9010555" target="_blank" rel="noopener">Find Us</a>
+  </div>
+  <div class="footer-contact">Questions? Email <a href="/cdn-cgi/l/email-protection#ef878a838380af8d80828d8a9d8d808e9bc18c8082c18e9a"><span class="__cf_email__" data-cfemail="f79f929b9b98b795989a95928595989683d994989ad99682">[email&#160;protected]</span></a></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ================================================================
+//  BOMBER BOAT — CONFIG
+// Business: —
+// ================================================================
+
+// Stripe enabled
+
+// Prices are now loaded live from /api/schedule per-game. Defaults below are only
+// used during the brief window before the schedule loads.
+let PRICES = {
+  return:      { adult: 35, child: 15 },
+  oneway_to:   { adult: 55, child: 25 },
+  oneway_from: { adult: 55, child: 25 }
+};
+// Per-game price map populated by loadSchedule(): { "Round 7 — ...": { return:{...}, ... } }
+const gamePricesMap = {};
+function updatePricesForGame(game) {
+  const gp = gamePricesMap[game];
+  if (!gp) return;
+  PRICES = gp;
+  // Refresh any $ labels in the ticket grid (they carry class ticket-price-adult / ticket-price-child)
+  document.querySelectorAll('.ticket-price-adult-oneway').forEach(el => el.textContent = '$' + gp.oneway_to.adult);
+  document.querySelectorAll('.ticket-price-child-oneway').forEach(el => el.textContent = '$' + gp.oneway_to.child);
+  document.querySelectorAll('.ticket-price-adult-return').forEach(el => el.textContent = '$' + gp.return.adult);
+  document.querySelectorAll('.ticket-price-child-return').forEach(el => el.textContent = '$' + gp.return.child);
+}
+
+// ── API (Cloudflare Worker + D1) ──
+const API_URL = 'https://bomberboat.com.au/api';
+
+async function apiFetch(path, options = {}) {
+  const res = await fetch(API_URL + path, {
+    ...options,
+    headers: { 'Content-Type': 'application/json', ...(options.headers || {}) }
+  });
+  if (!res.ok) { console.error('API error', res.status, await res.text()); return null; }
+  if (res.status === 204) return true;
+  return res.json();
+}
+
+// Booking counts per game (no personal data fetched)
+let gameCounts = {}; // { 'Round 4 — ...': 12, ... }
+let totalBookings = 0;
+
+async function loadBookings() {
+  const data = await apiFetch('/bookings/count');
+  if (data) {
+    totalBookings = data.total || 0;
+    gameCounts = {};
+    (data.games || []).forEach(g => { gameCounts[g.game] = g.count; });
+    if (homeGames.length) populateGames(); // refresh with sold-out badges
+    render();
+    showWhoIsGoing();
+  }
+}
+
+async function saveBooking(p) {
+  const res = await apiFetch('/bookings', {
+    method: 'POST',
+    body: JSON.stringify({
+      name: p.name, phone: p.phone, email: p.email || '', game: p.game,
+      fare: p.fare, pass_type: p.passType, pay: p.pay,
+      price: p.price, private: p.private, for_grabs: false
+    })
+  });
+  // Capture Stripe checkout URL (first booking only — used for Card payment redirect)
+  if (res && res.stripe_url && !window._lastStripeUrl) window._lastStripeUrl = res.stripe_url;
+  return res;
+}
+
+let limit = parseInt(localStorage.getItem('bb_limit') || '60');
+let selectedPay = 'stripe'; // card-only: cash-on-board removed per 2026-04-23
+// Ticket quantities
+let tickets = { adult_return: 0, child_return: 0, adult_oneway_to: 0, child_oneway_to: 0, adult_oneway_from: 0, child_oneway_from: 0 };
+
+// Pre-fill is handled in renderPaxFields() — first passenger gets localStorage data
+
+// ── GAMES (loaded from API — single source of truth in worker.js) ──
+let homeGames = []; // populated by loadSchedule()
+let gameAvailCache = {};
+let gameDates = {};
+let gameTimes = {};
+let gameFareModes = {}; // 'both' | 'oneway_to_only' | 'return_only'
+let gameCapacities = {};
+let gameVenues = {}; // 'Marvel Stadium' | 'MCG'
+let gameActive = {}; // true if bookings are open for this game
+
+async function loadSchedule() {
+  try {
+    const data = await apiFetch('/schedule');
+    // /api/schedule returns { games:[...] } on v7+, or a bare array on older workers — accept both.
+    const games = Array.isArray(data) ? data : (data && Array.isArray(data.games) ? data.games : []);
+    if (games && games.length) {
+      // Include ALL upcoming games — inactive ones are still listed but flagged "NOT YET TAKING BOOKINGS".
+      homeGames = games.map(g => g.game);
+      // Parse "DD MMM YYYY" out of the game label so we can filter past games even when the API doesn't return a `date` field.
+      const MONTHS = {jan:'01',feb:'02',mar:'03',apr:'04',may:'05',jun:'06',jul:'07',aug:'08',sep:'09',oct:'10',nov:'11',dec:'12'};
+      const dateFromLabel = (label) => {
+        const m = (label || '').match(/(\d{1,2})\s+(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\s+(\d{4})/i);
+        if (!m) return null;
+        const dd = m[1].padStart(2,'0');
+        const mm = MONTHS[m[2].toLowerCase()];
+        const yyyy = m[3];
+        return `${yyyy}-${mm}-${dd}`;
+      };
+      games.forEach(g => {
+        gameDates[g.game] = g.date || dateFromLabel(g.game);
+        gameTimes[g.game] = g.time;
+        gameFareModes[g.game] = g.fare_mode || 'both';
+        gameCapacities[g.game] = g.capacity || 60;
+        gameVenues[g.game] = g.venue || 'Marvel Stadium';
+        gameActive[g.game] = (g.active !== false && g.active !== 0);
+        // Per-game prices (set server-side by admin portal → /api/game-settings)
+        gameAvailCache[g.game] = { out: g.available_out ?? g.available, back: g.available_back ?? g.available };
+        gamePricesMap[g.game] = {
+          return:      { adult: g.price_adult_return ?? 90, child: g.price_child_return ?? 40 },
+          oneway_to:   { adult: g.price_adult_oneway ?? 55, child: g.price_child_oneway ?? 25 },
+          oneway_from: { adult: g.price_adult_oneway_from ?? 35, child: g.price_child_oneway_from ?? 15 },
+        };
+      });
+      populateGames();
+      // Push the currently-selected game's prices into PRICES + the UI
+      const selEl = document.getElementById('gameSelect');
+      if (selEl && selEl.value) updatePricesForGame(selEl.value);
+      render();
+      updateDepartTimeCard();
+      // Ensure the seats-remaining sliders populate on first load + whenever the schedule refreshes.
+      if (typeof updateSpotsAvail === 'function') updateSpotsAvail();
+    }
+  } catch (e) {
+    console.error('Failed to load schedule:', e);
+  }
+}
+
+// Show/hide ticket types based on per-game fare mode
+function applyFareMode(game) {
+  const fm = gameFareModes[game] || 'both';
+  const returnEl = document.querySelector('.ticket-type-return');
+  const onewayToEl = document.querySelector('.ticket-type-oneway-to');
+  const onewayFromEl = document.querySelector('.ticket-type-oneway-from');
+  const note = document.getElementById('onewayNote');
+  if (returnEl) returnEl.style.display = (fm === 'oneway_to_only') ? 'none' : '';
+  if (onewayToEl) onewayToEl.style.display = (fm === 'return_only') ? 'none' : '';
+  if (onewayFromEl) onewayFromEl.style.display = (fm === 'oneway_to_only' || fm === 'return_only') ? 'none' : '';
+  // Hide the Return Service info card when returns aren't available
+  const returnCard = document.getElementById('returnServiceCard');
+  if (returnCard) returnCard.style.display = (fm === 'oneway_to_only') ? 'none' : '';
+  if (note) {
+    if (fm === 'oneway_to_only') note.textContent = 'One-way to game only for this trip';
+    else if (fm === 'return_only') note.textContent = 'Return trips only for this trip';
+    else note.textContent = 'Return & one-way trips available';
+  }
+  if (game && gameCapacities[game]) { limit = gameCapacities[game]; }
+  render();
+}
+
+function populateGames() {
+  const sel = document.getElementById('gameSelect');
+  const prev = sel.value; // preserve current selection on refresh
+  sel.innerHTML = '';
+
+  const today = new Date().toISOString().split('T')[0];
+
+  // Find the next upcoming ACTIVE game that isn't full
+  let defaultGame = '';
+  for (let i = 0; i < homeGames.length; i++) {
+    const g = homeGames[i];
+    const d = gameDates[g];
+    const count = gameCounts[g] || 0;
+    const isActive = gameActive[g] !== false;
+    if (d && d >= today && count < limit && isActive) { defaultGame = g; break; }
+  }
+
+  // Misleading "(Mon TBC)" labels were placeholder weekdays for unpublished AFL fixture days. Rewrite to "(day TBC)".
+  const cleanLabel = (s) => (s || '').replace(/\((Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+TBC\b/gi, '(day TBC');
+
+  homeGames.forEach(g => {
+    const opt = document.createElement('option');
+    opt.value = g;
+    const d = gameDates[g];
+    const isPast = d && d < today;
+    const count = gameCounts[g] || 0;
+    const isFull = count >= limit;
+    const isActive = gameActive[g] !== false;
+
+    if (isPast) {
+      // Skip past games entirely — don't clutter the dropdown.
+      return;
+    }
+
+    let label = cleanLabel(g);
+    if (!isActive) {
+      label = label + ' (NOT YET TAKING BOOKINGS)';
+      opt.disabled = true;
+      opt.style.color = '#888';
+    } else if (isFull) {
+      label = 'SOLD OUT — ' + label;
+      opt.disabled = true;
+      opt.style.color = '#cc4444';
+    }
+    opt.textContent = label;
+    sel.appendChild(opt);
+  });
+
+  // Restore previous selection if still valid, otherwise use default
+  if (prev && !sel.querySelector(`option[value="${CSS.escape(prev)}"][disabled]`)) {
+    sel.value = prev;
+  }
+  if (!sel.value && defaultGame) sel.value = defaultGame;
+  // Apply fare mode + venue for the initially selected game
+  if (sel.value) { applyFareMode(sel.value); updateVenueDisplay(sel.value); }
+}
+
+
+function updateSpotsAvail() {
+  const game = document.getElementById('gameSelect')?.value;
+  const avail = gameAvailCache[game];
+  const cap = gameCapacities[game] || 60;
+  const out  = avail ? avail.out  : cap;
+  const back = avail ? avail.back : cap;
+  const bookedOut  = Math.max(0, cap - out);
+  const bookedBack = Math.max(0, cap - back);
+  const set = (id, v) => { const e = document.getElementById(id); if (e) e.textContent = v; };
+  const setBar = (id, booked) => {
+    const el = document.getElementById(id); if (!el) return;
+    const pct = cap > 0 ? Math.max(0, Math.min(100, Math.round(booked / cap * 100))) : 0;
+    el.style.width = pct + '%';
+  };
+  set('spotsOutBookedBig',  bookedOut);
+  set('spotsOutCap',        cap);
+  set('spotsOutLeftTxt',    out);
+  setBar('barOut',  bookedOut);
+  set('spotsBackBookedBig', bookedBack);
+  set('spotsBackCap',       cap);
+  set('spotsBackLeftTxt',   back);
+  setBar('barBack', bookedBack);
+}
+function showWhoIsGoing() {
+  updateSpotsAvail();
+  const game = document.getElementById('gameSelect').value;
+  applyFareMode(game); // show/hide fare options based on per-game settings
+  updatePricesForGame(game); // refresh PRICES + $ labels for the newly-selected game
+  render(); // update spots banner when game changes
+  updateDepartTimeCard();
+  updateVenueDisplay(game);
+}
+
+function updateVenueDisplay(game) {
+  const venue = (game && gameVenues[game]) ? gameVenues[game] : 'Marvel Stadium';
+  const isMCG = venue === 'MCG';
+  const routeArr = document.querySelector('.route-stop.arr');
+  if (routeArr) routeArr.textContent = isMCG ? 'MCG' : 'Marvel Stadium';
+  const ticketSub = document.querySelector('.ticket-type-sub');
+  if (ticketSub) ticketSub.textContent = `Cafe Riviera → ${venue}`;
+}
+
+function updateDepartTimeCard() {
+  const card = document.getElementById('departTimeCard');
+  if (!card) return;
+  const game = document.getElementById('gameSelect')?.value;
+  const time = game ? gameTimes[game] : null;
+  if (!time || time === 'TBC') {
+    card.textContent = '1.5 hrs before every home game';
+    return;
+  }
+  // Parse game time and calculate departure
+  const tm = time.match(/(\d{1,2}):(\d{2})(am|pm)/i);
+  if (!tm) { card.textContent = '1.5 hrs before every home game'; return; }
+  let h = parseInt(tm[1]), m = parseInt(tm[2]);
+  if (tm[3].toLowerCase() === 'pm' && h < 12) h += 12;
+  if (tm[3].toLowerCase() === 'am' && h === 12) h = 0;
+  // Depart 90 min before game
+  let totalMin = h * 60 + m - 90;
+  if (totalMin < 0) totalMin += 1440;
+  let dh = Math.floor(totalMin / 60), dm = totalMin % 60;
+  const ampm = dh >= 12 ? 'pm' : 'am';
+  const dh12 = dh > 12 ? dh - 12 : (dh === 0 ? 12 : dh);
+  card.innerHTML = `<strong>${dh12}:${String(dm).padStart(2,'0')}${ampm}</strong> departure<br><span style="font-size:12px;color:var(--muted);">Game at ${time} — boat leaves 1.5hrs before</span>`;
+}
+
+function changeTicket(passType, fare, delta) {
+  const key = passType + '_' + fare;
+  tickets[key] = Math.max(0, Math.min(10, tickets[key] + delta));
+  document.getElementById('qty_' + passType + '_' + fare).textContent = tickets[key];
+  updateTotalPreview();
+}
+
+function getTotalPax() {
+  return tickets.adult_return + tickets.child_return + tickets.adult_oneway_to + tickets.child_oneway_to + tickets.adult_oneway_from + tickets.child_oneway_from;
+}
+
+function buildTicketList() {
+  const list = [];
+  const types = [
+    { key: 'adult_return', label: 'Adult Return', passType: 'adult', fare: 'return' },
+    { key: 'child_return', label: 'Child Return', passType: 'child', fare: 'return' },
+    { key: 'adult_oneway_to', label: 'Adult One Way to Game', passType: 'adult', fare: 'oneway_to' },
+    { key: 'child_oneway_to', label: 'Child One Way to Game', passType: 'child', fare: 'oneway_to' },
+    { key: 'adult_oneway_from', label: 'Adult One Way Return', passType: 'adult', fare: 'oneway_from' },
+    { key: 'child_oneway_from', label: 'Child One Way Return', passType: 'child', fare: 'oneway_from' },
+  ];
+  for (const t of types) {
+    for (let i = 0; i < tickets[t.key]; i++) {
+      list.push({ ...t, price: PRICES[t.fare][t.passType] });
+    }
+  }
+  return list;
+}
+
+function updateTotalPreview() {
+  const preview = document.getElementById('totalPreview');
+  const parts = [];
+  let grandTotal = 0;
+  if (tickets.adult_return > 0) { parts.push(`${tickets.adult_return} adult return × $${PRICES.return.adult}`); grandTotal += tickets.adult_return * PRICES.return.adult; }
+  if (tickets.child_return > 0) { parts.push(`${tickets.child_return} child return × $${PRICES.return.child}`); grandTotal += tickets.child_return * PRICES.return.child; }
+  if (tickets.adult_oneway_to > 0) { parts.push(`${tickets.adult_oneway_to} adult one way to game × $${PRICES.oneway_to.adult}`); grandTotal += tickets.adult_oneway_to * PRICES.oneway_to.adult; }
+  if (tickets.child_oneway_to > 0) { parts.push(`${tickets.child_oneway_to} child one way to game × $${PRICES.oneway_to.child}`); grandTotal += tickets.child_oneway_to * PRICES.oneway_to.child; }
+  if (tickets.adult_oneway_from > 0) { parts.push(`${tickets.adult_oneway_from} adult one way return × $${PRICES.oneway_from.adult}`); grandTotal += tickets.adult_oneway_from * PRICES.oneway_from.adult; }
+  if (tickets.child_oneway_from > 0) { parts.push(`${tickets.child_oneway_from} child one way return × $${PRICES.oneway_from.child}`); grandTotal += tickets.child_oneway_from * PRICES.oneway_from.child; }
+  const totalPax = getTotalPax();
+  if (parts.length === 0) { preview.style.display = 'none'; document.getElementById('formWrap').style.display = 'none'; document.getElementById('groupNudge').style.display = 'none'; return; }
+  preview.innerHTML = `<span>${parts.join(' + ')}</span><span class="total-amount">$${grandTotal}</span>`;
+  preview.style.display = 'flex';
+  document.getElementById('groupNudge').style.display = totalPax >= 5 ? 'block' : 'none';
+  renderPaxFields();
+}
+
+function renderPaxFields() {
+  const ticketList = buildTicketList();
+  const container = document.getElementById('paxFields');
+  const formWrap = document.getElementById('formWrap');
+
+  if (ticketList.length === 0) { formWrap.style.display = 'none'; return; }
+  formWrap.style.display = 'block';
+
+  container.innerHTML = '';
+  const saved = JSON.parse(localStorage.getItem('bb_user') || '{}');
+
+  // Pre-fill contact email input from saved user (won't clobber an in-progress edit)
+  const emailEl = document.getElementById('contactEmail');
+  if (emailEl && !emailEl.value && saved.email) emailEl.value = saved.email;
+
+  // Email-only booking: just show a concise ticket summary, no per-passenger name/phone fields.
+  const summary = document.createElement('div');
+  summary.style.cssText = 'display:flex;flex-direction:column;gap:6px;padding:12px 14px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;';
+  ticketList.forEach((t, i) => {
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;justify-content:space-between;align-items:center;font-family:Barlow,sans-serif;font-size:14px;';
+    row.innerHTML = `<span style="color:var(--muted);">${esc(t.label)}</span><span style="color:white;font-weight:600;">$${t.price}</span>`;
+    summary.appendChild(row);
+  });
+  container.appendChild(summary);
+}
+
+
+async function addBooking() {
+  const game = document.getElementById('gameSelect').value;
+  const ticketList = buildTicketList();
+  const totalPax = ticketList.length;
+
+  if (totalPax === 0) return toast('Add at least one ticket', 'error');
+  if (!game) return toast('Please select a game', 'error');
+
+  // Contact email — required for booking confirmation + Stripe receipt.
+  // Name + phone per passenger were removed: bookings are keyed off the contact email.
+  const contactEmail = (document.getElementById('contactEmail')?.value || '').trim();
+  if (!contactEmail) return toast('Please enter a contact email', 'error');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail)) return toast('Please enter a valid email address', 'error');
+
+  // Synthesize paxDetails from ticket counts — every ticket in the group uses the same contact email.
+  const paxDetails = buildTicketList().map(() => ({ name: '', phone: '' }));
+
+  // Capacity check
+  const currentGameCount = gameCounts[game] || 0;
+  if (currentGameCount + totalPax > limit) return toast(`Only ${limit - currentGameCount} spots left for this game!`, 'error');
+
+  const payTemp = selectedPay;
+
+  // Save first passenger details for next visit
+  localStorage.setItem('bb_user', JSON.stringify({ email: contactEmail }));
+
+  const bookings = [];
+  for (let i = 0; i < ticketList.length; i++) {
+    const t = ticketList[i];
+    const d = paxDetails[i];
+    bookings.push({ name: d.name, phone: d.phone, passType: t.passType, fare: t.fare, price: t.price });
+  }
+
+  if (payTemp === 'stripe') {
+    // GROUP Stripe: one checkout session for all passengers on a single fare type.
+    // Group by fare (return / oneway_to / oneway_from), then create one booking per group with combined adults/u18 counts.
+    const groups = {};
+    for (let i = 0; i < ticketList.length; i++) {
+      const t = ticketList[i];
+      const d = paxDetails[i];
+      const key = t.fare;
+      if (!groups[key]) groups[key] = { adults: 0, u18: 0, paxNames: [], lead: d };
+      if (t.passType === 'adult') groups[key].adults++; else groups[key].u18++;
+      groups[key].paxNames.push(d.name);
+    }
+    // Only support a single checkout for the first group (if multiple fare types were chosen, fall back to multi-call)
+    const keys = Object.keys(groups);
+    if (keys.length === 1) {
+      const k = keys[0];
+      const g = groups[k];
+      const body = {
+        name: contactEmail, phone: '', email: contactEmail,
+        game, fare: k, pass_type: g.adults ? 'adult' : 'u18',
+        pay: 'stripe',
+        adults: g.adults, u18: g.u18,
+        notes: 'Group: ' + g.paxNames.join(', ')
+      };
+      const res = await apiFetch('/book', { method: 'POST', body: JSON.stringify(body) });
+      if (res && res.stripe_url) {
+        gameCounts[game] = (gameCounts[game] || 0) + (g.adults + g.u18);
+        totalBookings += (g.adults + g.u18);
+        window.location.href = res.stripe_url;
+        return;
+      }
+      return toast('Payment failed — please refresh and try again', 'error');
+    } else {
+      // Mixed fare types (e.g. one adult return + one adult oneway) → fall back to one Stripe session per group
+      for (const k of keys) {
+        const g = groups[k];
+        const body = {
+          name: contactEmail, phone: '', email: contactEmail,
+          game, fare: k, pass_type: g.adults ? 'adult' : 'u18',
+          pay: 'stripe',
+          adults: g.adults, u18: g.u18,
+          notes: 'Group: ' + g.paxNames.join(', ')
+        };
+        const res = await apiFetch('/book', { method: 'POST', body: JSON.stringify(body) });
+        if (res && res.stripe_url) {
+          gameCounts[game] = (gameCounts[game] || 0) + (g.adults + g.u18);
+          totalBookings += (g.adults + g.u18);
+          // Redirect to the first group's checkout; remaining groups will need separate payments
+          if (!window._stripeRedirected) { window._stripeRedirected = true; window.location.href = res.stripe_url; return; }
+        }
+      }
+      return toast('Payment failed — please refresh and try again', 'error');
+    }
+  }
+
+  // Legacy fallback path — retained in case of Stripe outage. Normally unused (selectedPay is always 'stripe').
+  for (let i = 0; i < ticketList.length; i++) {
+    const t = ticketList[i];
+    const d = paxDetails[i];
+    const pax = {
+      name: contactEmail, phone: '', email: contactEmail, game,
+      fare: t.fare, passType: t.passType,
+      pay: payTemp, price: t.price, private: false
+    };
+    const saved = await saveBooking(pax);
+    if (!saved) return toast('Booking failed — please try again', 'error');
+    gameCounts[game] = (gameCounts[game] || 0) + 1;
+    totalBookings++;
+  }
+
+  render();
+  showWhoIsGoing();
+
+  const grandTotal = bookings.reduce((s, b) => s + b.price, 0);
+  const leadName = paxDetails[0].name;
+
+  // Reset
+  tickets = { adult_return: 0, child_return: 0, adult_oneway_to: 0, child_oneway_to: 0, adult_oneway_from: 0, child_oneway_from: 0 };
+  const _qar = document.getElementById('qty_adult_return'); if (_qar) _qar.textContent = '0';
+  const _qcr = document.getElementById('qty_child_return'); if (_qcr) _qcr.textContent = '0';
+  document.getElementById('qty_adult_oneway_to').textContent = '0';
+  document.getElementById('qty_child_oneway_to').textContent = '0';
+  const _qaof = document.getElementById('qty_adult_oneway_from'); if (_qaof) _qaof.textContent = '0';
+  const _qcof = document.getElementById('qty_child_oneway_from'); if (_qcof) _qcof.textContent = '0';
+  document.getElementById('totalPreview').style.display = 'none';
+  document.getElementById('formWrap').style.display = 'none';
+  document.getElementById('paxFields').innerHTML = '';
+  const _ce = document.getElementById('contactEmail'); if (_ce) _ce.value = '';
+
+  // If card/Stripe was selected and the API returned a checkout URL, redirect.
+  if (payTemp === 'stripe' && window._lastStripeUrl) {
+    const url = window._lastStripeUrl;
+    window._lastStripeUrl = null;
+    window.location.href = url;
+    return;
+  }
+
+  showPayModal(leadName, payTemp, grandTotal, totalPax, bookings);
+}
+
+function buildCalendarUrl(game) {
+  // Parse game string: "Round 4 — 5 Apr 2026 vs Essendon (Sun 7:20pm)"
+  const dateStr = gameDates[game]; // "2026-04-05"
+  if (!dateStr) return null;
+
+  // Extract time from game string
+  const timeMatch = game.match(/(\d{1,2}):(\d{2})(am|pm)/i);
+  let hour = 18, minute = 0; // default 6pm
+  if (timeMatch) {
+    hour = parseInt(timeMatch[1]);
+    minute = parseInt(timeMatch[2]);
+    if (timeMatch[3].toLowerCase() === 'pm' && hour < 12) hour += 12;
+    if (timeMatch[3].toLowerCase() === 'am' && hour === 12) hour = 0;
+  }
+
+  // Departure is 1.5hrs before game time
+  let depHour = hour - 1;
+  let depMin = minute - 30;
+  if (depMin < 0) { depMin += 60; depHour -= 1; }
+
+  const pad = n => String(n).padStart(2, '0');
+  // Format for Google Calendar (AEDT/AEST — use +1000 for simplicity)
+  const startDT = `${dateStr.replace(/-/g,'')}T${pad(depHour)}${pad(depMin)}00`;
+  // End = 1hr after game time (rough estimate)
+  const endHour = hour + 3;
+  const endDT = `${dateStr.replace(/-/g,'')}T${pad(endHour)}${pad(minute)}00`;
+
+  const opponent = game.match(/vs\s+(.+?)\s*\(/)?.[1] || '';
+  const title = encodeURIComponent(`Bomber Boat — vs ${opponent}`);
+  const details = encodeURIComponent(`Bomber Boat to Marvel Stadium\nDepart: Cafe Riviera, Maribyrnong\nArrive 15 mins before departure\nPrepaid via Stripe\n\nbomberboat.com.au`);
+  const location = encodeURIComponent('Cafe Riviera, Maribyrnong VIC');
+
+  return `https://calendar.google.com/calendar/event?action=TEMPLATE&text=${title}&dates=${startDT}/${endDT}&ctz=Australia/Melbourne&location=${location}&details=${details}`;
+}
+
+function showPayModal(name, payType, grandTotal, totalPax, bookings) {
+  const modal = document.getElementById('payModal');
+  const game = document.getElementById('gameSelect').value;
+
+  // Short message
+  const msg = totalPax === 1
+    ? `See you on the boat, <strong>${esc(name)}</strong>!<br>Your seat is paid and locked in. Confirmation email on its way.`
+    : `See you on the boat, <strong>${esc(name)}</strong>!<br><strong>${totalPax} seats</strong> paid and locked in. Confirmation email on its way.`;
+  document.getElementById('modalMsg').innerHTML = msg;
+
+  // Populate boarding pass
+  const bpEl = document.getElementById('bpDetails');
+  const opponent = game.match(/vs\s+(.+?)\s*\(/)?.[1] || 'the game';
+  document.getElementById('bpMatch').textContent = `vs ${opponent}`;
+  document.getElementById('bpPax').textContent = totalPax;
+  document.getElementById('bpTotal').textContent = `$${grandTotal}`;
+  document.getElementById('bpPay').textContent = 'Paid (card via Stripe)';
+
+  // Departure time
+  const time = gameTimes[game];
+  let departText = '1.5hrs before bounce';
+  if (time && time !== 'TBC') {
+    const tm = time.match(/(\d{1,2}):(\d{2})(am|pm)/i);
+    if (tm) {
+      let h = parseInt(tm[1]), m = parseInt(tm[2]);
+      if (tm[3].toLowerCase() === 'pm' && h < 12) h += 12;
+      let dh = h - 1, dm = m - 30;
+      if (dm < 0) { dm += 60; dh -= 1; }
+      const ampm = dh >= 12 ? 'pm' : 'am';
+      const dh12 = dh > 12 ? dh - 12 : (dh === 0 ? 12 : dh);
+      departText = `${dh12}:${String(dm).padStart(2,'0')}${ampm}`;
+    }
+  }
+  document.getElementById('bpDepart').textContent = departText;
+  bpEl.style.display = 'block';
+
+  // Show "Add to Calendar" button
+  const calUrl = buildCalendarUrl(game);
+  const calWrap = document.getElementById('calBtnWrap');
+  if (calUrl) {
+    document.getElementById('calBtn').href = calUrl;
+    calWrap.style.display = 'block';
+  } else {
+    calWrap.style.display = 'none';
+  }
+
+  modal.classList.add('show');
+}
+
+function closeModal() {
+  document.getElementById('payModal').classList.remove('show');
+}
+
+// ── WAITLIST ──
+let wlAdultsCount = 1;
+
+function wlChangeAdults(d) {
+  wlAdultsCount = Math.max(1, Math.min(20, wlAdultsCount + d));
+  const el = document.getElementById('wlAdults');
+  if (el) el.textContent = wlAdultsCount;
+}
+
+function populateWlGameSelect() {
+  const sel = document.getElementById('wlGame');
+  if (!sel) return;
+  sel.innerHTML = '<option value="">Select a game…</option>';
+  const today = new Date().toISOString().slice(0, 10);
+  let firstUpcoming = null;
+  homeGames.forEach(g => {
+    const d = gameDates[g];
+    const opt = document.createElement('option');
+    opt.value = g;
+    opt.textContent = g; // game name already contains the date
+    sel.appendChild(opt);
+    if (!firstUpcoming && d && d >= today) firstUpcoming = g;
+  });
+  if (firstUpcoming) sel.value = firstUpcoming;
+}
+
+async function joinWaitlist() {
+  const name = document.getElementById('wlName').value.trim();
+  const phone = document.getElementById('wlPhone').value.trim();
+  const game = document.getElementById('wlGame').value;
+  const adults = wlAdultsCount;
+  const msg = document.getElementById('wlMsg');
+  if (!name || !phone) { msg.textContent = 'Please enter your name and phone number'; msg.style.color = 'var(--red)'; return; }
+  if (!game) { msg.textContent = 'Please select a game'; msg.style.color = 'var(--red)'; return; }
+  const res = await apiFetch('/waitlist', { method: 'POST', body: JSON.stringify({ name, phone, game, adults }) });
+  if (res && res.ok) {
+    msg.textContent = `You're on the waitlist for ${adults} passenger${adults > 1 ? 's' : ''}! We'll text you if spots open up.`;
+    msg.style.color = 'var(--gold)';
+    document.getElementById('wlName').value = '';
+    document.getElementById('wlPhone').value = '';
+    wlAdultsCount = 1;
+    const wlEl = document.getElementById('wlAdults'); if (wlEl) wlEl.textContent = '1';
+  } else {
+    msg.textContent = 'Something went wrong — try again'; msg.style.color = 'var(--red)';
+  }
+}
+
+function changeLim(d) {
+  limit = Math.max(1, limit + d);
+  const el = document.getElementById('limInp'); if (el) el.value = limit;
+  saveLim();
+}
+
+function saveLim() {
+  const el = document.getElementById('limInp');
+  if (el) limit = Math.max(1, parseInt(el.value) || 60);
+  render();
+}
+
+function render() {
+  try { if (typeof updateSpotsAvail === "function") updateSpotsAvail(); } catch(e) {}
+  const gameEl = document.getElementById('gameSelect');
+  const game = gameEl ? gameEl.value : '';
+  const taken = game ? (gameCounts[game] || 0) : totalBookings;
+  const pct = Math.min(100, (taken / limit) * 100);
+  const left = Math.max(0, limit - taken);
+  const full = taken >= limit;
+
+  // Defensive: legacy spotsNum / spotsSub elements were removed when we switched to the slider widget.
+  const spotsNumEl = document.getElementById('spotsNum'); if (spotsNumEl) spotsNumEl.textContent = left;
+  const spotsSubEl = document.getElementById('spotsSub');
+  if (spotsSubEl) spotsSubEl.textContent = full ? '' : (pct >= 75 ? 'Almost full — grab your spot!' : 'Book before it fills up!');
+  // Don't touch #spotsBanner className — the new sliders rely on .seats-card staying put.
+
+  const capD = document.getElementById('capDisplay'); if (capD) capD.innerHTML = `${taken} <span>/ <span id="capTotalDisp">${limit}</span></span>`;
+  const capF = document.getElementById('capFill'); if (capF) { capF.style.width = pct + '%'; capF.className = 'cap-fill' + (pct >= 80 ? ' danger' : ''); }
+  const capL = document.getElementById('capLeft'); if (capL) capL.innerHTML = `<strong>${left}</strong> spot${left !== 1 ? 's' : ''} remaining`;
+  const fb = document.getElementById('fullBanner'); if (fb) fb.className = 'full-banner' + (full ? ' show' : '');
+  if (full && game) { const wlSel = document.getElementById('wlGame'); if (wlSel && wlSel.value !== game) wlSel.value = game; }
+  const bb = document.getElementById('bookBtn'); if (bb) bb.disabled = full;
+  const ow = document.getElementById('onewayNote'); if (ow) ow.style.display = full ? 'none' : 'block';
+}
+
+function toast(msg, type) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = `toast ${type} show`;
+  clearTimeout(t._t);
+  t._t = setTimeout(() => t.className = 'toast', 3000);
+}
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ── COUNTDOWN TIMER ──
+// Finds the next upcoming game that's still active, every tick. This means that
+// if the captain disables a game in the admin portal, the countdown rolls over
+// to the following one on the next tick (within ~60s of the schedule poll below).
+function findNextGame() {
+  const now = new Date();
+  const today = now.toISOString().split('T')[0];
+  for (const g of homeGames) {
+    const d = gameDates[g];
+    if (d && d >= today) return { game: g, date: d };
+  }
+  return null;
+}
+function startCountdown() {
+  const el = document.getElementById('countdown');
+  const boxes = document.getElementById('countdownBoxes');
+  const label = document.getElementById('countdownLabel');
+  if (!homeGames.length || !Object.keys(gameDates).length) return;
+
+  let lastGameKey = null;
+  function tick() {
+    // Recompute next game on every tick — so disabling a game in admin flips the countdown live
+    const nextGame = findNextGame();
+    if (!nextGame) {
+      el.style.display = 'none';
+      return;
+    }
+    if (nextGame.game !== lastGameKey) {
+      lastGameKey = nextGame.game;
+      const vs = nextGame.game.match(/vs\s+(.+?)\s*\(/);
+      const opponent = vs ? vs[1] : '';
+      label.textContent = opponent ? `Next sailing — vs ${opponent}` : 'Next sailing';
+    }
+    // legacy inner-tick body below — kept wholesale so the rest of the countdown logic is unchanged
+    const now = new Date();
+    // Calendar days remaining in AEST (UTC+10)
+    const aestNow = new Date(now.getTime() + 10 * 3600000);
+    const todayAEST = aestNow.toISOString().slice(0, 10);
+    const gameDay = nextGame.date;
+    const msPerDay = 86400000;
+    const calDays = Math.round((new Date(gameDay + 'T00:00:00+10:00') - new Date(todayAEST + 'T00:00:00+10:00')) / msPerDay);
+
+    if (calDays <= 0) {
+      // Game day — show live hours countdown to 6pm AEST departure
+      const departure = new Date(gameDay + 'T18:00:00+10:00');
+      const diff = departure - now;
+      if (diff <= 0) {
+        boxes.innerHTML = '<div class="cd-box"><div class="cd-num" style="color:var(--gold);">TODAY!</div><div class="cd-lbl">Game day</div></div>';
+      } else {
+        const hrs = Math.floor(diff / 3600000);
+        const mins = Math.floor((diff % 3600000) / 60000);
+        const secs = Math.floor((diff % 60000) / 1000);
+        boxes.innerHTML = [
+          { n: hrs, l: 'hrs' },
+          { n: mins, l: 'mins' },
+          { n: secs, l: 'secs' },
+        ].map(x => `<div class="cd-box"><div class="cd-num">${x.n}</div><div class="cd-lbl">${x.l}</div></div>`).join('');
+      }
+    } else if (calDays === 1) {
+      boxes.innerHTML = '<div class="cd-box"><div class="cd-num" style="color:var(--gold);">Tomorrow</div><div class="cd-lbl">Get ready</div></div>';
+    } else {
+      boxes.innerHTML = [
+        { n: calDays, l: calDays === 1 ? 'day' : 'days' },
+      ].map(x => `<div class="cd-box"><div class="cd-num">${x.n}</div><div class="cd-lbl">${x.l}</div></div>`).join('');
+    }
+    el.style.display = 'block';
+  }
+  tick();
+  setInterval(tick, 1000);
+}
+
+// ── SHARE WITH MATES ──
+async function shareWithMates() {
+  const text = 'Bomber Boat — sail to the game from Cafe Riviera, Maribyrnong! Book your spot:';
+  const url = 'https://bomberboat.com.au';
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: 'Bomber Boat', text, url });
+    } catch (e) { /* user cancelled */ }
+  } else {
+    // Fallback: copy to clipboard
+    try {
+      await navigator.clipboard.writeText(text + ' ' + url);
+      toast('Link copied — send it to your mates!', 'success');
+    } catch (e) {
+      // Last resort: select a prompt
+      prompt('Copy this link:', url);
+    }
+  }
+}
+
+// ── REGISTER INTEREST ──
+async function registerInterest() {
+  const name = document.getElementById('regName').value.trim();
+  const phone = document.getElementById('regPhone').value.trim();
+  const msgEl = document.getElementById('regMsg');
+  if (!name) { msgEl.innerHTML = '<span style="color:#fca5a5;">Enter your name</span>'; return; }
+  if (!phone) { msgEl.innerHTML = '<span style="color:#fca5a5;">Enter your mobile number</span>'; return; }
+  msgEl.innerHTML = '<span style="color:rgba(255,255,255,0.6);">Registering...</span>';
+  try {
+    const res = await fetch(API_URL + '/waitlist', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, phone, game: 'Pre-launch Interest' })
+    });
+    if (res.ok) {
+      document.getElementById('regForm').innerHTML = `
+        <div style="text-align:center;padding:12px 0;">
+          <div style="font-size:52px;margin-bottom:12px;"></div>
+          <div style="font-family:'Anton',sans-serif;font-size:22px;letter-spacing:2px;color:white;margin-bottom:8px;">YOU'RE ON THE LIST!</div>
+          <div style="font-family:'Oswald',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);letter-spacing:1px;">We'll text you the moment bookings open, ${esc(name)}. Up the Bombers!</div>
+        </div>`;
+    } else {
+      msgEl.innerHTML = '<span style="color:#fca5a5;">Something went wrong — try again</span>';
+    }
+  } catch(e) {
+    msgEl.innerHTML = '<span style="color:#fca5a5;">Network error — try again</span>';
+  }
+}
+
+function renderUpcomingGames() {
+  const el = document.getElementById('upcomingGamesList');
+  if (!el) return;
+  const now = new Date();
+  const upcoming = homeGames.filter(g => {
+    const d = gameDates[g];
+    return d && new Date(d + 'T23:59:59+10:00') >= now;
+  });
+  if (!upcoming.length) { el.textContent = 'Schedule coming soon.'; return; }
+  el.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:10px;';
+  el.innerHTML = upcoming.map(g => {
+    const d = gameDates[g];
+    const opp = g.match(/vs\s+(.+?)\s*\(/)?.[1] || g;
+    const dateObj = d ? new Date(d + 'T12:00:00+10:00') : null;
+    const dateStr = dateObj ? dateObj.toLocaleDateString('en-AU', { weekday:'short', day:'numeric', month:'short' }) : 'TBC';
+    const rndNum = g.match(/Round (\d+)/)?.[1] || '';
+    const timeStr = gameTimes[g] && gameTimes[g] !== 'TBC' ? ' · ' + gameTimes[g] : '';
+    const isHome = gameVenues[g] && gameVenues[g] === 'Marvel Stadium';
+    const venueBadge = !isHome ? `<span style="display:inline-block;font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:2px;padding:2px 7px;border-radius:4px;background:rgba(240,180,41,0.15);color:var(--gold);border:1px solid rgba(240,180,41,0.3);">${gameVenues[g] || 'MARVEL'}</span>` : '';
+    return `<div style="position:relative;overflow:hidden;border-radius:14px;border:1px solid rgba(255,255,255,0.07);background:linear-gradient(160deg,rgba(255,255,255,0.04) 0%,rgba(255,255,255,0.01) 100%);">
+      <div style="background:linear-gradient(90deg,rgba(204,32,49,0.9) 0%,rgba(140,20,32,0.75) 100%);padding:8px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px;">
+        <span style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:3px;color:rgba(255,255,255,0.85);text-transform:uppercase;">${rndNum ? 'ROUND ' + rndNum : 'AFL 2026'}</span>
+        ${venueBadge}
+      </div>
+      <div style="padding:13px 15px 14px;display:flex;align-items:center;gap:12px;">
+        <div style="flex:1;min-width:0;">
+          <div style="font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;line-height:1.1;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">vs ${opp}</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:4px;font-family:'Barlow',sans-serif;">${dateStr}${timeStr}</div>
+        </div>
+        <div style="flex-shrink:0;font-family:'Oswald',sans-serif;font-size:32px;font-weight:800;color:rgba(204,32,49,0.2);line-height:1;user-select:none;">${rndNum}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── INIT ──
+if (!localStorage.getItem('bb_limit')) {
+  localStorage.setItem('bb_limit', '60');
+  limit = 60;
+}
+
+// Load schedule + booking counts on init
+loadSchedule().then(() => {
+  startCountdown();
+  renderUpcomingGames();
+  populateWlGameSelect();
+  loadBookings(); // fetch real booking counts so capacity bar is accurate
+});
+// Poll the schedule every 60s so that if the captain toggles a game off in admin,
+// the countdown + game list + prices update on the public page without a reload.
+setInterval(() => { loadSchedule().then(() => renderUpcomingGames()); }, 60000);
+
+// ── GALLERY LIGHTBOX ──
+function openLightbox(type, src) {
+  const lb = document.getElementById('lightbox');
+  const inner = document.getElementById('lightboxInner');
+  if (type === 'video') {
+    inner.innerHTML = `<video class="lightbox-content" src="${src}" controls autoplay playsinline></video>`;
+  } else {
+    inner.innerHTML = `<img class="lightbox-content" src="${src}" alt="Gallery photo">`;
+  }
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  const lb = document.getElementById('lightbox');
+  const inner = document.getElementById('lightboxInner');
+  // Stop any playing video
+  const vid = inner.querySelector('video');
+  if (vid) vid.pause();
+  inner.innerHTML = '';
+  lb.classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+<script>
+// Auto-refresh — poll /version.json every 60s, on tab focus, and on pageshow.
+// Force reload when build_id differs; localStorage survives so the user doesn't lose form state.
+(function() {
+  const MY_BUILD = "bb-20260425084212";
+  let reloading = false;
+  async function checkVersion() {
+    if (reloading) return;
+    try {
+      const r = await fetch('/version.json?t=' + Date.now(), {cache:'no-store'});
+      if (!r.ok) return;
+      const j = await r.json();
+      if (j.build_id && j.build_id !== MY_BUILD) {
+        reloading = true;
+        // Preserve any in-progress email
+        const em = document.getElementById('contactEmail')?.value;
+        if (em) try { const s = JSON.parse(localStorage.getItem('bb_user') || '{}'); s.email = em; localStorage.setItem('bb_user', JSON.stringify(s)); } catch(e) {}
+        location.reload();
+      }
+    } catch(e) {}
+  }
+  checkVersion();
+  setInterval(checkVersion, 60*1000); // every minute, even when tab hidden
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') checkVersion(); });
+  window.addEventListener('pageshow', checkVersion);
+  window.addEventListener('focus', checkVersion);
+})();
+</script>
+
+<script>
+// Prime SCHEDULE_CACHE so the Boat-to-any-game filter can hide games already bookable
+(function(){
+  function prime() {
+    fetch('https://bomberboat.com.au/api/schedule').then(r=>r.json()).then(j=>{ window.SCHEDULE_CACHE = j; }).catch(()=>{});
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', prime);
+  else prime();
+})();
+</script>
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          

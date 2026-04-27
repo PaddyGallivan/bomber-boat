@@ -1,0 +1,13 @@
+name = "bomber-boat-api"
+main = "index.js"
+compatibility_date = "2025-04-01"
+account_id = "a6f47c17811ee2f8b6caeb8f38768c20"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "bomber-boat-db"
+database_id = "c7dda294-5bba-41c1-a85d-bcc5a9bf1d29"
+
+[[kv_namespaces]]
+binding = "MEMORY"
+id = "33318695818d4235b358165b4a6f88dc"

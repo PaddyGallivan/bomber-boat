@@ -1,0 +1,2632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bomber Boat — Admin</title>
+<meta name="theme-color" content="#CC2031">
+<link rel="manifest" href="/manifest-admin.json">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-admin-192.png">
+<link rel="apple-touch-icon" href="/icon-admin-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="BB Crew">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #CC2031;
+  --red-dark: #a01828;
+  --blue: #E2181A;
+  --blue-mid: #b01015;
+  --blue-light: #CC2031;
+  --white: #ffffff;
+  --gold: #f0b429;
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --card: #1a1a1a;
+  --border: rgba(255,255,255,0.10);
+  --muted: rgba(255,255,255,0.45);
+  --green: #22c55e;
+  --green-dim: rgba(34,197,94,0.15);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  min-height: 100vh;
+}
+
+/* ── LOGIN SCREEN ── */
+.login-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(175deg, var(--blue) 0%, var(--bg2) 100%);
+}
+
+.login-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px 36px;
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+}
+
+.login-icon { font-size: 52px; margin-bottom: 12px; }
+
+.login-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 32px;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.login-sub {
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+.login-input {
+  width: 100%;
+  background: var(--bg2);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 18px;
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 4px;
+  outline: none;
+  margin-bottom: 14px;
+  transition: border-color 0.2s;
+}
+
+.login-input:focus { border-color: var(--red); }
+.login-input::placeholder { letter-spacing: 2px; color: rgba(255,255,255,0.2); font-size: 14px; }
+
+.login-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 20px rgba(204,32,49,0.35);
+}
+
+.login-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(204,32,49,0.5); }
+
+.login-error {
+  color: #fca5a5;
+  font-size: 13px;
+  margin-top: 10px;
+  display: none;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* ── ADMIN PANEL ── */
+.admin-panel { display: none; }
+
+.admin-header {
+  background: linear-gradient(135deg, var(--blue), var(--blue-mid));
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.admin-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 26px;
+  letter-spacing: 2px;
+}
+
+.admin-badge {
+  background: var(--red);
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  text-transform: uppercase;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.15s;
+}
+
+.logout-btn:hover { border-color: var(--red); color: var(--red); }
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  padding: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media(max-width: 640px) { .stats-grid { grid-template-columns: 1fr 1fr; } }
+
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.stat-card:nth-child(1)::before { background: var(--white); }
+.stat-card:nth-child(2)::before { background: var(--green); }
+.stat-card:nth-child(3)::before { background: var(--gold); }
+.stat-card:nth-child(4)::before { background: #f0b429; }
+
+.stat-val {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(24px, 4vw, 36px);
+  line-height: 1;
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+
+.stat-lbl {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Game filter */
+.filter-bar {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.filter-select {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  outline: none;
+  flex: 1;
+  min-width: 200px;
+  cursor: pointer;
+}
+
+.export-btn {
+  background: transparent;
+  border: 1px solid rgba(240,180,41,0.35);
+  color: var(--gold);
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.export-btn:hover { background: rgba(240,180,41,0.1); }
+
+.clear-btn {
+  background: transparent;
+  border: 1px solid rgba(204,32,49,0.35);
+  color: var(--red);
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.clear-btn:hover { background: rgba(204,32,49,0.1); }
+
+/* Booking table */
+.table-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead tr {
+  background: var(--card);
+  border-bottom: 2px solid var(--red);
+}
+
+thead th {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 12px 16px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+
+tbody tr:hover { background: rgba(255,255,255,0.03); }
+
+tbody td {
+  padding: 14px 16px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.td-num {
+  font-family: 'Anton', sans-serif;
+  font-size: 18px;
+  color: var(--muted);
+  width: 40px;
+}
+
+.td-name { font-weight: 700; }
+
+.td-phone { color: var(--muted); }
+
+.fare-badge {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 3px 9px;
+  border-radius: 99px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.badge-return { color: #f0b429; border-color: rgba(240,180,41,0.35); background: rgba(240,180,41,0.08); }
+.badge-oneway { color: var(--gold); border-color: rgba(240,180,41,0.35); background: rgba(240,180,41,0.08); }
+
+.pay-badge {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 3px 9px;
+  border-radius: 99px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.badge-paid { color: var(--green); border-color: rgba(34,197,94,0.35); background: var(--green-dim); }
+.badge-cash { color: var(--gold); border-color: rgba(240,180,41,0.35); background: rgba(240,180,41,0.08); }
+
+.td-price {
+  font-family: 'Anton', sans-serif;
+  font-size: 18px;
+  color: var(--white);
+}
+
+.del-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: color 0.15s;
+}
+
+.del-btn:hover { color: var(--red); }
+
+.empty-row td {
+  text-align: center;
+  padding: 60px;
+  color: var(--muted);
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* capacity control */
+.cap-control {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cap-control label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.lim-btn {
+  background: var(--blue-light);
+  border: none;
+  color: white;
+  width: 32px; height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s;
+}
+
+.lim-btn:hover { background: #E2181A; }
+
+.lim-inp {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--white);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-family: 'Anton', sans-serif;
+  font-size: 24px;
+  width: 70px;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.15);
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-top: 1px solid var(--border);
+}
+
+/* ── MOBILE ── */
+@media(max-width: 680px) {
+  .stats-grid { padding: 14px; gap: 10px; }
+
+  .filter-bar { padding: 0 14px 14px; gap: 8px; }
+  .filter-label { width: 100%; }
+  .filter-select { width: 100%; min-width: unset; }
+  .export-btn, .clear-btn { flex: 1; min-width: calc(50% - 8px); font-size: 11px; padding: 10px 6px; text-align: center; }
+
+  .cap-control { padding: 0 14px 14px; font-size: 12px; }
+
+  /* Table → cards */
+  .table-wrap { padding: 0 14px 40px; overflow-x: visible; }
+  thead { display: none; }
+  tbody tr:not(.empty-row) {
+    display: block;
+    background: var(--card);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+  tbody tr:not(.empty-row) td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    border: none;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  tbody tr:not(.empty-row) td:last-child { border-bottom: none; }
+  tbody tr:not(.empty-row) td::before {
+    content: attr(data-label);
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex-shrink: 0;
+    margin-right: 12px;
+  }
+  .td-num { display: none; }
+  .td-name { font-size: 17px; font-weight: 700; border-bottom: 1px solid var(--border) !important; padding-bottom: 10px !important; }
+  .td-name::before { display: none; }
+  .del-btn { width: 40px; height: 40px; font-size: 18px; display: flex; align-items: center; justify-content: center; }
+}
+
+/* ── Seats-remaining sliders (bulldogs-style, both directions) ── */
+.seats-card { background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:14px; padding:14px 18px; display:flex; flex-direction:column; gap:12px; }
+.seats-row { display:grid; grid-template-columns:1fr 2fr auto; gap:14px; align-items:center; }
+.seats-label { font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:2px; color:rgba(255,255,255,0.75); text-transform:uppercase; }
+.seats-bar-wrap { position:relative; height:18px; background:rgba(255,255,255,0.08); border-radius:10px; overflow:hidden; }
+.seats-bar-fill { height:100%; background:linear-gradient(90deg, #22c55e, #4ade80); transition:width .4s ease, background .3s; border-radius:10px; }
+.seats-bar-fill.warn   { background:linear-gradient(90deg, #f0b429, #fbbf24); }
+.seats-bar-fill.danger { background:linear-gradient(90deg, #ef4444, #fca5a5); }
+.seats-nums { font-family:'Anton',sans-serif; font-size:22px; color:var(--gold); letter-spacing:1px; white-space:nowrap; min-width:92px; text-align:right; }
+.seats-nums small { font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px; color:var(--muted); display:block; margin-top:-2px; }
+@media (max-width:560px) {
+  .seats-row { grid-template-columns:1fr; gap:4px; text-align:left; }
+  .seats-nums { text-align:left; }
+}
+
+/* ── Seats remaining (bulldogs-style slider bars) ── */
+.seats-dual { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:18px 22px; display:grid; grid-template-columns:1fr 1fr; gap:20px 30px; margin:0 auto 14px; max-width:720px; }
+.seats-lane { display:flex; flex-direction:column; gap:8px; }
+.seats-lane-solo { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px 22px; }
+.seats-lane-head { display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
+.seats-lane-title { font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:2.5px; text-transform:uppercase; color:#d0d0d0; font-weight:600; }
+.seats-lane-big { font-family:'Anton',sans-serif; font-size:36px; line-height:1; color:var(--gold); letter-spacing:1px; }
+.seats-lane-cap { font-size:22px; color:var(--muted); margin-left:2px; }
+.seats-track { height:14px; background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:99px; overflow:hidden; position:relative; box-shadow:inset 0 2px 4px rgba(0,0,0,0.3); }
+.seats-fill { height:100%; border-radius:99px; background:linear-gradient(90deg, #16a34a, #4ade80); transition:width .6s cubic-bezier(0.34,1.56,0.64,1), background .3s; box-shadow:0 0 8px rgba(74,222,128,0.35); }
+.seats-fill.warn   { background:linear-gradient(90deg, #f59e0b, #fbbf24); box-shadow:0 0 8px rgba(251,191,36,0.4); }
+.seats-fill.danger { background:linear-gradient(90deg, #dc2626, #ef4444); box-shadow:0 0 10px rgba(239,68,68,0.5); }
+.seats-lane-foot { font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.5px; color:var(--muted); }
+.seats-lane-foot strong { color:var(--gold); font-family:'Anton',sans-serif; font-size:18px; margin-right:4px; }
+@media (max-width:600px) {
+  .seats-dual { grid-template-columns:1fr; gap:18px; padding:16px; }
+}
+
+/* ── Seats remaining (bulldogs exact match) ── */
+.seats-lane { display:block; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:18px 22px 16px; position:relative; overflow:hidden; }
+.seats-lane::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--red,#E2181A); }
+.seats-lane.lane-return::before { background:#7dd3fc; }
+.seats-lane-head { display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:12px; }
+.seats-lane-title { font-family:'Anton',sans-serif; font-size:22px; letter-spacing:2px; text-transform:uppercase; color:#fff; }
+.seats-lane-title small { font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:2px; color:var(--muted); margin-left:10px; font-weight:400; letter-spacing:2px; }
+.seats-lane-big { font-family:'Anton',sans-serif; font-size:36px; line-height:1; color:var(--red,#E2181A); letter-spacing:1px; }
+.seats-lane-cap { font-size:24px; color:var(--muted); }
+.seats-track { height:14px; background:rgba(0,0,0,0.5); border-radius:99px; overflow:hidden; position:relative; box-shadow:inset 0 2px 6px rgba(0,0,0,0.5); margin-bottom:10px; }
+.seats-fill { height:100%; border-radius:99px; background:linear-gradient(90deg, #3b82f6, var(--red,#E2181A)); transition:width .6s cubic-bezier(0.34,1.56,0.64,1); box-shadow:0 0 10px rgba(239,68,68,0.3); }
+.seats-lane-foot { font-family:'Barlow',sans-serif; font-size:13px; letter-spacing:.5px; color:var(--muted); }
+.seats-lane-foot strong { color:var(--gold,#f0b429); font-family:'Anton',sans-serif; font-size:20px; letter-spacing:1px; margin-right:2px; }
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-box">
+    <div class="login-icon">✈️</div>
+    <div class="login-title">ADMIN ACCESS</div>
+    <div class="login-sub">Bomber Boat · Staff Only</div>
+    <input class="login-input" type="password" id="pwInput" placeholder="Enter password" onkeydown="if(event.key==='Enter') login()">
+    <label style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px;cursor:pointer;font-family:'Oswald',sans-serif;font-size:13px;color:var(--muted);letter-spacing:1px;">
+      <input type="checkbox" id="rememberMe" style="width:18px;height:18px;accent-color:var(--red);cursor:pointer;"> Remember me
+    </label>
+    <button class="login-btn" onclick="login()">🔐 LOGIN</button>
+    <div class="login-error" id="loginError">❌ Wrong password — try again</div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-panel" id="adminPanel">
+
+  <div class="admin-header">
+    <div class="admin-header-left">
+      <span style="font-size:28px">⛵</span>
+      <div class="admin-title">BOMBER BOAT</div>
+      <div class="admin-badge">ADMIN</div>
+    </div>
+    <div style="display:flex;gap:8px;">
+      <button onclick="openFaresEditor()" style="background:rgba(240,180,41,0.1);border:1px solid rgba(240,180,41,0.5);color:var(--gold);padding:8px 16px;border-radius:8px;cursor:pointer;font-family:Oswald,sans-serif;font-size:13px;letter-spacing:1px;">💲 EDIT FARES</button>
+      <button class="logout-btn" onclick="logout()">🔒 Log Out</button>
+    </div>
+  </div>
+
+  <!-- TAB NAV -->
+  <style>
+    .adm-tabs { display:flex; gap:2px; padding:0 16px; background:var(--card); border-bottom:1px solid var(--border); overflow-x:auto; position:sticky; top:0; z-index:10; }
+    .adm-tabs button { background:transparent; border:none; color:var(--muted); font-family:Oswald,sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase; padding:14px 18px; cursor:pointer; white-space:nowrap; border-bottom:3px solid transparent; transition:all .15s; }
+    .adm-tabs button:hover { color:var(--white); background:rgba(255,255,255,0.03); }
+    .adm-tabs button.active { color:var(--gold); border-bottom-color:var(--gold); background:rgba(240,180,41,0.06); }
+    .adm-tab-panel { display:none; }
+    .adm-tab-panel.active { display:block; }
+  </style>
+  <div class="adm-tabs">
+    <button class="active" data-tab="bookings" onclick="switchAdmTab('bookings')">📋 Bookings</button>
+    <button data-tab="games" onclick="switchAdmTab('games')">🏆 Games</button>
+    <button data-tab="boats" onclick="switchAdmTab('boats')">⛵ Boats</button>
+    <button data-tab="interest" onclick="switchAdmTab('interest'); loadInterest()">📝 Interest</button>
+    <button data-tab="copy" onclick="switchAdmTab('copy')">📝 Edit Text</button>
+  </div>
+
+  <!-- TAB: BOOKINGS -->
+  <div class="adm-tab-panel active" id="admTabBookings">
+
+  <!-- Big game picker (top of bookings tab) -->
+  <div style="padding:16px 16px 4px;">
+    <label for="gameFilterTop" style="display:block;font-family:Oswald,sans-serif;font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;">Select game</label>
+    <select id="gameFilterTop" onchange="syncGameFilterFromTop()" style="width:100%;max-width:720px;background:var(--card);border:2px solid var(--border);border-radius:12px;padding:14px 16px;color:var(--white);font-family:Barlow,sans-serif;font-size:18px;letter-spacing:.5px;outline:none;cursor:pointer;">
+      <option value="">— Select a game —</option>
+    </select>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-val" id="sTotalPassengers" style="color:var(--white)">0</div>
+      <div class="stat-lbl">Total Passengers</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" id="sTotalPaid" style="color:var(--green)">$0</div>
+      <div class="stat-lbl">Paid Online</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" id="sTotalCash" style="color:var(--gold)">$0</div>
+      <div class="stat-lbl">Cash Owed</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" id="sTotalRevenue" style="color:#f0b429">$0</div>
+      <div class="stat-lbl">Total Revenue</div>
+    </div>
+  </div>
+
+  <!-- Per-game revenue breakdown (admin only) -->
+  <div id="revenueBreakdown" style="margin:12px 0 20px; background:var(--card); border-radius:10px; border:1px solid var(--border); padding:16px; display:none;">
+    <div style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:12px;">Revenue by Game</div>
+    <div id="revenueRows" style="font-family:'Barlow',sans-serif;"></div>
+  </div>
+
+  <!-- Seats remaining (bulldogs-style bars) for currently selected game -->
+  <div id="admSpotsRem" style="display:none;margin:0 16px 18px;">
+    <span id="admSpotsGame" style="display:none;">—</span><div style="display:flex;flex-direction:column;gap:14px;">
+      <div class="seats-lane">
+        <div class="seats-lane-head">
+          <div class="seats-lane-title">→ On the way <small>RIVIERA → MARVEL</small></div>
+          <div class="seats-lane-big"><span id="admSpotsOutBooked">0</span><span class="seats-lane-cap"> / <span id="admCapOut">60</span></span></div>
+        </div>
+        <div class="seats-track"><div class="seats-fill" id="admBarOut" style="width:0%"></div></div>
+        <div class="seats-lane-foot"><strong id="admSpotsOutLeft">—</strong>spots remaining</div>
+      </div>
+      <div class="seats-lane lane-return">
+        <div class="seats-lane-head">
+          <div class="seats-lane-title">← Return <small>MARVEL → RIVIERA</small></div>
+          <div class="seats-lane-big"><span id="admSpotsBackBooked">0</span><span class="seats-lane-cap"> / <span id="admCapBack">60</span></span></div>
+        </div>
+        <div class="seats-track"><div class="seats-fill" id="admBarBack" style="width:0%"></div></div>
+        <div class="seats-lane-foot"><strong id="admSpotsBackLeft">—</strong>spots remaining</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- (capacity + manual bookings control removed from Bookings tab — capacity lives on Games tab) -->
+  <div style="display:none;"><input id="limInp" type="hidden" value="60"><input id="manualInp" type="hidden" value="0"><span id="spotsLeftTxt"></span></div>
+
+
+  <!-- BOARDING — tick passengers off as they get on the boat -->
+  <div id="boardingCard" style="margin:0 16px 18px;display:none;">
+    <div style="font-family:'Anton',sans-serif;font-size:18px;letter-spacing:2px;color:var(--white);text-transform:uppercase;margin-bottom:10px;">🛟 Boarding · <span id="boardingGameLbl" style="color:var(--gold);font-size:14px;letter-spacing:1px;">—</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;" id="boardingGrid">
+      <div>
+        <div style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;">→ On the way <span style="color:var(--muted);">(<span id="boardOutCount">0/0</span>)</span></div>
+        <div id="boardOutList" style="display:flex;flex-direction:column;gap:6px;"></div>
+      </div>
+      <div>
+        <div style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;color:#7dd3fc;text-transform:uppercase;margin-bottom:8px;">← Return <span style="color:var(--muted);">(<span id="boardBackCount">0/0</span>)</span></div>
+        <div id="boardBackList" style="display:flex;flex-direction:column;gap:6px;"></div>
+      </div>
+    </div>
+    <style>
+      .board-row { display:flex; align-items:center; justify-content:space-between; gap:8px; padding:10px 12px; background:var(--card); border:1px solid var(--border); border-radius:8px; }
+      .board-row.boarded { background:rgba(34,197,94,0.12); border-color:rgba(34,197,94,0.4); }
+      .board-row .who { font-family:'Barlow',sans-serif; font-size:13px; color:var(--white); flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+      .board-row .who small { color:var(--muted); font-size:11px; margin-left:6px; }
+      .board-tick { background:transparent; border:1px solid var(--border); border-radius:6px; padding:6px 10px; color:var(--muted); cursor:pointer; font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1px; min-width:64px; }
+      .board-row.boarded .board-tick { background:#22c55e; color:#000; border-color:#22c55e; font-weight:700; }
+      .board-empty { font-family:'Barlow',sans-serif; font-size:13px; color:var(--muted); font-style:italic; padding:8px 4px; }
+    </style>
+  </div>
+
+  <!-- Filter bar -->
+  <div class="filter-bar">
+    <span class="filter-label">Filter by game:</span>
+    <select class="filter-select" id="gameFilter" onchange="renderTable(); renderStats();">
+      <option value="">All Games</option>
+    </select>
+    <button class="export-btn" onclick="printManifest()">🖨 Print List</button>
+    <button class="export-btn" onclick="toggleQuickAdd()" style="background:var(--gold);color:#000;font-weight:700;">➕ Quick Add</button>
+  </div>
+
+  <!-- Quick Add Form (for walk-ups at the pier) -->
+  <div id="quickAddForm" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;">
+    <div style="font-family:'Oswald',sans-serif;font-size:16px;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;color:var(--gold);">➕ Quick Add Booking</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+      <input id="qaName" type="text" placeholder="Full name" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;color:white;font-size:14px;">
+      <input id="qaPhone" type="tel" placeholder="Phone (optional)" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;color:white;font-size:14px;">
+      <select id="qaGame" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;color:white;font-size:14px;"></select>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:10px;margin-top:10px;align-items:end;">
+      <select id="qaFare" onchange="qaAutoPrice()" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;color:white;font-size:14px;">
+        <option value="return">Return ($30/$20)</option>
+        <option value="oneway_to">→ One Way to Game ($20/$15)</option>
+        <option value="oneway_from">← One Way Return ($20/$15)</option>
+      </select>
+      <select id="qaType" onchange="qaAutoPrice()" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;color:white;font-size:14px;">
+        <option value="adult">Adult</option>
+        <option value="child">Child</option>
+      </select>
+      <select id="qaPay" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;color:white;font-size:14px;">
+        <option value="cash">Cash</option>
+        <option value="card">Paid</option>
+      </select>
+      <input id="qaPrice" type="number" placeholder="Price" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;color:white;font-size:14px;width:80px;">
+      <button onclick="submitQuickAdd()" style="background:var(--green);color:#000;font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:1px;padding:10px 20px;border-radius:8px;border:none;cursor:pointer;font-weight:700;white-space:nowrap;">ADD</button>
+    </div>
+    <div id="qaResult" style="margin-top:10px;font-size:13px;"></div>
+  </div>
+
+  <!-- Table -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Game</th>
+          <th>Type</th>
+          <th>Fare</th>
+          <th>Payment</th>
+          <th>Price</th>
+          <th>Booked At</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="bookingsTbody"></tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- ── WAITLIST SECTION ── -->
+<div id="waitlistSection" style="display:none; max-width:1200px; margin:20px auto; padding:0 16px;">
+  <div style="background:var(--card); border-radius:12px; border:1px solid var(--border); padding:20px; margin-top:12px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+      <h3 style="font-family:'Oswald',sans-serif; font-size:20px; letter-spacing:2px; text-transform:uppercase; margin:0;">
+        📋 Waitlist <span id="waitlistCount" style="color:var(--gold); font-size:16px;"></span>
+      </h3>
+    </div>
+    <div id="waitlistList" style="font-family:'Barlow',sans-serif;"></div>
+  </div>
+</div>
+
+<!-- BROADCAST SMS MODAL -->
+<div id="broadcastModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:1000;display:none;align-items:center;justify-content:center;">
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;max-width:500px;width:90%;position:relative;" onclick="event.stopPropagation()">
+    <h3 style="font-family:Anton,sans-serif;font-size:24px;margin-bottom:4px;">📢 Broadcast SMS</h3>
+    <p style="color:var(--muted);font-size:13px;margin-bottom:16px;">Send a custom message to all passengers for the selected game.</p>
+    <div id="broadcastGameInfo" style="font-family:Oswald,sans-serif;font-size:14px;color:var(--gold);letter-spacing:1px;margin-bottom:16px;"></div>
+    <textarea id="broadcastMsg" rows="4" placeholder="Type your message here..." style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px;color:white;font-family:Barlow,sans-serif;font-size:15px;resize:vertical;"></textarea>
+    <div style="color:var(--muted);font-size:11px;margin-top:4px;">Message will be prefixed with "Bomber Boat:"</div>
+    <div style="display:flex;gap:10px;margin-top:16px;">
+      <button id="broadcastSendBtn" onclick="sendBroadcast()" style="flex:1;background:var(--green);color:#000;font-family:Oswald,sans-serif;font-size:16px;letter-spacing:1px;padding:12px;border-radius:10px;border:none;cursor:pointer;font-weight:700;">SEND TO ALL</button>
+      <button onclick="closeBroadcastModal()" style="background:transparent;border:1px solid var(--border);color:var(--muted);padding:12px 20px;border-radius:10px;cursor:pointer;font-family:Oswald,sans-serif;">CANCEL</button>
+    </div>
+    <div id="broadcastResult" style="margin-top:12px;font-size:14px;"></div>
+  </div>
+</div>
+
+<footer>Bomber Boat Admin · 2026</footer>
+
+<script>
+const PASSWORD_ADMIN = '$Falkor2967';
+const PASSWORD_CAPTAIN = 'bomberboatcaptain';
+const PASSWORD_STAFF = 'bomberstaff';
+let userRole = null; // 'admin' | 'captain' | 'staff'
+
+// ── API (Cloudflare Worker + D1) ──
+const API_URL = 'https://bomberboat.com.au/api';
+// API_KEY dynamically chosen based on login role — the worker accepts admin/captain/staff.
+function getApiKey() {
+  if (typeof userRole !== 'undefined') {
+    if (userRole === 'admin') return PASSWORD_ADMIN;
+    if (userRole === 'captain') return PASSWORD_CAPTAIN;
+    if (userRole === 'staff') return PASSWORD_STAFF;
+  }
+  // Fallback: try localStorage-saved role
+  const r = localStorage.getItem('bb_role');
+  if (r === 'admin') return PASSWORD_ADMIN;
+  if (r === 'captain') return PASSWORD_CAPTAIN;
+  if (r === 'staff') return PASSWORD_STAFF;
+  return '';
+}
+
+// Games loaded from API — single source of truth in worker.js
+let homeGames = [];
+let homeGamesData = []; // full schedule with dates
+const GAME_PRICES = {}; // game -> { price_adult_return, price_child_return, price_adult_oneway, price_child_oneway }
+function priceFor(game, fare, type) {
+  const gp = GAME_PRICES[game];
+  const fallback = { return: { adult: 30, child: 20 }, oneway_to: { adult: 20, child: 15 }, oneway_from: { adult: 20, child: 15 } };
+  if (!gp) return fallback[fare]?.[type] ?? 30;
+  if (fare === 'return') return type === 'child' ? gp.price_child_return : gp.price_adult_return;
+  return type === 'child' ? gp.price_child_oneway : gp.price_adult_oneway;
+}
+
+async function loadSchedule() {
+  try {
+    const res = await fetch(API_URL + '/schedule');
+    if (res.ok) {
+      const data = await res.json();
+      // Bomber worker returns { games:[...] }; bulldogs returned a bare array. Accept both.
+      const games = Array.isArray(data) ? data : (data && Array.isArray(data.games) ? data.games : []);
+      // Only include ACTIVE games (per-game on/off toggle in admin governs visibility)
+      const activeGames = games.filter(g => g.active !== false && g.active !== 0);
+      const MONTHS = { Jan:'01',Feb:'02',Mar:'03',Apr:'04',May:'05',Jun:'06',Jul:'07',Aug:'08',Sep:'09',Oct:'10',Nov:'11',Dec:'12' };
+      homeGamesData = activeGames.map(g => {
+        if (g.date) return g;
+        const m = (g.game || '').match(/—\s*(\d{1,2})\s+(\w{3})\s+(\d{4})/);
+        return m ? { ...g, date: `${m[3]}-${MONTHS[m[2]]||'01'}-${String(m[1]).padStart(2,'0')}` } : g;
+      });
+      homeGames = homeGamesData.map(g => g.game);
+      // Cache per-game prices so autoPrice fns can read them
+      homeGamesData.forEach(g => { GAME_PRICES[g.game] = g; });
+      console.log('loadSchedule: got', games.length, 'games,', activeGames.length, 'active');
+    }
+  } catch (e) {
+    console.error('Failed to load schedule:', e);
+  }
+}
+
+function nextUpcomingGame() {
+  const today = new Date().toISOString().slice(0, 10);
+  // Prefer games with a parsed date >= today; fall back to first active game if date parsing failed.
+  const withDate = homeGamesData.find(g => g.date && g.date >= today);
+  if (withDate) return withDate.game;
+  const anyActive = homeGamesData.find(g => g.active !== false && g.active !== 0);
+  return anyActive ? anyActive.game : (homeGames[0] || null);
+}
+
+async function apiFetch(path, options = {}) {
+  const res = await fetch(API_URL + path, {
+    ...options,
+    headers: { 'Content-Type': 'application/json', 'X-API-Key': getApiKey(), ...(options.headers || {}) }
+  });
+  if (!res.ok) { console.error('API error', res.status, await res.text()); return null; }
+  if (res.status === 204) return true;
+  return res.json();
+}
+
+async function loadBookings() {
+  const data = await apiFetch('/bookings');
+  if (data) {
+    // Bomber worker returns {bookings:[...], count:N}; bulldogs returned bare array. Accept both.
+    const rows = Array.isArray(data) ? data : (Array.isArray(data.bookings) ? data.bookings : []);
+    console.log('loadBookings: got', rows.length, 'bookings');
+    passengers = rows.map(r => ({
+      id: r.id,
+      name: r.name,
+      phone: r.phone,
+      game: r.game,
+      fare: r.fare,
+      passType: r.pass_type || 'adult',
+      pay: r.pay,
+      price: r.price,
+      private: r.private,
+      forGrabs: r.for_grabs,
+      boarded: !!r.boarded,
+      boardedAt: r.boarded_at,
+      time: new Date(r.created_at).toLocaleString('en-AU', { day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit' })
+    }));
+    populateGameFilter();
+    renderTable();
+    renderStats();
+    renderCaptainView();
+  }
+}
+
+let passengers = [];
+let limit = parseInt(localStorage.getItem('bb_limit') || '60');
+let manualBookings = parseInt(localStorage.getItem('bb_manual') || '0');
+
+function login(auto) {
+  const val = auto || document.getElementById('pwInput').value.trim();
+  if (val === PASSWORD_ADMIN) {
+    userRole = 'admin';
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('adminPanel').style.display = 'block';
+    document.getElementById('captainView').style.display = 'none';
+    if (!auto && document.getElementById('rememberMe').checked) {
+      localStorage.setItem('bb_role', 'admin');
+    }
+    loadSchedule().then(() => { loadBookings(); loadWaitlist(); loadScheduleCacheForBoats().then(() => { if (typeof updateAdmSpotsRem === 'function') updateAdmSpotsRem(); }); });
+  } else if (val === PASSWORD_CAPTAIN) {
+    // Captain now sees the FULL admin UI (request 2026-04-23) — same features as admin.
+    userRole = 'captain';
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('adminPanel').style.display = 'block';
+    document.getElementById('captainView').style.display = 'none';
+    const badge = document.querySelector('#adminPanel .admin-badge');
+    if (badge) { badge.textContent = 'CAPTAIN'; badge.style.background = '#CC2031'; }
+    if (!auto && document.getElementById('rememberMe').checked) {
+      localStorage.setItem('bb_role', 'captain');
+    }
+    loadSchedule().then(() => { loadBookings(); loadWaitlist(); loadScheduleCacheForBoats().then(() => { if (typeof updateAdmSpotsRem === 'function') updateAdmSpotsRem(); }); });
+  } else if (val === PASSWORD_STAFF) {
+    // STAFF: limited view — no prices/settings, defaults to current game, can tick people in via boarding card.
+    userRole = 'staff';
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('adminPanel').style.display = 'block';
+    document.getElementById('captainView').style.display = 'none';
+    const badge = document.querySelector('#adminPanel .admin-badge');
+    if (badge) { badge.textContent = 'STAFF'; badge.style.background = '#0ea5e9'; }
+    if (!auto && document.getElementById('rememberMe').checked) {
+      localStorage.setItem('bb_role', 'staff');
+    }
+    loadSchedule().then(() => {
+      loadBookings().then(() => {
+        // Auto-select next/current upcoming game so boarding card populates immediately
+        const next = (typeof nextUpcomingGame === 'function') ? nextUpcomingGame() : null;
+        if (next) {
+          const sel = document.getElementById('gameFilter');
+          const top = document.getElementById('gameFilterTop');
+          if (sel) sel.value = next;
+          if (top) top.value = next;
+          if (typeof renderTable === 'function') renderTable();
+          if (typeof renderStats === 'function') renderStats();
+          if (typeof renderBoarding === 'function') renderBoarding();
+        }
+        if (typeof lockStaffControls === 'function') lockStaffControls();
+      });
+      loadScheduleCacheForBoats().then(() => { if (typeof updateAdmSpotsRem === 'function') updateAdmSpotsRem(); });
+    });
+  } else {
+    document.getElementById('loginError').style.display = 'block';
+    document.getElementById('pwInput').value = '';
+    document.getElementById('pwInput').focus();
+  }
+}
+
+function logout() {
+  localStorage.removeItem('bb_role');
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('adminPanel').style.display = 'none';
+  document.getElementById('captainView').style.display = 'none';
+  document.getElementById('pwInput').value = '';
+  userRole = null;
+}
+
+// Auto-login: ?login=admin|captain|staff URL shortcut OR remembered role
+document.addEventListener('DOMContentLoaded', function() {
+  // URL param wins over localStorage (handy for shared device)
+  try {
+    const qs = new URLSearchParams(location.search);
+    const want = (qs.get('login') || '').toLowerCase();
+    if (want === 'admin')   { login(PASSWORD_ADMIN);   return; }
+    if (want === 'captain') { login(PASSWORD_CAPTAIN); return; }
+    if (want === 'staff')   { login(PASSWORD_STAFF);   return; }
+  } catch(e) {}
+  const saved = localStorage.getItem('bb_role');
+  if (saved === 'admin')   login(PASSWORD_ADMIN);
+  else if (saved === 'captain') login(PASSWORD_CAPTAIN);
+  else if (saved === 'staff')   login(PASSWORD_STAFF);
+});
+
+function populateGameFilter() {
+  const bookedGames = passengers.map(p => p.game).filter(g => g && g !== 'Not specified');
+  const allGames = [...new Set([...homeGames, ...bookedGames])];
+  const sel = document.getElementById('gameFilter');
+  const prev = sel.value;
+  sel.innerHTML = '<option value="">All Games</option>';
+  allGames.forEach(g => {
+    const opt = document.createElement('option');
+    opt.value = g; opt.textContent = g;
+    sel.appendChild(opt);
+  });
+  // Mirror to the big top selector
+  const selTop = document.getElementById('gameFilterTop');
+  if (selTop) {
+    const prevTop = selTop.value;
+    selTop.innerHTML = '<option value="">— All games —</option>';
+    allGames.forEach(g => {
+      const opt = document.createElement('option');
+      opt.value = g; opt.textContent = g;
+      selTop.appendChild(opt);
+    });
+    if (prevTop) selTop.value = prevTop;
+  }
+  if (prev && [...sel.options].some(o => o.value === prev)) {
+    sel.value = prev;
+  } else {
+    const next = nextUpcomingGame() || (homeGames.length ? homeGames[0] : '');
+    if (next) sel.value = next;
+  }
+  // Keep top selector in sync with the default
+  const selTop2 = document.getElementById('gameFilterTop');
+  if (selTop2) selTop2.value = sel.value;
+  // After setting default, update dependent panels (stats, table, seats-remaining)
+  try { renderStats(); renderTable(); if (typeof updateAdmSpotsRem === 'function') { updateAdmSpotsRem(); } } catch(e) {}
+}
+
+// When captain/admin uses the big top selector, sync the underlying filter + re-render
+function syncGameFilterFromTop() {
+  const top = document.getElementById('gameFilterTop');
+  const bottom = document.getElementById('gameFilter');
+  if (!top || !bottom) return;
+  bottom.value = top.value;
+  try { renderStats(); renderTable(); if (typeof updateAdmSpotsRem === 'function') updateAdmSpotsRem(); if (typeof loadScheduleCacheForBoats === 'function') loadScheduleCacheForBoats().then(updateAdmSpotsRem); } catch(e) {}
+}
+
+function renderStats() {
+  try { if (typeof updateAdmSpotsRem === 'function') updateAdmSpotsRem(); } catch(e) {}
+  const filter = document.getElementById('gameFilter') ? document.getElementById('gameFilter').value : '';
+  const subset = filter ? passengers.filter(p => p.game === filter) : passengers;
+  const paidTotal = subset.filter(p => p.pay === 'card').reduce((s, p) => s + p.price, 0);
+  const cashTotal = subset.filter(p => p.pay === 'cash').reduce((s, p) => s + p.price, 0);
+  document.getElementById('sTotalPassengers').textContent = subset.length + (filter ? '' : ' total');
+  document.getElementById('sTotalPaid').textContent = `$${paidTotal}`;
+  document.getElementById('sTotalCash').textContent = `$${cashTotal}`;
+  document.getElementById('sTotalRevenue').textContent = `$${paidTotal + cashTotal}`;
+  document.getElementById('limInp').value = limit;
+  document.getElementById('manualInp').value = manualBookings;
+  if (filter) {
+    const taken = passengers.filter(p => p.game === filter).length + manualBookings;
+    const left = Math.max(0, limit - taken);
+    document.getElementById('spotsLeftTxt').textContent = `${left} spot${left !== 1 ? 's' : ''} left for this game`;
+  } else {
+    // When viewing all games, show per-game breakdown of most-booked game
+    const gameTotals = {};
+    passengers.forEach(p => { gameTotals[p.game] = (gameTotals[p.game] || 0) + 1; });
+    const busiest = Object.entries(gameTotals).sort((a, b) => b[1] - a[1])[0];
+    if (busiest) {
+      const left = Math.max(0, limit - busiest[1] - manualBookings);
+      const shortGame = busiest[0].match(/vs\s+(.+?)\s*\(/)?.[1] || busiest[0];
+      document.getElementById('spotsLeftTxt').textContent = `Busiest: vs ${shortGame} (${left} spot${left !== 1 ? 's' : ''} left)`;
+    } else {
+      document.getElementById('spotsLeftTxt').textContent = `${limit} spots per game`;
+    }
+  }
+
+  // Per-game revenue breakdown (show when "All Games" selected)
+  const breakdownEl = document.getElementById('revenueBreakdown');
+  const rowsEl = document.getElementById('revenueRows');
+  if (!filter && passengers.length > 0) {
+    const gameData = {};
+    passengers.forEach(p => {
+      if (!gameData[p.game]) gameData[p.game] = { pax: 0, revenue: 0, paid: 0, cash: 0 };
+      gameData[p.game].pax++;
+      gameData[p.game].revenue += p.price;
+      if (p.pay === 'card') gameData[p.game].paid += p.price;
+      else gameData[p.game].cash += p.price;
+    });
+    const sorted = Object.entries(gameData).sort((a, b) => b[1].pax - a[1].pax);
+    rowsEl.innerHTML = sorted.map(([game, d]) => {
+      const short = game.replace(/Round \d+ — \d+ \w+ \d+ /, '').replace(/\s*\(.*\)/, '');
+      const pct = Math.round((d.pax / limit) * 100);
+      const cashLabel = d.cash > 0 ? `<span style="color:var(--gold);">$${d.cash} cash</span>` : '';
+      const paidLabel = d.paid > 0 ? `<span style="color:var(--green);">$${d.paid} paid</span>` : '';
+      return `<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+        <div>
+          <strong style="color:var(--white);font-size:14px;">${short}</strong>
+          <span style="color:var(--muted);font-size:12px;margin-left:8px;">${d.pax}/${limit} (${pct}%)</span>
+        </div>
+        <div style="text-align:right;font-size:13px;">
+          <strong style="color:#f0b429;">$${d.revenue}</strong>
+          <span style="color:var(--muted);font-size:11px;margin-left:6px;">${[paidLabel, cashLabel].filter(Boolean).join(' · ')}</span>
+        </div>
+      </div>`;
+    }).join('');
+    breakdownEl.style.display = 'block';
+  } else {
+    breakdownEl.style.display = 'none';
+  }
+}
+
+function renderTable() {
+  const filter = document.getElementById('gameFilter').value;
+  const filtered = filter ? passengers.filter(p => p.game === filter) : passengers;
+  const tbody = document.getElementById('bookingsTbody');
+
+  if (!filtered.length) {
+    tbody.innerHTML = `<tr class="empty-row"><td colspan="10">⛵ No passengers booked yet</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = '';
+  filtered.forEach((p, i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="td-num" data-label="#">${i + 1}</td>
+      <td class="td-name" data-label="Name">${esc(p.name)}</td>
+      <td class="td-phone" data-label="Phone">📱 ${esc(p.phone)}</td>
+      <td data-label="Game" style="font-size:13px;color:var(--muted);text-align:right">${esc(p.game)}</td>
+      <td data-label="Type" style="font-size:13px;color:var(--muted)">${p.passType === 'child' ? '👦 Child' : '🧑 Adult'}</td>
+      <td data-label="Fare"><span class="fare-badge ${p.fare === 'return' ? 'badge-return' : 'badge-oneway'}">${p.fare === 'return' ? '↩ Return' : p.fare === 'oneway_to' ? '→ To Game' : p.fare === 'oneway_from' ? '← Return Only' : '→ One Way'}</span></td>
+      <td data-label="Pay"><span class="pay-badge ${p.pay === 'card' ? 'badge-paid' : 'badge-cash'}">${p.pay === 'card' ? '💳 Paid' : '💵 Cash'}</span></td>
+      <td class="td-price" data-label="Price">$${p.price}</td>
+      <td data-label="Booked" style="font-size:12px;color:var(--muted)">${p.time}</td>
+      <td data-label="Actions" style="display:flex;gap:6px;justify-content:flex-end;"><button class="del-btn" onclick="openEdit(${p.id})" title="Edit" style="color:var(--gold);">✏️</button><button class="del-btn" onclick="removePassenger(${p.id})" title="Remove">✕</button></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+async function removePassenger(id) {
+  if (!confirm('Remove this passenger?')) return;
+  await apiFetch('/bookings/' + id, { method: 'DELETE' });
+  passengers = passengers.filter(p => p.id !== id);
+  populateGameFilter();
+  renderTable();
+  renderStats();
+}
+
+async function clearAll() {
+  if (!passengers.length) return;
+  if (!confirm('Remove ALL passengers? This cannot be undone!')) return;
+  for (const p of passengers) { await apiFetch('/bookings/' + p.id, { method: 'DELETE' }); }
+  passengers = [];
+  populateGameFilter();
+  renderTable();
+  renderStats();
+}
+
+function changeLim(d) {
+  limit = Math.max(1, limit + d);
+  document.getElementById('limInp').value = limit;
+  saveLim();
+}
+
+function saveLim() {
+  limit = Math.max(1, parseInt(document.getElementById('limInp').value) || 60);
+  localStorage.setItem('bb_limit', limit);
+  renderStats();
+}
+
+function exportCSV() {
+  if (!passengers.length) return alert('No passengers to export');
+  const rows = [['#','Name','Phone','Game','Type','Fare','Payment','Price','Booked At']];
+  passengers.forEach((p, i) => {
+    const typeLabel = p.passType === 'child' ? 'Child' : 'Adult';
+    const fareLabel = p.fare === 'return' ? 'Return Trip' : p.fare === 'oneway_to' ? 'One Way to Game' : p.fare === 'oneway_from' ? 'One Way Return' : 'One Way';
+    rows.push([i+1, p.name, p.phone, p.game, typeLabel, fareLabel, p.pay === 'card' ? 'Paid Online' : 'Cash on Day', `$${p.price}`, p.time]);
+  });
+  const csv = rows.map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+  a.download = 'bomberboat-manifest.csv';
+  a.click();
+}
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+async function sendReminders() {
+  const game = document.getElementById('gameFilter').value;
+  if (!game) return alert('Select a game first to send reminders for');
+  const count = passengers.filter(p => p.game === game && p.phone).length;
+  if (!count) return alert('No passengers with phone numbers for this game');
+  if (!confirm(`Send SMS reminder to ${count} passenger${count !== 1 ? 's' : ''} booked for:\n\n${game}\n\nThis will send a text to each passenger. Continue?`)) return;
+
+  const btn = document.getElementById('sendRemindersBtn');
+  btn.disabled = true;
+  btn.textContent = '📱 Sending...';
+
+  try {
+    const result = await apiFetch('/reminders/send', {
+      method: 'POST',
+      body: JSON.stringify({ game })
+    });
+    if (result && result.sent !== undefined) {
+      const msg = `✅ Sent ${result.sent} SMS reminder${result.sent !== 1 ? 's' : ''}` +
+        (result.failed ? ` (${result.failed} failed)` : '');
+      alert(msg);
+    } else {
+      alert('⚠️ ' + (result?.error || 'Failed to send reminders'));
+    }
+  } catch(e) {
+    alert('❌ Error sending reminders: ' + e.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '📱 Send Reminders';
+  }
+}
+
+// Backfill cancel tokens for old bookings
+async function backfillTokens() {
+  if (!confirm('This will add cancel tokens to any old bookings that don\'t have one yet. Continue?')) return;
+  const btn = document.getElementById('backfillBtn');
+  btn.disabled = true;
+  btn.textContent = '🔗 Working...';
+  try {
+    const result = await apiFetch('/backfill-tokens', { method: 'POST' });
+    if (result && result.updated !== undefined) {
+      alert(`✅ ${result.updated} booking(s) updated with cancel tokens`);
+      loadBookings(); // reload to see the new tokens
+    } else {
+      alert('⚠️ ' + (result?.error || 'Failed to backfill tokens'));
+    }
+  } catch(e) {
+    alert('❌ Error: ' + e.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '🔗 Backfill Cancel Links';
+  }
+}
+
+// Auto-refresh every 30 seconds
+setInterval(() => { loadBookings(); loadWaitlist(); }, 30000);
+
+function openEdit(id) {
+  const p = passengers.find(x => x.id === id);
+  if (!p) return;
+  document.getElementById('editId').value = id;
+  document.getElementById('editName').value = p.name;
+  document.getElementById('editPhone').value = p.phone;
+  document.getElementById('editPassType').value = p.passType || 'adult';
+  document.getElementById('editFare').value = p.fare;
+  document.getElementById('editPay').value = p.pay;
+  document.getElementById('editPrice').value = p.price;
+  document.getElementById('editModal').style.display = 'flex';
+}
+
+function closeEdit() {
+  document.getElementById('editModal').style.display = 'none';
+}
+
+function autoPrice() {
+  const fare = document.getElementById('editFare').value;
+  const type = document.getElementById('editPassType').value;
+  // Use current game filter (best approximation while editing)
+  const game = document.getElementById('gameFilter')?.value || nextUpcomingGame() || homeGames[0];
+  document.getElementById('editPrice').value = priceFor(game, fare, type);
+}
+
+async function saveEdit() {
+  const id = parseInt(document.getElementById('editId').value);
+  const updates = {
+    name: document.getElementById('editName').value.trim(),
+    phone: document.getElementById('editPhone').value.trim(),
+    pass_type: document.getElementById('editPassType').value,
+    fare: document.getElementById('editFare').value,
+    pay: document.getElementById('editPay').value,
+    price: parseInt(document.getElementById('editPrice').value)
+  };
+  passengers = passengers.map(p => p.id === id ? {
+    ...p,
+    name: updates.name,
+    phone: updates.phone,
+    passType: updates.pass_type,
+    fare: updates.fare,
+    pay: updates.pay,
+    price: updates.price
+  } : p);
+  closeEdit();
+  renderTable();
+  renderStats();
+  try {
+    await apiFetch('/bookings/' + id, { method: 'PATCH', body: JSON.stringify(updates) });
+  } catch(e) { console.error('Edit error:', e); }
+}
+
+
+function changeManual(d) {
+  manualBookings = Math.max(0, manualBookings + d);
+  document.getElementById('manualInp').value = manualBookings;
+  saveManual();
+}
+
+function saveManual() {
+  manualBookings = Math.max(0, parseInt(document.getElementById('manualInp').value) || 0);
+  localStorage.setItem('bb_manual', manualBookings);
+  renderStats();
+}
+
+
+function renderCaptainView() {
+  if (userRole !== 'captain') return;
+
+  // Populate game filter
+  const sel = document.getElementById('captainGameFilter');
+  const prevVal = sel.value;
+  const bookedGames = passengers.map(p => p.game).filter(g => g && g !== 'Not specified');
+  const allGames = [...new Set([...homeGames, ...bookedGames])];
+  sel.innerHTML = '<option value="">— Select a game —</option>';
+  allGames.forEach(g => {
+    const opt = document.createElement('option');
+    opt.value = g; opt.textContent = g;
+    sel.appendChild(opt);
+  });
+  if (prevVal) {
+    sel.value = prevVal;
+  } else if (allGames.length > 0) {
+    // Prefer the next upcoming scheduled game; otherwise first game with bookings; otherwise first game
+    const next = nextUpcomingGame();
+    if (next && allGames.includes(next)) {
+      sel.value = next;
+    } else {
+      const gamesWithBookings = allGames.filter(g => passengers.some(p => p.game === g));
+      sel.value = gamesWithBookings.length > 0 ? gamesWithBookings[0] : allGames[0];
+    }
+  }
+
+  const game = sel.value;
+  const list = document.getElementById('captainList');
+  const countEl = document.getElementById('captainCount');
+
+  // Update stats
+  const statSet = game ? passengers.filter(p => p.game === game) : passengers;
+  const paid = statSet.filter(p => p.pay === 'card').reduce((s,p) => s+p.price, 0);
+  const cash = statSet.filter(p => p.pay === 'cash').reduce((s,p) => s+p.price, 0);
+  const boardedCount = statSet.filter(p => p.boarded).length;
+  document.getElementById('cTotal').textContent = statSet.length;
+  document.getElementById('cPaid').textContent = '$' + paid;
+  document.getElementById('cCash').textContent = '$' + cash;
+  document.getElementById('cBoarded').textContent = boardedCount + ' / ' + statSet.length;
+
+  // Show/hide reset button based on whether anyone is boarded
+  const resetBtn = document.getElementById('captainResetBtn');
+  if (resetBtn) resetBtn.style.display = boardedCount > 0 ? 'inline-block' : 'none';
+
+  if (!game) {
+    list.innerHTML = '<p style="color:var(--muted);font-family:Oswald,sans-serif;letter-spacing:2px;">SELECT A GAME TO SEE PASSENGERS</p>';
+    countEl.textContent = '';
+    return;
+  }
+
+  const filtered = passengers.filter(p => p.game === game);
+  countEl.textContent = filtered.length + ' passengers · ' + boardedCount + ' boarded';
+
+  if (!filtered.length) {
+    list.innerHTML = '<p style="color:var(--muted);font-family:Oswald,sans-serif;letter-spacing:2px;">NO PASSENGERS BOOKED YET</p>';
+    return;
+  }
+
+  // Split: not-yet-boarded at top, boarded at bottom
+  const waiting = filtered.filter(p => !p.boarded);
+  const onboard = filtered.filter(p => p.boarded);
+
+  list.innerHTML = '';
+
+  // Progress bar at the very top
+  const pct = filtered.length ? Math.round((boardedCount / filtered.length) * 100) : 0;
+  const bar = document.createElement('div');
+  bar.style.cssText = 'background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 20px;margin-bottom:16px;';
+  bar.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;">
+      <span style="font-family:'Anton',sans-serif;font-size:22px;letter-spacing:2px;">BOARDED</span>
+      <span style="font-family:'Anton',sans-serif;font-size:28px;color:var(--green);">${boardedCount} / ${filtered.length}</span>
+    </div>
+    <div style="background:var(--bg);border-radius:8px;height:12px;overflow:hidden;">
+      <div style="width:${pct}%;height:100%;background:var(--green);transition:width 0.3s;"></div>
+    </div>
+  `;
+  list.appendChild(bar);
+
+  // Helper to build a passenger card
+  function buildCard(p, i, boardedState) {
+    const div = document.createElement('div');
+    const fareTag = p.fare === 'return' ? '↩ RETURN' : p.fare === 'oneway_to' ? '→ TO GAME' : p.fare === 'oneway_from' ? '← RETURN ONLY' : '→ ONE WAY';
+    const faded = boardedState ? 'opacity:0.55;' : '';
+    const strike = boardedState ? 'text-decoration:line-through;text-decoration-color:rgba(255,255,255,0.4);' : '';
+    const borderColor = boardedState ? 'border:2px solid var(--green);background:rgba(34,197,94,0.08);' : 'border:1px solid var(--border);background:var(--card);';
+    div.style.cssText = `${borderColor}border-radius:14px;padding:14px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:10px;${faded}`;
+    div.innerHTML = `
+      <div style="font-family:Anton,sans-serif;font-size:26px;color:var(--muted);width:34px;text-align:center;">${i+1}</div>
+      <div style="flex:1;min-width:0;${strike}">
+        <div style="font-weight:700;font-size:20px;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${esc(p.name)}</div>
+        <div style="font-size:14px;color:var(--muted);">${p.passType === 'child' ? '👦 Child' : '🧑 Adult'} · ${fareTag} · <span onclick="event.stopPropagation(); editCaptainPrice(${p.id})" style="cursor:pointer;color:var(--gold);border-bottom:1px dashed var(--gold);padding-bottom:1px;" title="Tap to change price">$${p.price}</span></div>
+        ${p.phone ? `<div style="font-size:13px;color:var(--muted);margin-top:2px;">📱 ${esc(p.phone)}</div>` : ''}
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:stretch;flex:0 0 auto;width:clamp(130px,35%,160px);">
+        <button id="capBoard_${p.id}" onclick="toggleBoarded(${p.id})" style="font-family:'Anton',sans-serif;font-size:${boardedState ? '16px' : '20px'};padding:${boardedState ? '12px 14px' : '18px 14px'};border-radius:12px;border:none;cursor:pointer;letter-spacing:1.5px;white-space:nowrap;${boardedState ? 'background:rgba(34,197,94,0.2);color:var(--green);border:1px solid rgba(34,197,94,0.4);' : 'background:var(--green);color:#000;'}">
+          ${boardedState ? '✓ BOARDED · TAP TO UNDO' : '⛵ TAP TO BOARD'}
+        </button>
+        <div style="display:flex;gap:6px;">
+          <span id="capPay_${p.id}" onclick="togglePay(${p.id})" style="flex:1;font-family:Oswald,sans-serif;font-size:13px;padding:8px 10px;border-radius:8px;border:1px solid;cursor:pointer;text-align:center;white-space:nowrap;${p.pay === 'card' ? 'color:var(--green);border-color:rgba(34,197,94,0.5);background:var(--green-dim)' : 'color:var(--gold);border-color:rgba(240,180,41,0.5);background:rgba(240,180,41,0.1)'}">
+            ${p.pay === 'card' ? '✅ PAID' : '💵 NOT PAID'}
+          </span>
+          <button onclick="captainDelete(${p.id}, '${esc(p.name).replace(/'/g, "\\'")}')" style="font-family:Oswald,sans-serif;font-size:12px;padding:6px 10px;border-radius:8px;border:1px solid rgba(255,60,60,0.3);background:rgba(255,60,60,0.1);color:#ff6666;cursor:pointer;letter-spacing:1px;">✕</button>
+        </div>
+      </div>
+    `;
+    return div;
+  }
+
+  // Not-yet-boarded section
+  if (waiting.length) {
+    const header = document.createElement('div');
+    header.style.cssText = 'font-family:Anton,sans-serif;font-size:16px;letter-spacing:3px;color:var(--muted);margin:8px 0 10px;';
+    header.textContent = `WAITING TO BOARD · ${waiting.length}`;
+    list.appendChild(header);
+    waiting.forEach((p, i) => list.appendChild(buildCard(p, i, false)));
+  }
+
+  // Boarded section (faded)
+  if (onboard.length) {
+    const header = document.createElement('div');
+    header.style.cssText = 'font-family:Anton,sans-serif;font-size:16px;letter-spacing:3px;color:var(--green);margin:24px 0 10px;padding-top:16px;border-top:1px solid var(--border);';
+    header.textContent = `✓ ON BOARD · ${onboard.length}`;
+    list.appendChild(header);
+    onboard.forEach((p, i) => list.appendChild(buildCard(p, waiting.length + i, true)));
+  }
+}
+
+async function togglePay(id) {
+  const p = passengers.find(x => x.id === id);
+  if (!p) return;
+  const badge = document.getElementById('capPay_' + id);
+  if (!badge) return;
+
+  const newPay = p.pay === 'cash' ? 'card' : 'cash';
+  badge.textContent = '⏳ Saving...';
+  badge.style.pointerEvents = 'none';
+
+  try {
+    await apiFetch('/bookings/' + id, { method: 'PATCH', body: JSON.stringify({ pay: newPay }) });
+    p.pay = newPay;
+    renderCaptainView();
+  } catch(e) {
+    badge.textContent = p.pay === 'card' ? '✅ Paid' : '💵 TAP WHEN PAID';
+    badge.style.pointerEvents = 'auto';
+  }
+}
+
+async function toggleBoarded(id) {
+  const p = passengers.find(x => x.id === id);
+  if (!p) return;
+  const btn = document.getElementById('capBoard_' + id);
+  if (!btn) return;
+
+  const prevText = btn.textContent;
+  const newBoarded = !p.boarded;
+  btn.textContent = '⏳ Saving...';
+  btn.style.pointerEvents = 'none';
+
+  try {
+    const updated = await apiFetch('/bookings/' + id + '/board', {
+      method: 'POST',
+      body: JSON.stringify({ boarded: newBoarded })
+    });
+    if (updated) {
+      p.boarded = !!updated.boarded;
+      p.boardedAt = updated.boarded_at || null;
+    } else {
+      // fallback if /board endpoint 404s on old worker
+      await apiFetch('/bookings/' + id, { method: 'PATCH', body: JSON.stringify({ boarded: newBoarded }) });
+      p.boarded = newBoarded;
+    }
+    // Haptic feedback if available
+    if (navigator.vibrate) navigator.vibrate(newBoarded ? [30, 30, 30] : 15);
+    renderCaptainView();
+  } catch(e) {
+    btn.textContent = prevText;
+    btn.style.pointerEvents = 'auto';
+    alert('Could not save. Check connection and try again.');
+  }
+}
+
+async function captainResetBoarding() {
+  const game = document.getElementById('captainGameFilter').value;
+  if (!game) { alert('Select a game first'); return; }
+  const boardedNow = passengers.filter(p => p.game === game && p.boarded).length;
+  if (!boardedNow) return;
+  if (!confirm(`Reset boarding for all ${boardedNow} passengers on ${game}? Use this after the game ends.`)) return;
+  try {
+    await apiFetch('/bookings/reset-boarded', { method: 'POST', body: JSON.stringify({ game }) });
+    await loadBookings();
+  } catch(e) {
+    alert('Reset failed. Try again.');
+  }
+}
+
+async function editCaptainPrice(id) {
+  const p = passengers.find(x => x.id === id);
+  if (!p) return;
+  const raw = prompt(`Change price for ${p.name}\n(currently $${p.price})\n\nEnter new price:`, p.price);
+  if (raw === null) return; // cancelled
+  const price = parseFloat(String(raw).replace(/[^0-9.]/g, ''));
+  if (isNaN(price) || price < 0) { alert('⚠ Invalid price'); return; }
+  if (price === p.price) return; // no change
+  try {
+    await apiFetch('/bookings/' + id, { method: 'PATCH', body: JSON.stringify({ price }) });
+    p.price = price;
+    renderCaptainView();
+  } catch(e) {
+    alert('Could not save. Check connection and try again.');
+  }
+}
+
+async function captainDelete(id, name) {
+  if (!confirm(`Remove ${name} from the list?`)) return;
+  try {
+    await apiFetch('/bookings/' + id, { method: 'DELETE' });
+    await loadBookings();
+  } catch(e) {
+    alert('Failed to remove — try again');
+  }
+}
+
+// ── QUICK ADD BOOKING (walk-ups at the pier) ──
+function toggleQuickAdd() {
+  const form = document.getElementById('quickAddForm');
+  const isHidden = form.style.display === 'none';
+  form.style.display = isHidden ? 'block' : 'none';
+  if (isHidden) {
+    populateQaGame();
+    qaAutoPrice();
+    document.getElementById('qaName').focus();
+  }
+}
+
+function populateQaGame() {
+  const sel = document.getElementById('qaGame');
+  sel.innerHTML = '';
+  // Use the current game filter if one is selected, otherwise show all games
+  const currentFilter = document.getElementById('gameFilter').value;
+  if (currentFilter) {
+    const opt = document.createElement('option');
+    opt.value = currentFilter;
+    opt.textContent = currentFilter;
+    sel.appendChild(opt);
+  } else {
+    const allGames = [...new Set([...homeGames, ...passengers.map(p => p.game)])].filter(g => g && g !== 'Not specified');
+    allGames.forEach(g => {
+      const opt = document.createElement('option');
+      opt.value = g; opt.textContent = g;
+      sel.appendChild(opt);
+    });
+  }
+}
+
+function qaAutoPrice() {
+  const fare = document.getElementById('qaFare').value;
+  const type = document.getElementById('qaType').value;
+  const game = document.getElementById('qaGame')?.value || document.getElementById('gameFilter')?.value || nextUpcomingGame() || homeGames[0];
+  document.getElementById('qaPrice').value = priceFor(game, fare, type);
+}
+
+async function submitQuickAdd() {
+  const name = document.getElementById('qaName').value.trim();
+  const phone = document.getElementById('qaPhone').value.trim();
+  const game = document.getElementById('qaGame').value;
+  const fare = document.getElementById('qaFare').value;
+  const pass_type = document.getElementById('qaType').value;
+  const pay = document.getElementById('qaPay').value;
+  const price = parseFloat(document.getElementById('qaPrice').value) || 0;
+  const resultEl = document.getElementById('qaResult');
+
+  if (!name) { resultEl.innerHTML = '<span style="color:var(--red);">⚠ Enter a name</span>'; return; }
+  if (!game) { resultEl.innerHTML = '<span style="color:var(--red);">⚠ Select a game</span>'; return; }
+
+  resultEl.innerHTML = '<span style="color:var(--gold);">Adding...</span>';
+
+  try {
+    const res = await fetch(API_URL + '/bookings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Api-Key': API_KEY },
+      body: JSON.stringify({ name, phone, game, fare, pass_type, pay, price })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      resultEl.innerHTML = `<span style="color:var(--green);">✅ ${name} added!</span>`;
+      // Clear name and phone for next entry, keep game/fare/type/pay
+      document.getElementById('qaName').value = '';
+      document.getElementById('qaPhone').value = '';
+      document.getElementById('qaName').focus();
+      // Reload bookings to refresh table
+      await loadBookings();
+    } else {
+      resultEl.innerHTML = `<span style="color:var(--red);">⚠ ${data.error || 'Failed to add'}</span>`;
+    }
+  } catch(e) {
+    resultEl.innerHTML = `<span style="color:var(--red);">⚠ Error: ${e.message}</span>`;
+  }
+}
+
+// ── CAPTAIN QUICK ADD (big & simple) ──
+function toggleCaptainAdd() {
+  const form = document.getElementById('captainAddForm');
+  const btn = document.getElementById('captainAddBtn');
+  const isHidden = form.style.display === 'none';
+  form.style.display = isHidden ? 'block' : 'none';
+  btn.style.display = isHidden ? 'none' : 'block';
+  if (isHidden) {
+    caAutoPrice();
+    document.getElementById('caName').focus();
+  }
+}
+
+function caAutoPrice() {
+  const fare = document.getElementById('caFare').value;
+  const type = document.getElementById('caType').value;
+  const game = document.getElementById('captainGameFilter')?.value || nextUpcomingGame() || homeGames[0];
+  document.getElementById('caPrice').value = priceFor(game, fare, type);
+}
+
+async function submitCaptainAdd() {
+  const name = document.getElementById('caName').value.trim();
+  const phone = document.getElementById('caPhone').value.trim();
+  const game = document.getElementById('captainGameFilter').value; // use whatever game is selected
+  const fare = document.getElementById('caFare').value;
+  const pass_type = document.getElementById('caType').value;
+  const pay = document.getElementById('caPay').value;
+  const price = parseFloat(document.getElementById('caPrice').value) || 0;
+  const resultEl = document.getElementById('caResult');
+
+  if (!name) { resultEl.innerHTML = '<span style="color:var(--red);font-size:18px;">⚠ Enter a name</span>'; return; }
+  if (!game) { resultEl.innerHTML = '<span style="color:var(--red);font-size:18px;">⚠ Select a game first</span>'; return; }
+
+  resultEl.innerHTML = '<span style="color:var(--gold);font-size:18px;">Adding...</span>';
+
+  try {
+    const res = await fetch(API_URL + '/bookings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Api-Key': API_KEY },
+      body: JSON.stringify({ name, phone, game, fare, pass_type, pay, price })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      resultEl.innerHTML = `<span style="color:var(--green);font-size:18px;">✅ ${name} added!</span>`;
+      document.getElementById('caName').value = '';
+      document.getElementById('caPhone').value = '';
+      document.getElementById('caName').focus();
+      // Reload to refresh the list
+      await loadBookings();
+    } else {
+      resultEl.innerHTML = `<span style="color:var(--red);font-size:18px;">⚠ ${data.error || 'Failed to add'}</span>`;
+    }
+  } catch(e) {
+    resultEl.innerHTML = `<span style="color:var(--red);font-size:18px;">⚠ Error: ${e.message}</span>`;
+  }
+}
+
+// ── PRINT MANIFEST ──
+function printManifest() {
+  window.print();
+}
+
+// ── BROADCAST SMS ──
+function showBroadcastModal() {
+  const game = document.getElementById('gameFilter').value;
+  if (!game) { alert('Please select a specific game first (not "All Games")'); return; }
+  const count = passengers.filter(p => p.game === game && p.phone).length;
+  document.getElementById('broadcastGameInfo').textContent = `${game} — ${count} passengers with phone numbers`;
+  document.getElementById('broadcastMsg').value = '';
+  document.getElementById('broadcastResult').textContent = '';
+  document.getElementById('broadcastSendBtn').disabled = false;
+  document.getElementById('broadcastSendBtn').textContent = 'SEND TO ALL';
+  const modal = document.getElementById('broadcastModal');
+  modal.style.display = 'flex';
+}
+function closeBroadcastModal() {
+  document.getElementById('broadcastModal').style.display = 'none';
+}
+async function sendBroadcast() {
+  const game = document.getElementById('gameFilter').value;
+  const msg = document.getElementById('broadcastMsg').value.trim();
+  if (!msg) { document.getElementById('broadcastResult').textContent = 'Please enter a message'; return; }
+  if (!game) return;
+  const btn = document.getElementById('broadcastSendBtn');
+  btn.disabled = true;
+  btn.textContent = 'SENDING...';
+  try {
+    const result = await apiFetch('/broadcast', {
+      method: 'POST',
+      body: JSON.stringify({ game, message: msg })
+    });
+    if (result) {
+      document.getElementById('broadcastResult').innerHTML = `<span style="color:var(--green);">✅ Sent to ${result.sent} of ${result.total} passengers</span>`;
+      btn.textContent = '✅ SENT';
+    } else {
+      document.getElementById('broadcastResult').innerHTML = '<span style="color:var(--red);">Failed to send — check Twilio config</span>';
+      btn.textContent = 'SEND TO ALL';
+      btn.disabled = false;
+    }
+  } catch(e) {
+    document.getElementById('broadcastResult').innerHTML = '<span style="color:var(--red);">Error: ' + e.message + '</span>';
+    btn.textContent = 'SEND TO ALL';
+    btn.disabled = false;
+  }
+}
+
+// ── WAITLIST MANAGEMENT ──
+let waitlistData = [];
+
+async function loadWaitlist() {
+  const data = await apiFetch('/waitlist');
+  if (data) {
+    // Bomber returns {waitlist:[...]}; bulldogs returned {results:[...]} or bare array
+    waitlistData = Array.isArray(data) ? data : (data.waitlist || data.results || []);
+    renderWaitlist();
+  }
+}
+
+function renderWaitlist() {
+  const section = document.getElementById('waitlistSection');
+  const list = document.getElementById('waitlistList');
+  const countEl = document.getElementById('waitlistCount');
+
+  // Only show for admin
+  if (userRole !== 'admin') { section.style.display = 'none'; return; }
+
+  if (!waitlistData.length) {
+    section.style.display = 'block';
+    countEl.textContent = '(0)';
+    list.innerHTML = '<p style="color:var(--muted); text-align:center; padding:12px;">No one on the waitlist</p>';
+    return;
+  }
+
+  section.style.display = 'block';
+  countEl.textContent = `(${waitlistData.length})`;
+
+  list.innerHTML = waitlistData.map(w => {
+    const time = new Date(w.created_at).toLocaleString('en-AU', { day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit' });
+    const gameShort = w.game.replace(/Round \d+ — \d+ \w+ \d+ vs /, 'vs ').replace(/\s*\(.*\)/, '');
+    return `<div style="display:flex; justify-content:space-between; align-items:center; padding:10px 12px; border-bottom:1px solid var(--border);">
+      <div>
+        <strong style="color:var(--white);">${esc(w.name)}</strong>
+        <span style="color:var(--muted); font-size:13px; margin-left:8px;">📱 ${esc(w.phone)}</span>
+        <span style="color:var(--gold); font-size:13px; margin-left:8px;">${gameShort}</span>
+        <span style="color:var(--muted); font-size:12px; margin-left:8px;">${time}</span>
+      </div>
+      <button onclick="removeWaitlist(${w.id})" style="background:none; border:1px solid rgba(255,255,255,0.15); border-radius:6px; color:var(--muted); cursor:pointer; padding:4px 10px; font-size:12px;">✕ Remove</button>
+    </div>`;
+  }).join('');
+}
+
+async function removeWaitlist(id) {
+  if (!confirm('Remove this person from the waitlist?')) return;
+  await apiFetch('/waitlist/' + id, { method: 'DELETE' });
+  loadWaitlist();
+}
+
+</script>
+
+  </div><!-- /admTabBookings -->
+
+  <!-- TAB: GAMES -->
+  <div class="adm-tab-panel" id="admTabGames">
+    <div style="padding:24px;">
+      <h2 style="font-family:Anton,sans-serif;font-size:24px;letter-spacing:2px;margin:0 0 6px;color:var(--white);">GAME SCHEDULE</h2>
+      <p style="color:var(--muted);font-family:Barlow,sans-serif;font-size:14px;margin:0 0 18px;">Toggle games on/off, assign vessels, edit capacity + fare mode.</p>
+      <div id="gamesTabList" style="display:flex;flex-direction:column;gap:10px;"></div>
+    </div>
+  </div>
+
+  <!-- TAB: BOATS -->
+  <div class="adm-tab-panel" id="admTabBoats">
+    <div style="padding:24px;">
+      <h2 style="font-family:Anton,sans-serif;font-size:24px;letter-spacing:2px;margin:0 0 6px;color:var(--white);">FLEET</h2>
+      <p style="color:var(--muted);font-family:Barlow,sans-serif;font-size:14px;margin:0 0 18px;">Your 5 vessels. Rename, resize, delete — changes save on blur.</p>
+      <div id="boatsTabList" style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px;"></div>
+      <div style="display:flex;gap:8px;max-width:460px;">
+        <input id="newBoatNameT" placeholder="New vessel name" style="flex:2;background:var(--bg2);border:1.5px solid var(--border);border-radius:8px;padding:10px;color:var(--white);font-size:14px;">
+        <input id="newBoatCapT" placeholder="Cap" type="number" min="1" value="60" style="width:70px;background:var(--bg2);border:1.5px solid var(--border);border-radius:8px;padding:10px;color:var(--white);font-size:14px;text-align:center;">
+        <button onclick="addBoatFromTab()" style="padding:10px 16px;background:var(--green);border:none;border-radius:8px;color:#000;font-family:Oswald,sans-serif;font-size:13px;letter-spacing:2px;cursor:pointer;font-weight:700;">+ ADD VESSEL</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: COPY -->
+  <!-- TAB: INTEREST (register-interest list) -->
+  <div class="adm-tab-panel" id="admTabInterest">
+    <div style="padding:24px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
+        <div>
+          <h2 style="font-family:Anton,sans-serif;font-size:24px;letter-spacing:2px;margin:0;color:var(--white);">REGISTER INTEREST</h2>
+          <p style="color:var(--muted);font-family:Barlow,sans-serif;font-size:13px;margin:4px 0 0;">People who want a boat to a specific Marvel/MCG/other game.</p>
+        </div>
+        <button onclick="loadInterest()" style="background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--white);padding:10px 18px;border-radius:8px;cursor:pointer;font-family:Oswald,sans-serif;font-size:12px;letter-spacing:1.5px;">🔄 REFRESH</button>
+      </div>
+
+      <!-- Game-clusters summary -->
+      <div id="interestClusters" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:24px;"></div>
+
+      <!-- Full table -->
+      <h3 style="font-family:Oswald,sans-serif;font-size:13px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin:24px 0 10px;">All entries</h3>
+      <div style="overflow-x:auto;background:var(--card);border:1px solid var(--border);border-radius:10px;">
+        <table style="width:100%;border-collapse:collapse;font-family:Barlow,sans-serif;font-size:13px;">
+          <thead>
+            <tr style="background:rgba(255,255,255,0.03);text-align:left;">
+              <th style="padding:12px;color:var(--muted);font-family:Oswald,sans-serif;font-size:11px;letter-spacing:1.5px;">WHEN</th>
+              <th style="padding:12px;color:var(--muted);font-family:Oswald,sans-serif;font-size:11px;letter-spacing:1.5px;">VENUE</th>
+              <th style="padding:12px;color:var(--muted);font-family:Oswald,sans-serif;font-size:11px;letter-spacing:1.5px;">GAME</th>
+              <th style="padding:12px;color:var(--muted);font-family:Oswald,sans-serif;font-size:11px;letter-spacing:1.5px;">NAME</th>
+              <th style="padding:12px;color:var(--muted);font-family:Oswald,sans-serif;font-size:11px;letter-spacing:1.5px;">EMAIL</th>
+              <th style="padding:12px;color:var(--muted);font-family:Oswald,sans-serif;font-size:11px;letter-spacing:1.5px;">PAX</th>
+              <th style="padding:12px;color:var(--muted);font-family:Oswald,sans-serif;font-size:11px;letter-spacing:1.5px;"></th>
+            </tr>
+          </thead>
+          <tbody id="interestTbody"></tbody>
+        </table>
+      </div>
+      <div id="interestEmpty" style="padding:24px;text-align:center;color:var(--muted);font-family:Barlow,sans-serif;font-style:italic;display:none;">No interest entries yet — share the site on Facebook!</div>
+    </div>
+  </div>
+
+  <div class="adm-tab-panel" id="admTabCopy">
+    <div style="padding:24px;">
+      <h2 style="font-family:Anton,sans-serif;font-size:24px;letter-spacing:2px;margin:0 0 6px;color:var(--white);">ON-SCREEN COPY</h2>
+      <p style="color:var(--muted);font-family:Barlow,sans-serif;font-size:14px;margin:0 0 18px;">Edit public site copy. Changes save when you click away.</p>
+      <div id="copyTabFields" style="display:flex;flex-direction:column;gap:14px;max-width:720px;"></div>
+      <button onclick="saveCopyFields()" style="margin-top:16px;padding:12px 24px;background:var(--green);border:none;border-radius:10px;color:#000;font-family:Anton,sans-serif;font-size:16px;letter-spacing:2px;cursor:pointer;">💾 SAVE COPY</button>
+      <div id="copyResult" style="margin-top:12px;font-size:13px;"></div>
+    </div>
+  </div>
+
+  <script>
+  // ── Tab switching ──
+  function switchAdmTab(name) {
+    document.querySelectorAll('.adm-tabs button').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+    document.querySelectorAll('.adm-tab-panel').forEach(p => p.classList.toggle('active', p.id === 'admTab' + name.charAt(0).toUpperCase() + name.slice(1)));
+    if (name === 'games') loadGamesTab();
+    if (name === 'boats') loadBoatsTab();
+    if (name === 'copy') loadCopyTab();
+  }
+
+  // ── Games tab ──
+  async function loadGamesTab() {
+    try {
+      await loadScheduleCacheForBoats();
+      if (!window.BOATS_CACHE || !window.BOATS_CACHE.length) await loadBoats();
+      const list = document.getElementById('gamesTabList');
+      if (!list) return;
+      const games = Object.values(window.SCHEDULE_CACHE || {});
+      if (!games.length) { list.innerHTML = '<div style="color:var(--muted);">No games defined. Ask admin to seed game_settings.</div>'; return; }
+      list.innerHTML = games.map(g => {
+        const assigned = g.boats || [];
+        const assignedIds = new Set(assigned.map(b => b.id));
+        const unassignedBoats = (window.BOATS_CACHE||[]).filter(b => !assignedIds.has(b.id));
+        const fleetCap = assigned.reduce((s,b) => s + (b.capacity||0), 0);
+        return `
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;">
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px;">
+            <div style="flex:2;min-width:220px;">
+              <div style="font-family:Anton,sans-serif;font-size:16px;letter-spacing:1px;color:var(--white);">${esc(g.game)}</div>
+              <div style="font-family:Oswald,sans-serif;font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:2px;">
+                Cap ${g.capacity}${fleetCap ? ' · fleet '+fleetCap : ''} · ${g.booked||0} booked · ${g.active?'<span style=\"color:#22c55e\">ACTIVE</span>':'<span style=\"color:#888\">off</span>'}
+              </div>
+            </div>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;">
+              <input type="checkbox" ${g.active?'checked':''} onchange="toggleGameActive('${encodeURIComponent(g.game)}', this.checked)" style="width:20px;height:20px;accent-color:var(--green);">
+              <span style="font-family:Oswald,sans-serif;font-size:12px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;">Active</span>
+            </label>
+            <select onchange="setGameFareMode('${encodeURIComponent(g.game)}', this.value)" style="background:var(--bg2);border:1.5px solid var(--border);border-radius:8px;padding:8px 10px;color:var(--white);font-family:Barlow,sans-serif;font-size:13px;min-width:140px;">
+              <option value="both" ${g.fare_mode==='both'?'selected':''}>All fares</option>
+              <option value="return_only" ${g.fare_mode==='return_only'?'selected':''}>Return only</option>
+              <option value="oneway_to_only" ${g.fare_mode==='oneway_to_only'?'selected':''}>One-way only</option>
+            </select>
+            <label style="display:flex;align-items:center;gap:6px;">
+              <span style="font-family:Oswald,sans-serif;font-size:11px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;">Cap</span>
+              <input type="number" min="1" value="${g.capacity}" onchange="setGameCapacity('${encodeURIComponent(g.game)}', parseInt(this.value)||60)" style="width:72px;background:var(--bg2);border:1.5px solid var(--border);border-radius:8px;padding:8px;color:var(--white);font-family:Barlow,sans-serif;font-size:13px;text-align:center;">
+            </label>
+            <button onclick="openFaresForGame('${encodeURIComponent(g.game)}')" style="background:rgba(240,180,41,0.12);border:1px solid rgba(240,180,41,0.4);color:var(--gold);padding:8px 12px;border-radius:8px;font-family:Oswald,sans-serif;font-size:12px;letter-spacing:1.5px;cursor:pointer;">💲 Prices</button>
+          </div>
+          <!-- Multi-boat chips -->
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding-top:10px;border-top:1px solid rgba(255,255,255,0.06);">
+            <span style="font-family:Oswald,sans-serif;font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;">⛵ Vessels:</span>
+            ${assigned.length
+              ? assigned.map(b => `
+                <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 10px;background:rgba(240,180,41,0.12);border:1px solid rgba(240,180,41,0.4);border-radius:20px;font-family:Barlow,sans-serif;font-size:13px;color:var(--gold);">
+                  ${b.emoji||'⛵'} ${esc(b.name)} <small style="opacity:.7;">(cap ${b.capacity})</small>
+                  <button onclick="unassignBoatFromGame('${encodeURIComponent(g.game)}', ${b.id})" style="background:transparent;border:none;color:var(--gold);cursor:pointer;font-size:16px;line-height:1;padding:0 2px;" title="Remove">✕</button>
+                </span>`).join('')
+              : '<span style="color:var(--muted);font-family:Barlow,sans-serif;font-size:13px;font-style:italic;">none assigned</span>'
+            }
+            ${unassignedBoats.length ? `
+              <select onchange="if(this.value) addBoatToGame('${encodeURIComponent(g.game)}', parseInt(this.value)); this.value='';" style="background:var(--bg2);border:1.5px solid var(--border);border-radius:8px;padding:6px 10px;color:var(--white);font-family:Barlow,sans-serif;font-size:13px;">
+                <option value="">+ Add vessel…</option>
+                ${unassignedBoats.map(b => `<option value="${b.id}">${b.emoji||'⛵'} ${esc(b.name)} · cap ${b.capacity}</option>`).join('')}
+              </select>` : '<span style="color:var(--muted);font-family:Barlow,sans-serif;font-size:12px;">all 5 assigned</span>'
+            }
+          </div>
+        </div>
+      `}).join('');
+    } catch(e) { console.error('loadGamesTab', e); }
+  }
+  async function toggleGameActive(gameEnc, active) {
+    try { await apiFetch('/game-settings', { method:'POST', body: JSON.stringify({ game:decodeURIComponent(gameEnc), active: active?1:0 }) });
+      flashToast(active?'✅ Game activated':'⏸ Game deactivated');
+      loadGamesTab();
+    } catch(e) { alert('Failed: ' + e.message); }
+  }
+  async function assignBoatToGame(gameEnc, boatId) {
+    try { await apiFetch('/game-settings', { method:'POST', body: JSON.stringify({ game:decodeURIComponent(gameEnc), boat_id: boatId? parseInt(boatId):0 }) });
+      flashToast(boatId?'⚓ Vessel assigned':'Vessel cleared');
+    } catch(e) { alert('Failed: ' + e.message); }
+  }
+  async function setGameFareMode(gameEnc, fm) {
+    try { await apiFetch('/game-settings', { method:'POST', body: JSON.stringify({ game:decodeURIComponent(gameEnc), fare_mode: fm }) });
+      flashToast('Fare mode: ' + fm);
+    } catch(e) { alert('Failed: ' + e.message); }
+  }
+  async function setGameCapacity(gameEnc, cap) {
+    try { await apiFetch('/game-settings', { method:'POST', body: JSON.stringify({ game:decodeURIComponent(gameEnc), capacity: cap }) });
+      flashToast('Capacity: ' + cap);
+    } catch(e) { alert('Failed: ' + e.message); }
+  }
+  function openFaresForGame(gameEnc) {
+    const game = decodeURIComponent(gameEnc);
+    // Select this game in the main filter then open fares editor
+    const filter = document.getElementById('gameFilter');
+    if (filter) { filter.value = game; }
+    openFaresEditor();
+  }
+
+  // ── Boats tab ──
+  async function loadBoatsTab() {
+    if (!window.BOATS_CACHE || !window.BOATS_CACHE.length) await loadBoats();
+    await loadScheduleCacheForBoats();
+    const list = document.getElementById('boatsTabList');
+    if (!list) return;
+    // Build a map of which games use each boat
+    const boatGames = {};
+    for (const g of Object.values(window.SCHEDULE_CACHE||{})) {
+      if (g.boat_id) {
+        boatGames[g.boat_id] = boatGames[g.boat_id] || [];
+        boatGames[g.boat_id].push(g.game.split('—')[0].trim());
+      }
+    }
+    list.innerHTML = (window.BOATS_CACHE||[]).map(b => `
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+        <input value="${esc(b.emoji||'⛵')}" onchange="updateBoat(${b.id}, {emoji:this.value})" style="width:52px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:8px;color:white;font-size:18px;text-align:center;">
+        <input value="${esc(b.name)}" onchange="updateBoat(${b.id}, {name:this.value})" style="flex:2;min-width:180px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:8px 12px;color:white;font-size:14px;">
+        <div style="display:flex;align-items:center;gap:6px;">
+          <span style="font-family:Oswald,sans-serif;font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;">Cap</span>
+          <input type="number" min="1" value="${b.capacity}" onchange="updateBoat(${b.id}, {capacity:parseInt(this.value)||60})" style="width:64px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:8px;color:white;font-size:14px;text-align:center;">
+        </div>
+        <div style="flex:2;min-width:180px;font-family:Barlow,sans-serif;font-size:12px;color:var(--muted);">
+          ${boatGames[b.id] ? '🎯 ' + boatGames[b.id].join(', ') : '<span style="opacity:.5">Not assigned to any game</span>'}
+        </div>
+        <button onclick="deleteBoat(${b.id}).then(loadBoatsTab)" style="background:var(--red);border:none;border-radius:8px;color:#fff;padding:8px 12px;font-size:12px;cursor:pointer;">🗑</button>
+      </div>
+    `).join('');
+  }
+  async function addBoatFromTab() {
+    const name = document.getElementById('newBoatNameT').value.trim();
+    const capacity = parseInt(document.getElementById('newBoatCapT').value) || 60;
+    if (!name) { alert('Name required'); return; }
+    const r = await apiFetch('/boats', { method:'POST', body: JSON.stringify({ name, capacity, emoji:'⛵' }) });
+    if (r && r.boat) window.BOATS_CACHE.push(r.boat);
+    document.getElementById('newBoatNameT').value='';
+    document.getElementById('newBoatCapT').value=60;
+    loadBoatsTab();
+  }
+
+  // ── Copy tab (editable site content stored in localStorage + /api/site-copy if available) ──
+  const COPY_FIELDS = [
+    { key:'hero_tagline', label:'Hero tagline', placeholder:'THE BOMBERS FAN BOAT TO MARVEL STADIUM' },
+    { key:'depart_info',  label:'Departure info', placeholder:'Depart 1.5 hrs before bounce · Return ~30 min after final siren' },
+    { key:'perk_1',       label:'Perk 1', placeholder:'✈️ 1.5 HOUR CRUISE' },
+    { key:'perk_2',       label:'Perk 2', placeholder:'🍺 BAR PRICES' },
+    { key:'perk_3',       label:'Perk 3', placeholder:'💳 CARD PAYMENT VIA STRIPE' },
+  ];
+  function loadCopyTab() {
+    const wrap = document.getElementById('copyTabFields');
+    if (!wrap) return;
+    const saved = JSON.parse(localStorage.getItem('bb_copy') || '{}');
+    wrap.innerHTML = COPY_FIELDS.map(f => `
+      <div>
+        <div style="font-family:Oswald,sans-serif;font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:4px;">${f.label}</div>
+        <input id="copy_${f.key}" value="${esc(saved[f.key] || '')}" placeholder="${esc(f.placeholder)}" style="width:100%;background:var(--bg2);border:1.5px solid var(--border);border-radius:8px;padding:10px 12px;color:white;font-family:Barlow,sans-serif;font-size:14px;">
+      </div>
+    `).join('');
+  }
+  function saveCopyFields() {
+    const out = {};
+    for (const f of COPY_FIELDS) out[f.key] = document.getElementById('copy_' + f.key).value.trim();
+    localStorage.setItem('bb_copy', JSON.stringify(out));
+    const r = document.getElementById('copyResult');
+    r.innerHTML = '<span style="color:#22c55e;">✅ Saved locally. Currently these edits only apply to your browser — site-wide copy editing is still TODO (needs server storage).</span>';
+    setTimeout(() => r.innerHTML='', 5000);
+  }
+  </script>
+
+  <!-- EDIT PASSENGER MODAL -->
+<div id="editModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);z-index:500;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;max-width:460px;width:100%;box-shadow:0 24px 80px rgba(0,0,0,0.6);">
+    <div style="font-family:'Anton',sans-serif;font-size:22px;letter-spacing:2px;color:var(--gold);margin-bottom:20px;">✏️ EDIT PASSENGER</div>
+    <input type="hidden" id="editId">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+      <div>
+        <div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Name</div>
+        <input id="editName" type="text" style="width:100%;background:var(--bg2);border:1.5px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:'Barlow',sans-serif;font-size:14px;outline:none;">
+      </div>
+      <div>
+        <div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Phone</div>
+        <input id="editPhone" type="text" style="width:100%;background:var(--bg2);border:1.5px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:'Barlow',sans-serif;font-size:14px;outline:none;">
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+      <div>
+        <div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Type</div>
+        <select id="editPassType" onchange="autoPrice()" style="width:100%;background:var(--bg2);border:1.5px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:'Barlow',sans-serif;font-size:14px;outline:none;">
+          <option value="adult">🧑 Adult</option>
+          <option value="child">👦 Child</option>
+        </select>
+      </div>
+      <div>
+        <div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Fare</div>
+        <select id="editFare" onchange="autoPrice()" style="width:100%;background:var(--bg2);border:1.5px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:'Barlow',sans-serif;font-size:14px;outline:none;">
+          <option value="return">↩ Return</option>
+          <option value="oneway_to">→ One Way to Game</option>
+          <option value="oneway_from">← One Way Return</option>
+        </select>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+      <div>
+        <div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Payment</div>
+        <select id="editPay" style="width:100%;background:var(--bg2);border:1.5px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:'Barlow',sans-serif;font-size:14px;outline:none;">
+          <option value="card">💳 Paid Online</option>
+          <option value="cash">💵 Cash on Day</option>
+        </select>
+      </div>
+      <div>
+        <div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Price ($)</div>
+        <input id="editPrice" type="number" style="width:100%;background:var(--bg2);border:1.5px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:'Barlow',sans-serif;font-size:14px;outline:none;">
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;">
+      <button onclick="saveEdit()" style="flex:1;padding:14px;background:linear-gradient(135deg,var(--red),var(--red-dark));border:none;border-radius:8px;color:white;font-family:'Anton',sans-serif;font-size:18px;letter-spacing:2px;cursor:pointer;">SAVE</button>
+      <button onclick="closeEdit()" style="padding:14px 20px;background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--muted);font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:2px;cursor:pointer;">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- CAPTAIN VIEW -->
+<div id="captainView" style="display:none;">
+  <div class="admin-header">
+    <div class="admin-header-left">
+      <span style="font-size:28px">⛵</span>
+      <div class="admin-title">BOMBER BOAT</div>
+      <div class="admin-badge" style="background:#CC2031;">CAPTAIN</div>
+    </div>
+    <div style="display:flex;gap:8px;">
+      <button onclick="printManifest()" style="background:var(--card);border:1px solid var(--border);color:white;padding:8px 16px;border-radius:8px;cursor:pointer;font-family:Oswald,sans-serif;font-size:13px;letter-spacing:1px;">🖨 PRINT LIST</button>
+      <button onclick="openFaresEditor()" style="background:rgba(240,180,41,0.1);border:1px solid rgba(240,180,41,0.5);color:var(--gold);padding:8px 16px;border-radius:8px;cursor:pointer;font-family:Oswald,sans-serif;font-size:13px;letter-spacing:1px;">💲 EDIT FARES</button>
+      <button id="captainResetBtn" onclick="captainResetBoarding()" style="display:none;background:rgba(255,60,60,0.1);border:1px solid rgba(255,60,60,0.4);color:#ff6666;padding:8px 16px;border-radius:8px;cursor:pointer;font-family:Oswald,sans-serif;font-size:13px;letter-spacing:1px;">↺ RESET BOARDING</button>
+      <button class="logout-btn" onclick="logout()">🔒 Log Out</button>
+    </div>
+  </div>
+
+  <div style="max-width:1000px;margin:24px auto;padding:0 24px;">
+
+    <!-- BIG game selector -->
+    <div style="margin-bottom:24px;">
+      <select class="filter-select" id="captainGameFilter" onchange="renderCaptainView()" style="width:100%;min-width:200px;font-size:18px;padding:14px 18px;"></select>
+    </div>
+
+    <!-- Stats — 2x2 grid, bigger numbers -->
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px;">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;text-align:center;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:white;"></div>
+        <div id="cTotal" style="font-family:'Anton',sans-serif;font-size:48px;color:var(--white);">0</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);">Passengers</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;text-align:center;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:var(--gold);"></div>
+        <div id="cCash" style="font-family:'Anton',sans-serif;font-size:48px;color:var(--gold);">$0</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);">Cash to Collect</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;text-align:center;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:var(--green);"></div>
+        <div id="cPaid" style="font-family:'Anton',sans-serif;font-size:48px;color:var(--green);">$0</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);">Already Paid</div>
+      </div>
+      <div style="background:var(--card);border:2px solid var(--green);border-radius:14px;padding:24px;text-align:center;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:var(--green);"></div>
+        <div id="cBoarded" style="font-family:'Anton',sans-serif;font-size:48px;color:var(--green);">0 / 0</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);">Boarded</div>
+      </div>
+    </div>
+
+    <!-- Captain Quick Add — big & simple -->
+    <button id="captainAddBtn" onclick="toggleCaptainAdd()" style="width:100%;padding:18px;margin-bottom:16px;background:var(--gold);color:#000;border:none;border-radius:14px;font-family:'Anton',sans-serif;font-size:24px;letter-spacing:2px;cursor:pointer;">➕ ADD PASSENGER</button>
+
+    <div id="captainAddForm" style="display:none;background:var(--card);border:2px solid var(--gold);border-radius:16px;padding:24px;margin-bottom:20px;">
+      <div style="font-family:'Anton',sans-serif;font-size:20px;letter-spacing:2px;color:var(--gold);margin-bottom:16px;">NEW PASSENGER</div>
+      <input id="caName" type="text" placeholder="Full name" style="width:100%;background:var(--bg);border:2px solid var(--border);border-radius:12px;padding:16px 18px;color:white;font-size:18px;font-family:'Barlow',sans-serif;margin-bottom:12px;">
+      <input id="caPhone" type="tel" placeholder="Phone (optional)" style="width:100%;background:var(--bg);border:2px solid var(--border);border-radius:12px;padding:16px 18px;color:white;font-size:18px;font-family:'Barlow',sans-serif;margin-bottom:12px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+        <select id="caFare" onchange="caAutoPrice()" style="background:var(--bg);border:2px solid var(--border);border-radius:12px;padding:16px 14px;color:white;font-size:16px;font-family:'Barlow',sans-serif;">
+          <option value="return">Return</option>
+          <option value="oneway_to">One Way → Game</option>
+          <option value="oneway_from">One Way ← Home</option>
+        </select>
+        <select id="caType" onchange="caAutoPrice()" style="background:var(--bg);border:2px solid var(--border);border-radius:12px;padding:16px 14px;color:white;font-size:16px;font-family:'Barlow',sans-serif;">
+          <option value="adult">Adult</option>
+          <option value="child">Child</option>
+        </select>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+        <select id="caPay" style="background:var(--bg);border:2px solid var(--border);border-radius:12px;padding:16px 14px;color:white;font-size:16px;font-family:'Barlow',sans-serif;">
+          <option value="cash">💵 Cash</option>
+          <option value="card">💳 Paid</option>
+        </select>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:'Oswald',sans-serif;font-size:16px;color:var(--muted);">$</span>
+          <input id="caPrice" type="number" value="30" style="flex:1;background:var(--bg);border:2px solid var(--border);border-radius:12px;padding:16px 14px;color:white;font-size:18px;font-family:'Barlow',sans-serif;">
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <button onclick="submitCaptainAdd()" style="padding:18px;background:var(--green);color:#000;border:none;border-radius:12px;font-family:'Anton',sans-serif;font-size:20px;letter-spacing:2px;cursor:pointer;">✅ ADD</button>
+        <button onclick="toggleCaptainAdd()" style="padding:18px;background:transparent;border:2px solid var(--border);border-radius:12px;color:var(--muted);font-family:'Oswald',sans-serif;font-size:16px;letter-spacing:1px;cursor:pointer;">CANCEL</button>
+      </div>
+      <div id="caResult" style="margin-top:12px;font-size:16px;text-align:center;"></div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+      <span id="captainCount" style="font-family:'Anton',sans-serif;font-size:26px;color:var(--gold);"></span>
+    </div>
+
+    <div id="captainList"></div>
+  </div>
+</div>
+
+<!-- Print styles for Captain manifest -->
+<style>
+@media print {
+  body { background: white !important; color: black !important; }
+  .admin-header, .logout-btn, #captainGameFilter, .admin-badge { display: none !important; }
+  #captainView { display: block !important; }
+  #captainView > div { padding: 0 !important; }
+  .login-screen { display: none !important; }
+  #captainList div { background: white !important; border: 1px solid #ccc !important; color: black !important; }
+  #captainList div div { color: black !important; }
+  #captainList span { border: 1px solid #999 !important; color: black !important; background: white !important; }
+  [style*="grid"] { gap: 8px !important; }
+  [style*="grid"] > div { background: white !important; border: 1px solid #ccc !important; color: black !important; padding: 12px !important; }
+  [style*="grid"] > div > div { color: black !important; }
+}
+</style>
+
+
+
+
+
+<!-- FARES EDITOR MODAL -->
+<style>
+  .fares-modal { position:fixed; inset:0; background:rgba(0,0,0,0.75); backdrop-filter:blur(6px); z-index:500; display:none; align-items:center; justify-content:center; padding:16px; }
+  .fares-card { background:var(--card); border:1px solid var(--border); border-radius:20px; padding:28px; max-width:640px; width:100%; box-shadow:0 24px 80px rgba(0,0,0,0.6); box-sizing:border-box; }
+  .fares-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px 22px; margin-bottom:20px; }
+  .fares-field-label { font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1.5px; color:var(--muted); margin-bottom:8px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .fares-input-row { display:flex; align-items:center; gap:8px; }
+  .fares-input { flex:1; min-width:80px; width:100%; background:var(--bg2); border:2px solid var(--border); border-radius:10px; padding:16px 14px; color:var(--white); font-family:'Anton',sans-serif; font-size:28px; text-align:center; outline:none; -moz-appearance:textfield; transition:border-color .15s; }
+  .fares-input::-webkit-outer-spin-button, .fares-input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+  .fares-input:focus { border-color:var(--gold); }
+  .fares-actions { display:flex; gap:10px; flex-wrap:wrap; }
+  .fares-save { flex:1; min-width:180px; padding:14px; background:var(--green); border:none; border-radius:10px; color:#000; font-family:'Anton',sans-serif; font-size:18px; letter-spacing:2px; cursor:pointer; font-weight:700; }
+  .fares-cancel { padding:14px 20px; background:transparent; border:1px solid var(--border); border-radius:10px; color:var(--muted); font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:2px; cursor:pointer; }
+  @media (max-width:540px) {
+    .fares-modal { padding:12px; }
+    .fares-card { padding:20px; border-radius:16px; }
+    .fares-grid { grid-template-columns:1fr; gap:12px; }
+    .fares-field-label { font-size:12px; }
+    .fares-input { font-size:24px; padding:14px; }
+    .fares-save { min-width:0; font-size:18px; }
+  }
+</style>
+<div id="faresModal" class="fares-modal">
+  <div class="fares-card" onclick="event.stopPropagation()">
+    <div style="font-family:'Anton',sans-serif;font-size:22px;letter-spacing:2px;color:var(--gold);margin-bottom:4px;">💲 EDIT FARES</div>
+    <div id="faresGameInfo" style="font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:1px;color:var(--muted);margin-bottom:20px;word-break:break-word;"></div>
+    <div class="fares-grid">
+      <div>
+        <div class="fares-field-label">🧑 ADULT RETURN</div>
+        <div class="fares-input-row"><span style="font-size:20px;color:var(--muted);">$</span><input id="farePAR" class="fares-input" type="number" inputmode="numeric" min="0"></div>
+      </div>
+      <div>
+        <div class="fares-field-label">👦 CHILD RETURN</div>
+        <div class="fares-input-row"><span style="font-size:20px;color:var(--muted);">$</span><input id="farePCR" class="fares-input" type="number" inputmode="numeric" min="0"></div>
+      </div>
+      <div>
+        <div class="fares-field-label">🧑 ADULT ONE-WAY (to game)</div>
+        <div class="fares-input-row"><span style="font-size:20px;color:var(--muted);">$</span><input id="farePAO" class="fares-input" type="number" inputmode="numeric" min="0"></div>
+      </div>
+      <div>
+        <div class="fares-field-label">👦 CHILD ONE-WAY (to game)</div>
+        <div class="fares-input-row"><span style="font-size:20px;color:var(--muted);">$</span><input id="farePCO" class="fares-input" type="number" inputmode="numeric" min="0"></div>
+      </div>
+      <div>
+        <div class="fares-field-label">🧑 ADULT RETURN-LEG</div>
+        <div class="fares-input-row"><span style="font-size:20px;color:var(--muted);">$</span><input id="farePAF" class="fares-input" type="number" inputmode="numeric" min="0"></div>
+      </div>
+      <div>
+        <div class="fares-field-label">👦 CHILD RETURN-LEG</div>
+        <div class="fares-input-row"><span style="font-size:20px;color:var(--muted);">$</span><input id="farePCF" class="fares-input" type="number" inputmode="numeric" min="0"></div>
+      </div>
+    </div>
+    <div id="faresResult" style="min-height:22px;margin-bottom:10px;font-size:13px;text-align:center;"></div>
+    <div class="fares-actions">
+      <button class="fares-save" onclick="saveFares()">💾 SAVE FARES</button>
+      <button class="fares-cancel" onclick="closeFaresEditor()">CANCEL</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openFaresEditor() {
+  const game = (document.getElementById('captainGameFilter')?.value) || (document.getElementById('gameFilter')?.value) || '';
+  if (!game) { alert('Select a game first'); return; }
+  const gp = GAME_PRICES[game];
+  if (!gp) { alert('No price data for this game yet'); return; }
+  document.getElementById('faresGameInfo').textContent = game;
+  document.getElementById('farePAR').value = gp.price_adult_return;
+  document.getElementById('farePCR').value = gp.price_child_return;
+  document.getElementById('farePAO').value = gp.price_adult_oneway;
+  document.getElementById('farePCO').value = gp.price_child_oneway;
+  document.getElementById('farePAF').value = gp.price_adult_oneway_from ?? 35;
+  document.getElementById('farePCF').value = gp.price_child_oneway_from ?? 15;
+  document.getElementById('faresResult').textContent = '';
+  document.getElementById('faresModal').style.display = 'flex';
+}
+function closeFaresEditor() {
+  document.getElementById('faresModal').style.display = 'none';
+}
+async function saveFares() {
+  const game = document.getElementById('faresGameInfo').textContent;
+  if (!game) return;
+  const body = {
+    game: game,
+    price_adult_return: parseInt(document.getElementById('farePAR').value) || 0,
+    price_child_return: parseInt(document.getElementById('farePCR').value) || 0,
+    price_adult_oneway: parseInt(document.getElementById('farePAO').value) || 0,
+    price_child_oneway: parseInt(document.getElementById('farePCO').value) || 0,
+    price_adult_oneway_from: parseInt(document.getElementById('farePAF').value) || 0,
+    price_child_oneway_from: parseInt(document.getElementById('farePCF').value) || 0,
+  };
+  const priceVals = [body.price_adult_return, body.price_child_return, body.price_adult_oneway, body.price_child_oneway, body.price_adult_oneway_from, body.price_child_oneway_from];
+  if (priceVals.some(v => v < 0)) { document.getElementById('faresResult').innerHTML = '<span style="color:var(--red);">⚠ Prices must be non-negative</span>'; return; }
+  document.getElementById('faresResult').innerHTML = '<span style="color:var(--gold);">Saving…</span>';
+  try {
+    // bomber-boat-api uses POST /api/game-settings with { game, ...fields }
+    const r = await apiFetch('/game-settings', { method: 'POST', body: JSON.stringify(body) });
+    if (!r) { document.getElementById('faresResult').innerHTML = '<span style="color:var(--red);">⚠ Failed to save</span>'; return; }
+    // Update local cache so autoPrice functions immediately use new values
+    GAME_PRICES[game] = { ...GAME_PRICES[game], ...body };
+    document.getElementById('faresResult').innerHTML = '<span style="color:var(--green);">✅ Fares updated — reload main site to see</span>';
+    setTimeout(closeFaresEditor, 1500);
+  } catch (e) {
+    document.getElementById('faresResult').innerHTML = '<span style="color:var(--red);">⚠ Error: ' + e.message + '</span>';
+  }
+}
+</script>
+
+
+
+<script>
+// ─── Fleet / Vessel picker (scope-safe) ───────────────────
+window.BOATS_CACHE = window.BOATS_CACHE || [];
+window.SCHEDULE_CACHE = window.SCHEDULE_CACHE || {};
+async function loadBoats() {
+  try {
+    const r = await fetch(API_URL + '/boats');
+    const d = await r.json();
+    window.BOATS_CACHE = (d && d.boats) ? d.boats : [];
+    await loadScheduleCacheForBoats();
+    renderBoatPicker();
+  } catch(e) { console.warn('loadBoats failed', e); }
+}
+async function loadScheduleCacheForBoats() {
+  try {
+    const r = await fetch(API_URL + '/schedule');
+    const d = await r.json();
+    const games = (d && d.games) || [];
+    window.SCHEDULE_CACHE = {};
+    for (const g of games) window.SCHEDULE_CACHE[g.game] = g;
+  } catch(e) { console.warn('schedule fetch failed', e); }
+}
+function renderBoatPicker() {
+  const sel = document.getElementById('boatPicker');
+  if (!sel) return;
+  const currentGame = (document.getElementById('gameFilter')?.value) || (document.getElementById('captainGameFilter')?.value) || '';
+  const gameInfo = window.SCHEDULE_CACHE[currentGame] || {};
+  const currentBoatId = gameInfo.boat_id || '';
+  sel.innerHTML = '<option value="">— not assigned —</option>' +
+    window.BOATS_CACHE.map(b => `<option value="${b.id}" ${String(b.id)===String(currentBoatId)?'selected':''}>${b.emoji||'⛵'} ${(b.name||'').replace(/[<>"']/g,'')} · cap ${b.capacity}</option>`).join('');
+}
+async function assignBoatToCurrentGame(boatId) {
+  const game = (document.getElementById('gameFilter')?.value) || (document.getElementById('captainGameFilter')?.value);
+  if (!game) { alert('Select a game first'); return; }
+  const body = { game, boat_id: boatId ? parseInt(boatId) : 0 };
+  const r = await apiFetch('/game-settings', { method: 'POST', body: JSON.stringify(body) });
+  if (r) {
+    if (window.SCHEDULE_CACHE[game]) window.SCHEDULE_CACHE[game].boat_id = boatId ? parseInt(boatId) : null;
+    flashToast(boatId ? '⚓ Vessel assigned' : 'Vessel unassigned');
+  }
+}
+function flashToast(msg) {
+  const t = document.createElement('div');
+  t.textContent = msg;
+  t.style.cssText = 'position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#22c55e;color:#000;padding:10px 20px;border-radius:8px;font-family:Oswald,sans-serif;font-size:13px;letter-spacing:1px;z-index:999;box-shadow:0 4px 16px rgba(0,0,0,0.4);';
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 1800);
+}
+function openVesselManager() {
+  loadBoats().then(() => {
+    const modal = document.getElementById('vesselModal');
+    if (modal) modal.style.display = 'flex';
+    renderVesselList();
+  });
+}
+function closeVesselManager() {
+  const modal = document.getElementById('vesselModal');
+  if (modal) modal.style.display = 'none';
+}
+function renderVesselList() {
+  const list = document.getElementById('vesselList');
+  if (!list) return;
+  list.innerHTML = window.BOATS_CACHE.map(b => `
+    <div style="display:flex;gap:6px;align-items:center;padding:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:8px;">
+      <input value="${b.emoji||'⛵'}" onchange="updateBoat(${b.id}, {emoji:this.value})" style="width:44px;background:transparent;border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:6px;color:white;font-size:16px;text-align:center;">
+      <input value="${(b.name||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}" onchange="updateBoat(${b.id}, {name:this.value})" style="flex:2;background:transparent;border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:6px 10px;color:white;font-size:14px;">
+      <input type="number" min="1" value="${b.capacity}" onchange="updateBoat(${b.id}, {capacity:parseInt(this.value)||60})" style="width:60px;background:transparent;border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:6px;color:white;font-size:14px;text-align:center;">
+      <button onclick="deleteBoat(${b.id})" style="background:#CC2031;border:none;border-radius:6px;color:#fff;padding:6px 10px;cursor:pointer;font-size:12px;">✕</button>
+    </div>
+  `).join('');
+}
+async function updateBoat(id, patch) {
+  const body = { id, ...patch };
+  await apiFetch('/boats', { method: 'POST', body: JSON.stringify(body) });
+  const b = window.BOATS_CACHE.find(x => x.id === id);
+  if (b) Object.assign(b, patch);
+  renderBoatPicker();
+  flashToast('Saved');
+}
+async function deleteBoat(id) {
+  if (!confirm('Delete this vessel? Any game using it will be un-assigned.')) return;
+  try {
+    await fetch(API_URL + '/boats?id=' + id, { method: 'DELETE', headers: { 'X-API-Key': (typeof KEY !== 'undefined' ? KEY : '') } });
+    window.BOATS_CACHE = window.BOATS_CACHE.filter(b => b.id !== id);
+    renderVesselList();
+    renderBoatPicker();
+  } catch(e) { alert('Delete failed: ' + e.message); }
+}
+
+async function addBoatToGame(gameEnc, boatId) {
+  try {
+    await apiFetch('/game-boats', { method:'POST', body: JSON.stringify({ game: decodeURIComponent(gameEnc), boat_id: boatId }) });
+    flashToast('⚓ Vessel added');
+    loadGamesTab();
+  } catch(e) { alert('Failed: ' + e.message); }
+}
+async function unassignBoatFromGame(gameEnc, boatId) {
+  try {
+    const url = '/game-boats?game=' + gameEnc + '&boat_id=' + boatId;
+    await fetch(API_URL + url, { method:'DELETE', headers: { 'X-API-Key': getApiKey() } });
+    flashToast('Vessel removed');
+    loadGamesTab();
+  } catch(e) { alert('Failed: ' + e.message); }
+}
+
+async function addBoat() {
+  const nameEl = document.getElementById('newBoatName');
+  const capEl = document.getElementById('newBoatCap');
+  const name = (nameEl?.value || '').trim();
+  const capacity = parseInt(capEl?.value) || 60;
+  if (!name) return alert('Name required');
+  const r = await apiFetch('/boats', { method: 'POST', body: JSON.stringify({ name, capacity, emoji: '⛵' }) });
+  if (r && r.boat) window.BOATS_CACHE.push(r.boat);
+  if (nameEl) nameEl.value = '';
+  if (capEl) capEl.value = 60;
+  renderVesselList();
+  renderBoatPicker();
+}
+// Kick off after login. Hook document 'change' + visibility.
+document.addEventListener('change', (e) => {
+  if (e.target && (e.target.id === 'gameFilter' || e.target.id === 'captainGameFilter')) {
+    try { renderBoatPicker(); } catch(err) { console.warn(err); }
+  }
+});
+// Lazy-load boats when admin panel becomes visible
+(function pollForPanel() {
+  const t = setInterval(() => {
+    const panel = document.getElementById('adminPanel');
+    if (panel && panel.style.display !== 'none' && !window._boatsLoaded) {
+      window._boatsLoaded = true;
+      loadBoats();
+    }
+  }, 1500);
+})();
+</script>
+<script>
+function updateAdmSpotsRem() {
+  const game = document.getElementById('gameFilter')?.value;
+  const card = document.getElementById('admSpotsRem');
+  if (!card) return;
+  if (!game || !window.SCHEDULE_CACHE || !window.SCHEDULE_CACHE[game]) { card.style.display = 'none'; return; }
+  const g = window.SCHEDULE_CACHE[game];
+  const cap = g.capacity || 60;
+  const out  = g.available_out  ?? cap;
+  const back = g.available_back ?? cap;
+  const bookedOut  = Math.max(0, cap - out);
+  const bookedBack = Math.max(0, cap - back);
+  card.style.display = 'block';
+  const set = (id, v) => { const e = document.getElementById(id); if (e) e.textContent = v; };
+  const setBar = (id, booked) => {
+    const el = document.getElementById(id); if (!el) return;
+    const pct = cap > 0 ? Math.max(0, Math.min(100, Math.round(booked / cap * 100))) : 0;
+    el.style.width = pct + '%';
+  };
+  set('admSpotsGame', game);
+  set('admSpotsOutBooked',  bookedOut);   set('admCapOut', cap);   set('admSpotsOutLeft',  out);   setBar('admBarOut',  bookedOut);
+  set('admSpotsBackBooked', bookedBack);  set('admCapBack', cap);  set('admSpotsBackLeft', back);  setBar('admBarBack', bookedBack);
+}
+// Refresh when filter changes
+document.addEventListener('change', (e) => {
+  if (e.target && e.target.id === 'gameFilter') {
+    loadScheduleCacheForBoats().then(updateAdmSpotsRem);
+  }
+});
+// Also refresh after loadBookings (schedule cache already primed by loadGamesTab/loadBoats path)
+(function hookSpots() {
+  const origLoad = window.loadBookings;
+  if (typeof origLoad === 'function' && !origLoad._spotsHooked) {
+    window.loadBookings = async function(...args) {
+      const r = await origLoad.apply(this, args);
+      try { await loadScheduleCacheForBoats(); updateAdmSpotsRem(); } catch(e) {}
+      return r;
+    };
+    window.loadBookings._spotsHooked = true;
+  }
+})();
+</script>
+
+<script>
+function renderBoarding() {
+  const card = document.getElementById('boardingCard');
+  if (!card) return;
+  const game = (document.getElementById('gameFilter')?.value) || (document.getElementById('gameFilterTop')?.value) || '';
+  if (!game) { card.style.display = 'none'; return; }
+  const gameBookings = passengers.filter(p => p.game === game);
+  if (!gameBookings.length) { card.style.display = 'none'; return; }
+  card.style.display = 'block';
+  document.getElementById('boardingGameLbl').textContent = game;
+  // Split: on-the-way = return + oneway_to ; return = return + oneway_from
+  const outRows  = gameBookings.filter(p => p.fare === 'return' || p.fare === 'oneway_to');
+  const backRows = gameBookings.filter(p => p.fare === 'return' || p.fare === 'oneway_from');
+  const renderList = (rows, suffix) => rows.map(p => `
+    <div class="board-row ${p.boarded ? 'boarded' : ''}" id="brd-${suffix}-${p.id}">
+      <div class="who">${esc(p.name || p.email || 'Walk-up')} <small>${p.fare === 'return' ? 'Return' : (p.fare === 'oneway_to' ? '→' : '←')}</small></div>
+      <button class="board-tick" onclick="toggleBoarded(${p.id})">${p.boarded ? '✓ ON' : 'Tick'}</button>
+    </div>
+  `).join('') || '<div class="board-empty">no bookings</div>';
+  document.getElementById('boardOutList').innerHTML  = renderList(outRows,  'out');
+  document.getElementById('boardBackList').innerHTML = renderList(backRows, 'back');
+  const boardedOut  = outRows.filter(p => p.boarded).length;
+  const boardedBack = backRows.filter(p => p.boarded).length;
+  document.getElementById('boardOutCount').textContent  = boardedOut + '/' + outRows.length;
+  document.getElementById('boardBackCount').textContent = boardedBack + '/' + backRows.length;
+}
+async function toggleBoarded(id) {
+  const p = passengers.find(x => x.id === id); if (!p) return;
+  const newVal = !p.boarded;
+  p.boarded = newVal;
+  renderBoarding();
+  try {
+    await apiFetch('/bookings/' + id, { method: 'PATCH', body: JSON.stringify({ boarded: newVal ? 1 : 0 }) });
+  } catch (e) {
+    p.boarded = !newVal;
+    renderBoarding();
+    alert('Could not save: ' + e.message);
+  }
+}
+(function() {
+  const orig = window.renderTable;
+  if (typeof orig === 'function' && !orig._boardHook) {
+    window.renderTable = function(...args) {
+      const r = orig.apply(this, args);
+      try { renderBoarding(); } catch(e) {}
+      return r;
+    };
+    window.renderTable._boardHook = true;
+  }
+})();
+document.addEventListener('change', (e) => {
+  if (e.target && (e.target.id === 'gameFilter' || e.target.id === 'gameFilterTop')) {
+    setTimeout(renderBoarding, 50);
+  }
+});
+</script>
+
+<!-- STAFF ROLE — limited UI, defaults to current game, can scan/tick boarding only -->
+<style id="staffRoleCss">
+  body.staff-mode .adm-tabs,
+  body.staff-mode .stats-grid,
+  body.staff-mode #revenueBreakdown,
+  body.staff-mode #admSpotsRem,
+  body.staff-mode .filter-bar,
+  body.staff-mode #quickAddForm,
+  body.staff-mode #admTabGames,
+  body.staff-mode #admTabBoats,
+  body.staff-mode #admTabCopy,
+  body.staff-mode #waitlistCard,
+  body.staff-mode #waitlistSection,
+  body.staff-mode .table-wrap,
+  body.staff-mode #passengerTable {
+    display: none !important;
+  }
+  body.staff-mode #gameFilterTop { display: block !important; }
+  body.staff-mode #boardingCard { display: block !important; }
+  body.staff-mode #boardingCard .board-row { padding: 14px 14px; font-size: 14px; }
+  body.staff-mode #boardingCard .board-tick { min-width: 80px; padding: 10px 14px; font-size: 13px; }
+</style>
+<script>
+function lockStaffControls() {
+  if (userRole !== 'staff') return;
+  document.body.classList.add('staff-mode');
+  if (typeof renderBoarding === 'function') setTimeout(renderBoarding, 60);
+  document.querySelectorAll('.del-btn, .edit-btn').forEach(b => b.style.display = 'none');
+  document.querySelectorAll('.admin-header button').forEach(b => {
+    if (!b.classList.contains('logout-btn')) b.style.display = 'none';
+  });
+}
+if (localStorage.getItem('bb_role') === 'staff') {
+  document.addEventListener('DOMContentLoaded', () => setTimeout(lockStaffControls, 200));
+}
+</script>
+
+<!-- AUTO-UPDATE CHECKER — forces browser to reload when a newer admin is deployed -->
+<script>
+(function() {
+  const APP_VERSION = '20260425-084212';
+  async function checkForUpdate() {
+    try {
+      const r = await fetch('/bomberboat-admin.html?_t=' + Date.now(), { cache: 'no-store' });
+      if (!r.ok) return;
+      const t = await r.text();
+      const m = t.match(/APP_VERSION\s*=\s*'([^']+)'/);
+      if (m && m[1] && m[1] !== APP_VERSION) {
+        console.log('[auto-update] new version detected:', m[1], '— reloading');
+        location.reload();
+      }
+    } catch(e) {}
+  }
+  setTimeout(checkForUpdate, 2000);
+  setInterval(checkForUpdate, 60000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) checkForUpdate(); });
+})();
+</script>
+
+<script>
+// ── Interest tab ──
+async function loadInterest() {
+  const data = await apiFetch('/interest');
+  if (!data) return;
+  const rows = data.interest || [];
+  const tbody = document.getElementById('interestTbody');
+  const empty = document.getElementById('interestEmpty');
+  const clustersEl = document.getElementById('interestClusters');
+  if (!tbody) return;
+  if (!rows.length) {
+    tbody.innerHTML = '';
+    empty.style.display = 'block';
+    clustersEl.innerHTML = '';
+    return;
+  }
+  empty.style.display = 'none';
+  const clusters = {};
+  rows.forEach(r => {
+    const key = (r.venue || '?') + ' :: ' + (r.game_text || '?');
+    if (!clusters[key]) clusters[key] = { venue: r.venue, game: r.game_text, ids: [], people: 0, count: 0 };
+    clusters[key].ids.push(r.id);
+    clusters[key].people += parseInt(r.party_size) || 1;
+    clusters[key].count++;
+  });
+  const sorted = Object.values(clusters).sort((a,b) => b.people - a.people);
+  clustersEl.innerHTML = sorted.map(c => `
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;">
+      <div style="display:flex;justify-content:space-between;align-items:start;gap:10px;">
+        <div>
+          <div style="font-family:Oswald,sans-serif;font-size:11px;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;margin-bottom:4px;">${esc(c.venue || 'Other')}</div>
+          <div style="font-family:Anton,sans-serif;font-size:18px;letter-spacing:1px;color:var(--white);line-height:1.2;">${esc(c.game)}</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:Anton,sans-serif;font-size:32px;color:var(--green);line-height:1;">${c.people}</div>
+          <div style="font-family:Oswald,sans-serif;font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;">${c.count} ${c.count === 1 ? 'person' : 'people'}</div>
+        </div>
+      </div>
+      <button onclick='emailInterestCluster(${JSON.stringify(c.ids)}, ${JSON.stringify(c.venue + ": " + c.game)})' style="margin-top:14px;width:100%;background:rgba(240,180,41,0.12);border:1px solid rgba(240,180,41,0.4);color:var(--gold);padding:10px;border-radius:8px;font-family:Oswald,sans-serif;font-size:12px;letter-spacing:1.5px;cursor:pointer;text-transform:uppercase;">📧 Email this group</button>
+    </div>
+  `).join('');
+  tbody.innerHTML = rows.map(r => `
+    <tr style="border-top:1px solid var(--border);">
+      <td style="padding:10px 12px;color:var(--muted);font-size:12px;">${new Date(r.created_at + (r.created_at.includes('Z') ? '' : 'Z')).toLocaleString('en-AU', {day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})}</td>
+      <td style="padding:10px 12px;color:var(--white);">${esc(r.venue || '')}</td>
+      <td style="padding:10px 12px;color:var(--white);">${esc(r.game_text || '')}</td>
+      <td style="padding:10px 12px;color:var(--white);">${esc(r.name || '')}</td>
+      <td style="padding:10px 12px;color:#9cf;font-size:12px;"><a href="mailto:${esc(r.email)}" style="color:#9cf;">${esc(r.email)}</a>${r.phone ? '<br/><span style="color:var(--muted);font-size:11px;">' + esc(r.phone) + '</span>' : ''}</td>
+      <td style="padding:10px 12px;color:var(--white);text-align:center;">${r.party_size}</td>
+      <td style="padding:10px 12px;text-align:right;"><button onclick="deleteInterest(${r.id})" style="background:transparent;border:1px solid var(--border);color:var(--muted);padding:6px 10px;border-radius:6px;cursor:pointer;font-size:11px;">🗑</button></td>
+    </tr>
+  `).join('');
+}
+async function deleteInterest(id) {
+  if (!confirm('Delete this interest entry?')) return;
+  await apiFetch('/interest/' + id, { method: 'DELETE' });
+  loadInterest();
+}
+async function emailInterestCluster(ids, label) {
+  const subject = prompt('Subject?', 'Boat to ' + label + ' — booking link');
+  if (!subject) return;
+  const message = prompt('Message? (line breaks become paragraphs)', "Great news — we've chartered a boat for " + label + "!\n\nBook your seat here: https://bomberboat.com.au\n\nFirst-in-best-dressed.");
+  if (!message) return;
+  const r = await apiFetch('/interest/email', { method: 'POST', body: JSON.stringify({ ids, subject, message }) });
+  if (r && r.ok) alert('Sent to ' + r.sent + ' / ' + r.total + ' people');
+  else alert('Send failed');
+  loadInterest();
+}
+</script>
+
+</body>
+</html>
