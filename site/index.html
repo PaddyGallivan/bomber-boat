@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bomber Boat | bomberboat.com.au</title>
-<meta name="build-id" content="bb-20260428-mona-fixes-v1">
-<meta name="description" content="The Bombers fan boat to and from Bombers home games at Marvel Stadium. Departs Cafe Riviera, Maribyrnong with finger food &amp; cheap drinks on board.">
+<meta name="build-id" content="bb-20260427-bugfix-v1">
+<meta name="description" content="The Bombers fan boat to and from AFL Western Bombers home games at Marvel Stadium. Departs Cafe Riviera, Maribyrnong with finger food &amp; cheap drinks on board.">
 <meta property="og:title" content="Bomber Boat — The Bombers Fan Boat to and from Marvel Stadium">
 <meta property="og:description" content="Sail to every Bombers home game from Cafe Riviera, Maribyrnong. Complimentary finger food, cheap bar &amp; good company. Book your spot now!">
 <meta property="og:type" content="website">
@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Bomber Boat">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bomber Boat — Sail to the Game">
-<meta name="twitter:description" content="Bombers fan boat to every Bombers home game. Departs Cafe Riviera, Maribyrnong. Book now!">
+<meta name="twitter:description" content="Bombers fan boat to every Western Bombers home game. Departs Cafe Riviera, Maribyrnong. Book now!">
 <meta name="theme-color" content="#E2181A">
 <link rel="manifest" href="/manifest-public.json">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-public-192.png">
@@ -27,7 +27,7 @@
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Bomber Boat",
-  "description": "Fan ferry service to Bombers home games at Marvel Stadium. Departs Cafe Riviera, Maribyrnong with complimentary finger food and cheap drinks.",
+  "description": "Fan ferry service to AFL Western Bombers home games at Marvel Stadium. Departs Cafe Riviera, Maribyrnong with complimentary finger food and cheap drinks.",
   "url": "https://bomberboat.com.au",
   "telephone": "",
   "email": "hello@bomberboat.com.au",
@@ -36,7 +36,7 @@
     "streetAddress": "55 Cumberland Dr",
     "addressLocality": "Maribyrnong",
     "addressRegion": "VIC",
-    "postalCode": "3032",
+    "postalCode": "3016",
     "addressCountry": "AU"
   },
   "geo": {
@@ -54,10 +54,10 @@
 {
   "@context": "https://schema.org",
   "@type": "Event",
-  "name": "Bomber Boat — vs Brisbane",
-  "description": "Sail to the Bombers vs Brisbane game from Cafe Riviera, Maribyrnong. Complimentary finger food, cheap drinks, and scenic harbour cruise.",
-  "startDate": "2026-05-02T13:05:00+10:00",
-  "endDate": "2026-05-02T17:30:00+10:00",
+  "name": "Bomber Boat — vs Essendon",
+  "description": "Sail to the AFL Western Bombers vs Essendon game from Cafe Riviera, Maribyrnong. Complimentary finger food, cheap drinks, and scenic harbour cruise.",
+  "startDate": "2026-04-05T17:50:00+10:00",
+  "endDate": "2026-04-05T22:30:00+10:00",
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
@@ -68,7 +68,7 @@
       "streetAddress": "55 Cumberland Dr",
       "addressLocality": "Maribyrnong",
       "addressRegion": "VIC",
-      "postalCode": "3032",
+      "postalCode": "3016",
       "addressCountry": "AU"
     }
   },
@@ -1004,27 +1004,8 @@ body {
 
 
 </style>
-<!-- v2 --><!-- Meta Pixel - replace YOUR_PIXEL_ID with the ID from Events Manager -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', 'YOUR_PIXEL_ID');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
-<!-- /Meta Pixel -->
-</head>
+<!-- v2 --></head>
 <body>
-<!-- MAIDEN VOYAGE OFFER BANNER -->
-<div id="bb-mv-banner" style="background:linear-gradient(135deg,#cc0000 0%,#ff1f1f 100%);padding:14px 18px;text-align:center;font-family:'Barlow',sans-serif;font-weight:800;color:#fff;font-size:17px;letter-spacing:0.5px;line-height:1.45;position:relative;z-index:50;">
-  🚤 MAIDEN VOYAGE OFFER — Book Sat 2 May vs Brisbane, your next home game is FREE.
-  <span style="opacity:.85;font-weight:600;font-size:15px;display:inline-block;margin-left:6px;">60 seats only · <a href="#booking" style="color:#fff;text-decoration:underline;">Book now</a></span>
-</div>
-<!-- /BANNER -->
 
 <!-- HERO -->
 <div class="hero">
@@ -1206,7 +1187,7 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></nos
       <div class="ticket-rows">
         <div class="ticket-row">
           <span class="ticket-label">Adult</span>
-          <span class="ticket-price ticket-price-adult-return">$55</span>
+          <span class="ticket-price ticket-price-adult-return">$90</span>
           <div class="qty-ctrl">
             <button class="qty-btn" onclick="changeTicket('adult','return',-1)">−</button>
             <span class="qty-val" id="qty_adult_return">0</span>
@@ -1215,7 +1196,7 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></nos
         </div>
         <div class="ticket-row">
           <span class="ticket-label">Child / U18</span>
-          <span class="ticket-price ticket-price-child-return">$25</span>
+          <span class="ticket-price ticket-price-child-return">$40</span>
           <div class="qty-ctrl">
             <button class="qty-btn" onclick="changeTicket('child','return',-1)">−</button>
             <span class="qty-val" id="qty_child_return">0</span>
@@ -1531,7 +1512,7 @@ try { oiFareChange(); } catch(e) {}
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What time do we depart and return? <span class="faq-toggle">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">We depart Cafe Riviera, Maribyrnong <b>90 minutes before first bounce</b> (for a 12:35pm game that's boarding 10:50am, depart 11:00am). The trip to Marvel takes ~30 minutes — you arrive with plenty of time to soak up the atmosphere. After the game, the return boat leaves Marvel Stadium <b>approximately 30 minutes after the final siren</b> and drops you back at Cafe Riviera.</div></div>
+    <div class="faq-a"><div class="faq-a-inner">We depart Cafe Riviera, Maribyrnong <b>90 minutes before first bounce</b> (for a 12:35pm game that's boarding 10:50am, depart 11:00am). The trip to Marvel takes ~60 minutes — you arrive with plenty of time to soak up the atmosphere. After the game, the return boat leaves Marvel Stadium <b>approximately 30 minutes after the final siren</b> and drops you back at Cafe Riviera.</div></div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is a one-way ticket? <span class="faq-toggle">+</span></div>
