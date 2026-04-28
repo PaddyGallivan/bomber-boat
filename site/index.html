@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bomber Boat | bomberboat.com.au</title>
-<meta name="build-id" content="bb-20260428-mona-trim-v5">
+<meta name="build-id" content="bb-20260428-mona-compactinterest-v6">
 <meta name="description" content="Bombers fan boat to Marvel Stadium home games. Departs Cafe Riviera, Maribyrnong with finger food and cheap bar. Maiden voyage Sat 2 May vs Brisbane.">
 <meta property="og:title" content="Bomber Boat — The Bombers Fan Boat to and from Marvel Stadium">
 <meta property="og:description" content="Sail to every Bombers home game from Cafe Riviera, Maribyrnong. Maiden voyage Sat 2 May vs Brisbane — book now and your next game is on us.">
@@ -1263,62 +1263,38 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></nos
   </div><!-- end hidden booking section -->
 
   <!-- ── REGISTER INTEREST — other games at Marvel / MCG ── -->
-  <div id="otherGamesSection" style="max-width:880px;margin:32px auto 24px;padding:0 20px;">
-    <div style="background:linear-gradient(135deg,#1a2332,#0a1929);border:1px solid var(--border);border-radius:20px;padding:32px 28px;box-shadow:0 16px 60px rgba(0,0,0,0.35);">
-      <div style="text-align:center;margin-bottom:18px;">
-        <div style="font-family:'Anton',sans-serif;font-size:24px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;">Boat to any game</div>
-        <div style="font-family:'Barlow',sans-serif;font-size:13px;color:var(--muted);margin-top:6px;line-height:1.5;">Want a different game? Register interest — if enough people want it we charter a boat.</div>
-      </div>
-
-      <div id="oiForm" style="display:grid;gap:12px;">
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <label style="flex:1;min-width:140px;cursor:pointer;background:rgba(255,255,255,0.04);border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:1.5px;color:var(--white);transition:all .15s;" id="oiVenueMarvelLbl">
-            <input type="radio" name="oiVenue" value="Marvel Stadium" id="oiVenueMarvel" style="margin-right:6px;accent-color:var(--gold);" onchange="oiVenueChange()"> MARVEL
-          </label>
-          <label style="flex:1;min-width:140px;cursor:pointer;background:rgba(255,255,255,0.04);border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:1.5px;color:var(--white);transition:all .15s;" id="oiVenueMcgLbl">
-            <input type="radio" name="oiVenue" value="MCG" id="oiVenueMcg" style="margin-right:6px;accent-color:var(--gold);" onchange="oiVenueChange()"> MCG
-          </label>
-        </div>
-
-        <div>
-          <label style="display:block;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:6px;">Which way?</label>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <label style="flex:1;min-width:120px;cursor:pointer;background:rgba(255,255,255,0.04);border:2px solid var(--border);border-radius:10px;padding:12px 8px;text-align:center;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1px;color:var(--white);" id="oiFareReturnLbl">
-              <input type="radio" name="oiFare" value="return" id="oiFareReturn" checked style="margin-right:4px;accent-color:var(--gold);" onchange="oiFareChange()"> RETURN
-            </label>
-            <label style="flex:1;min-width:120px;cursor:pointer;background:rgba(255,255,255,0.04);border:2px solid var(--border);border-radius:10px;padding:12px 8px;text-align:center;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1px;color:var(--white);" id="oiFareToLbl">
-              <input type="radio" name="oiFare" value="oneway_to" id="oiFareTo" style="margin-right:4px;accent-color:var(--gold);" onchange="oiFareChange()"> → WAY THERE
-            </label>
-            <label style="flex:1;min-width:120px;cursor:pointer;background:rgba(255,255,255,0.04);border:2px solid var(--border);border-radius:10px;padding:12px 8px;text-align:center;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1px;color:var(--white);" id="oiFareFromLbl">
-              <input type="radio" name="oiFare" value="oneway_from" id="oiFareFrom" style="margin-right:4px;accent-color:var(--gold);" onchange="oiFareChange()"> ← WAY BACK
-            </label>
-          </div>
-        </div>
-
-        <div>
-          <label for="oiGame" style="display:block;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:6px;">Which game?</label>
-          <select id="oiGame" disabled style="width:100%;background:#0a1929;border:2px solid var(--gold);border-radius:10px;padding:14px 16px;color:var(--white);font-family:'Barlow',sans-serif;font-size:16px;outline:none;cursor:pointer;" onfocus="this.style.borderColor='#fff'" onblur="this.style.borderColor='var(--gold)'">
-            <option value="">— Pick a venue above first —</option>
+  <div id="otherGamesSection" style="max-width:560px;margin:24px auto;padding:0 20px;">
+    <details style="background:linear-gradient(135deg,#1a2332,#0a1929);border:1px solid var(--border);border-radius:14px;padding:14px 18px;box-shadow:0 8px 28px rgba(0,0,0,0.25);">
+      <summary style="cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'Anton',sans-serif;font-size:18px;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;">
+        Boat to a different game?
+        <span style="font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;color:var(--muted);text-transform:none;letter-spacing:0;">Register interest →</span>
+      </summary>
+      <div id="oiForm" style="display:grid;gap:10px;margin-top:14px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <select id="oiVenue" onchange="oiVenueChange()" style="background:#0a1929;border:1px solid var(--border);border-radius:8px;padding:10px;color:var(--white);font-family:'Barlow',sans-serif;font-size:14px;">
+            <option value="">Venue…</option>
+            <option value="Marvel Stadium">Marvel</option>
+            <option value="MCG">MCG</option>
+          </select>
+          <select id="oiFare" onchange="oiFareChange()" style="background:#0a1929;border:1px solid var(--border);border-radius:8px;padding:10px;color:var(--white);font-family:'Barlow',sans-serif;font-size:14px;">
+            <option value="return">Return</option>
+            <option value="oneway_to">One-way there</option>
+            <option value="oneway_from">One-way back</option>
           </select>
         </div>
-
-        <input type="text" id="oiName" placeholder="Your name" style="background:rgba(255,255,255,0.06);border:2px solid var(--border);border-radius:10px;padding:14px 16px;color:var(--white);font-family:'Barlow',sans-serif;font-size:16px;outline:none;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--border)'">
-
-        <div>
-          <label for="oiParty" style="display:block;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:6px;">How many people in your group?</label>
-          <input type="number" id="oiParty" min="1" max="50" value="2" style="width:100%;background:rgba(255,255,255,0.06);border:2px solid var(--gold);border-radius:10px;padding:14px 16px;color:var(--white);font-family:'Anton',sans-serif;font-size:22px;outline:none;text-align:center;letter-spacing:2px;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--gold)'">
-          <div style="font-family:'Barlow',sans-serif;font-size:12px;color:var(--muted);margin-top:6px;text-align:center;">Including yourself — helps us size the boat</div>
+        <select id="oiGame" disabled style="background:#0a1929;border:1px solid var(--gold);border-radius:8px;padding:10px;color:var(--white);font-family:'Barlow',sans-serif;font-size:14px;">
+          <option value="">— Pick a venue first —</option>
+        </select>
+        <div style="display:grid;grid-template-columns:1fr 90px;gap:8px;">
+          <input type="text" id="oiName" placeholder="Your name" style="background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:'Barlow',sans-serif;font-size:14px;">
+          <input type="number" id="oiParty" min="1" max="50" value="2" placeholder="People" style="background:rgba(255,255,255,0.06);border:1px solid var(--gold);border-radius:8px;padding:10px;color:var(--white);font-family:'Barlow',sans-serif;font-size:14px;text-align:center;">
         </div>
-
-        <input type="email" id="oiEmail" placeholder="Email — we'll let you know if we charter" style="background:rgba(255,255,255,0.06);border:2px solid var(--border);border-radius:10px;padding:14px 16px;color:var(--white);font-family:'Barlow',sans-serif;font-size:16px;outline:none;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--border)'">
-
-        <input type="tel" id="oiPhone" placeholder="Mobile (optional)" style="background:rgba(255,255,255,0.06);border:2px solid var(--border);border-radius:10px;padding:14px 16px;color:var(--white);font-family:'Barlow',sans-serif;font-size:16px;outline:none;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--border)'">
-
-        <button onclick="submitInterest()" id="oiBtn" style="background:var(--gold);border:none;border-radius:12px;padding:18px;color:#000;font-family:'Anton',sans-serif;font-size:18px;letter-spacing:3px;cursor:pointer;text-transform:uppercase;box-shadow:0 6px 20px rgba(240,180,41,0.25);transition:all .15s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Register Interest</button>
-
-        <div id="oiMsg" style="font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:1px;text-align:center;min-height:20px;"></div>
+        <input type="email" id="oiEmail" placeholder="Email" style="background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:'Barlow',sans-serif;font-size:14px;">
+        <input type="tel" id="oiPhone" placeholder="Mobile (optional)" style="background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:'Barlow',sans-serif;font-size:14px;">
+        <button onclick="submitInterest()" id="oiBtn" style="background:var(--gold);border:none;border-radius:8px;padding:12px;color:#000;font-family:'Anton',sans-serif;font-size:14px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;">Register Interest</button>
+        <div id="oiMsg" style="font-family:'Barlow',sans-serif;font-size:13px;text-align:center;min-height:16px;"></div>
       </div>
-    </div>
+    </details>
   </div>
 
 <script>
@@ -2385,6 +2361,57 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', prime);
   else prime();
+})();
+</script>
+
+<script>
+// Shim for compact interest form: map old radio API to new select API
+(function(){
+  // Provide DOM elements that legacy oiVenueChange / oiFareChange expect to read .checked
+  function fakeRadioForSelect(selectId, value) {
+    const sel = document.getElementById(selectId);
+    return sel ? { checked: sel.value === value, value: value } : { checked:false, value:value };
+  }
+  // Override globals only after DOM ready and original handlers may already be defined.
+  document.addEventListener('DOMContentLoaded', function(){
+    const venueSel = document.getElementById('oiVenue');
+    const fareSel  = document.getElementById('oiFare');
+    if (venueSel && typeof oiVenueChange === 'function') {
+      // wrap: rebroadcast change so legacy logic that reads radios still works via fallbacks
+      const origVenue = oiVenueChange;
+      window.oiVenueChange = function(){
+        // Build pseudo-radios in DOM if old logic depends on .checked of #oiVenueMarvel/#oiVenueMcg
+        ['oiVenueMarvel','oiVenueMcg'].forEach(function(id){
+          let el = document.getElementById(id);
+          if (!el) {
+            el = document.createElement('input');
+            el.type='radio'; el.id=id; el.name='oiVenue'; el.style.display='none';
+            document.body.appendChild(el);
+          }
+          el.checked = (id==='oiVenueMarvel' ? venueSel.value==='Marvel Stadium' : venueSel.value==='MCG');
+          el.value = (id==='oiVenueMarvel' ? 'Marvel Stadium' : 'MCG');
+        });
+        try { origVenue(); } catch(e) { console.warn(e); }
+      };
+    }
+    if (fareSel && typeof oiFareChange === 'function') {
+      const origFare = oiFareChange;
+      window.oiFareChange = function(){
+        const map = {oiFareReturn:'return', oiFareTo:'oneway_to', oiFareFrom:'oneway_from'};
+        Object.keys(map).forEach(function(id){
+          let el = document.getElementById(id);
+          if (!el) {
+            el = document.createElement('input');
+            el.type='radio'; el.id=id; el.name='oiFare'; el.style.display='none';
+            document.body.appendChild(el);
+          }
+          el.checked = (fareSel.value === map[id]);
+          el.value = map[id];
+        });
+        try { origFare(); } catch(e) { console.warn(e); }
+      };
+    }
+  });
 })();
 </script>
 </body>
