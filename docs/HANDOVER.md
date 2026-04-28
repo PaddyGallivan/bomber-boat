@@ -5,13 +5,13 @@
 
 ---
 
-## Live state (as of 27 April 2026)
+## Live state (as of 29 April 2026)
 
 - **Public site:** https://bomberboat.com.au — CF Pages project `bomber-boat`, build `bb-20260427-bugfix-v1`
 - **Worker API:** `bomberboat.com.au/api/*` → worker `bomber-boat-api` (v9.19)
 - **D1 database:** `bomber-boat-db` (UUID `c7dda294-5bba-41c1-a85d-bcc5a9bf1d29`)
 - **Stripe:** Luck Dragon Pty Ltd, AUD, weekly payouts, 2-day delay
-- **Resend (outbound email):** `bookings@bomberboat.com.au` (DKIM+SPF verified)
+- **Resend (outbound email):** `bookings@bomberboat.com.au` + `hello@bomberboat.com.au` (DKIM+SPF verified)
 - **Inbound email:** `hello@bomberboat.com.au` → CF Email Routing → `pgallivan@outlook.com`
 - **Active bookable game:** Round 8 — Essendon v Brisbane Lions (Sat 2 May 2026, Marvel Stadium, 12:35pm)
 - **Instagram:** @bomberboat — profile pic set, no posts yet
@@ -32,20 +32,15 @@
 
 Push to `main` on this repo → `.github/workflows/deploy.yml` runs:
 
-1. `bash scripts/preflight.sh site` — refuses to ship if any required site file is under its min-size threshold (e.g. `bomberboat-admin.html < 50KB`).
-2. Detects whether `site/` or `worker/` changed in the push and deploys only what's needed.
-3. `npx wrangler@4 pages deploy` for the site (`bomber-boat`); `npx wrangler@4 deploy --keep-vars` for the worker (`bomber-boat-api`).
-4. `bash scripts/postflight.sh https://bomberboat.com.au` — fetches every public URL and confirms HTTP 200 + min byte size; fails the GH run if anything blanks out, with a "rollback recommended" message.
+1. `bash scripts/preflight.sh site` — refuses to ship if any required site file is under its min-size threshold.
+2. Detects whether `site/` or `worker/` changed and deploys only what's needed.
+3. `npx wrangler@4 pages deploy` for the site; `npx wrangler@4 deploy --keep-vars` for the worker.
+4. `bash scripts/postflight.sh https://bomberboat.com.au` — confirms HTTP 200 + min byte size on every public URL.
 
-Repo secrets (already configured): `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID = a6f47c17811ee2f8b6caeb8f38768c20`. Worker secrets (`API_KEY`, `ADMIN_PASSWORD`, etc.) live in CF and survive deploys via `--keep-vars`.
-
-If GH Actions ever stops running: re-add the workflow file from `docs/SETUP-WORKFLOW.yml` after granting `workflow` scope to the GH PAT (`https://github.com/settings/tokens`).
-
-### Why preflight + postflight exist (post-mortem 27 Apr 2026)
-On 26 Apr ~12:13 UTC `bomberboat-admin.html` in the old Drive deploy folder went from 130855 bytes to 0 bytes (Drive-sync or interrupted-write corruption). The old chain shipped the empty file; CF Pages served HTTP 200 with a blank body; `/admin` was effectively dead until 27 Apr. `cancel.html` had the same fate. Recovery: restored both from CF Pages preview `c3bc0a60` via direct wrangler deploy. The min-size guards prevent any future "ship a 0-byte critical file" attempt.
+Repo secrets (already configured): `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID = a6f47c17811ee2f8b6caeb8f38768c20`.
 
 ### Rollback (break-glass)
-For instant rollback without a git revert: legacy `bomberboat-rollback.bat` lives in Drive root and calls the CF Pages rollback API directly. Last known-good deployment was `674425bc` (25 Apr 2026). Preferred path is still: revert the offending commit on GitHub and let GH Actions auto-redeploy.
+For instant rollback without a git revert: legacy `bomberboat-rollback.bat` lives in Drive root. Last known-good deployment was `674425bc` (25 Apr 2026). Preferred path: revert the offending commit on GitHub and let GH Actions auto-redeploy.
 
 ---
 
@@ -53,58 +48,29 @@ For instant rollback without a git revert: legacy `bomberboat-rollback.bat` live
 
 ```
 bomber-boat/
-├── .github/workflows/deploy.yml   # CI/CD entrypoint
-├── site/                          # public CF Pages site
-│   ├── index.html                 # ~98KB after dead-CSS strip
-│   ├── bomberboat-admin.html      # ~131KB (admin/captain/staff portal)
-│   ├── cancel.html                # Stripe cancel page
-│   ├── manifest-public.json       # PWA manifest
-│   ├── version.json               # build id, polled by client every 60s
-│   ├── logo.png                   # hero logo (sourced from ChatGPT-generated artwork)
-│   ├── hero.jpg                   # hero background (Yarra River Cruises boat)
-│   └── icon-public-192.png        # PWA icon (regenerated from logo)
-├── worker/                        # CF Worker API source
-│   ├── index.js                   # bomber-boat-api (currently v9.19)
-│   └── wrangler.toml              # worker bindings + D1 attachment
+├── .github/workflows/deploy.yml
+├── site/
+│   ├── index.html
+│   ├── bomberboat-admin.html
+│   ├── cancel.html
+│   ├── manifest-public.json
+│   ├── version.json
+│   ├── logo.png
+│   ├── hero.jpg
+│   └── icon-public-192.png
+├── worker/
+│   ├── index.js                   # bomber-boat-api (v9.19)
+│   └── wrangler.toml
 ├── scripts/
-│   ├── preflight.sh               # min-size guard before deploy
-│   └── postflight.sh              # live URL health check after deploy
+│   ├── preflight.sh
+│   └── postflight.sh
 └── docs/
     ├── HANDOVER.md                # this file
-    ├── ARCHITECTURE.md            # system design
-    └── SETUP-WORKFLOW.yml         # workflow re-add template
+    ├── ARCHITECTURE.md
+    ├── OPERATOR-EMAIL.md
+    ├── SETUP-WORKFLOW.yml
+    └── bb-cheer-squad-email.html  # Round 8 cheer squad email (Outlook-safe HTML)
 ```
-
----
-
-## v10/bugfix-v1 design state (current site)
-
-Hero: `logo.png` rounded image → subtitle "The Bombers fan boat to and from Marvel Stadium" → route pill "Cafe Riviera, Maribyrnong → Marvel Stadium" → countdown widget (hidden unless an active game is upcoming). Hero background is `hero.jpg` with a dark vignette.
-
-Below hero: "What's Included" — 6 black tiles with red top accent (Free Drink / Finger Food / Cheap Bar / Card Payment / Departs 1.5 hrs before bounce / Returns 30 min after final siren).
-
-Booking flow: game dropdown → 3 ticket-type tiles (Both ways / One-way to game / Return leg only) in a forced 3-col grid on desktop → BOOK MY SPOT button → Stripe Checkout.
-
-Below booking: "Boat to any game" register-interest form (venue + game + party size + email).
-
-Map: OpenStreetMap iframe of 55 Cumberland Dr, Maribyrnong. FAQ accordion. Footer.
-
-### What was stripped along the way
-- All emojis (perks ticker, route pill, FAQ, buttons, toasts, ticket icons)
-- Scrolling perks marquee → static "What's Included" tiles
-- `bomberboat.com.au` domain tag from the hero
-- `BOMBERBOAT` typographic h1 (logo carries branding)
-- Image carousel (AI-image vibe was too obvious)
-- "Share with mates" button
-- Journey-times line
-- Diagonal stripe body texture
-- Spots-remaining banner (don't reveal booking counts to public)
-- Past games from the dropdown (parsed from label text since API doesn't return a `date` field)
-- Misleading "(Mon TBC)" placeholder weekdays — rewritten client-side to "(day TBC)"
-- ~404 lines of dead CSS
-
-### Inactive games
-Listed in dropdown with "(NOT YET TAKING BOOKINGS)" suffix and disabled.
 
 ---
 
@@ -154,14 +120,58 @@ Worker secrets currently set: `API_KEY`, `ADMIN_PASSWORD`, `CAPTAIN_PASSWORD`, `
 
 ---
 
+## Marketing assets — Round 8 (created 28–29 Apr 2026)
+
+### Cheer Squad email
+- **File:** `docs/bb-cheer-squad-email.html` (this repo)
+- **To:** cheersquad@essendonfc.com.au
+- **From:** hello@bomberboat.com.au via Resend
+- **Subject:** Bomber Boat — group offer for the Cheer Squad (Sat vs Brisbane)
+- **Scheduled send:** 8:30am Thu 30 Apr 2026 via Asgard scheduled task `bb-cheer-squad-email-r8`
+- **Content:** fares ($90 adult return / $40 child / one-way link), Maiden Voyage Bonus (free return trip on any other home game), photographer on board (shooteverything.com.au), 60 seats, CTA → bomberboat.com.au
+- **HTML approach:** HTML 4.01 Transitional doctype, zero VML, zero conditional comments, zero `<div>` inside cells, plain `bgcolor` table button — Outlook-safe.
+
+#### ⚠️ DMARC missing — manual action needed
+SPF and DKIM are set via Resend (domain verified ✓). DMARC is not yet set. Add this TXT record in Cloudflare DNS for bomberboat.com.au:
+- **Name:** `_dmarc`
+- **Value:** `v=DMARC1; p=none; rua=mailto:hello@bomberboat.com.au; fo=1`
+Without DMARC, emails may land in spam at some providers.
+
+### Facebook post copy
+Ready to post Thu/Fri into Essendon fan groups. Saved to Drive as `bb-fb-post.txt`.
+
+### Poster assets (4 formats)
+Created 28 Apr 2026, saved to Drive:
+- `bb-poster-ig.png` — Instagram 1080×1080
+- `bb-poster-fb.png` — Facebook 1200×628
+- `bb-poster-story.png` — Story 1080×1920
+- `bb-poster-a3.png` — A3 print
+
+All feature QR code → bomberboat.com.au, Essendon red/black branding.
+
+---
+
+## Outlook email — lessons learnt (28 Apr 2026)
+
+Root cause of raw HTML rendering in Outlook: VML conditional comments (`<!--[if mso]>` + `<!--[if !mso]><!-->`…`<!--<![endif]-->`) leave Outlook's Word-engine parser in an undefined state, causing everything after them to render as raw text.
+
+Rules for future Bomber Boat transactional emails:
+1. Use HTML 4.01 Transitional doctype
+2. No conditional comments of any kind
+3. No VML
+4. No `<div>` inside `<td>` — use `<br>` for spacing
+5. No CSS `border` on `<td>` — use nested tables or `bgcolor`
+6. Buttons via plain `<table><tr><td bgcolor="#C8102E">` — no `display:block` tricks
+
+---
+
 ## Recent fixes (bugfix-v1, 27 Apr 2026)
 
-1. `/api/bookings/count` made public (was 401-ing the public page's SOLD OUT detection logic).
-2. Real `manifest-public.json` + `icon-public-192.png` shipped — no more 404s in `<head>`.
-3. ~404 lines of dead CSS stripped from `index.html` (perks-strip, spots-banner, bb-carousel, modal-*, seats-*, cap-*, pax-row*, gallery-*, info-card, `.hero h1`, `@keyframes growl`, etc.). Every removed class verified absent from `class=`, `classList.*`, `className`, and JS string literals.
-4. Schema.org `streetAddress` fixed in both JSON-LD blocks: `"55 Cumberland Dr"`.
-5. Meta tag consistency: `og:title` and `meta description` now match body copy ("to and from Marvel Stadium").
-6. `bomberboat-admin.html` restored from CF Pages preview `c3bc0a60` after the 0-byte Drive-sync corruption. Preflight/postflight guards added.
+1. `/api/bookings/count` made public.
+2. Real `manifest-public.json` + `icon-public-192.png` shipped.
+3. ~404 lines of dead CSS stripped from `index.html`.
+4. Schema.org `streetAddress` fixed: `"55 Cumberland Dr"`.
+5. `bomberboat-admin.html` restored from CF Pages preview `c3bc0a60` after 0-byte Drive-sync corruption. Preflight/postflight guards added.
 
 ---
 
@@ -171,13 +181,15 @@ Worker secrets currently set: `API_KEY`, `ADMIN_PASSWORD`, `CAPTAIN_PASSWORD`, `
 - Engage accountant
 - Lawyer review of Terms of Service before first paying customer
 - Cancel sole trader ABN 78 312 753 967 after Luck Dragon Pty Ltd migration complete
+- Add DMARC record (see above — manual Cloudflare step)
 
 ---
 
 ## Marketing — Round 8 launch checklist (Sat 2 May 2026)
 
-- First Instagram post (caption ready)
-- FB group posts — Bombers fan groups, Thu/Fri before Round 8
+- [x] Cheer squad email — scheduled 8:30am Thu 30 Apr
+- [ ] Post to FB Bombers fan groups — Thu/Fri (copy ready in bb-fb-post.txt on Drive)
+- [ ] First Instagram post
 
 ---
 
@@ -187,4 +199,4 @@ Worker secrets currently set: `API_KEY`, `ADMIN_PASSWORD`, `CAPTAIN_PASSWORD`, `
 
 ---
 
-*End of handover. Updated 27 April 2026.*
+*End of handover. Updated 29 April 2026.*
