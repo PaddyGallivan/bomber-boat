@@ -131,11 +131,8 @@ Worker secrets currently set: `API_KEY`, `ADMIN_PASSWORD`, `CAPTAIN_PASSWORD`, `
 - **Content:** fares ($90 adult return / $40 child / one-way link), Maiden Voyage Bonus (free return trip on any other home game), photographer on board (shooteverything.com.au), 60 seats, CTA → bomberboat.com.au
 - **HTML approach:** HTML 4.01 Transitional doctype, zero VML, zero conditional comments, zero `<div>` inside cells, plain `bgcolor` table button — Outlook-safe.
 
-#### ⚠️ DMARC missing — manual action needed
-SPF and DKIM are set via Resend (domain verified ✓). DMARC is not yet set. Add this TXT record in Cloudflare DNS for bomberboat.com.au:
-- **Name:** `_dmarc`
-- **Value:** `v=DMARC1; p=none; rua=mailto:hello@bomberboat.com.au; fo=1`
-Without DMARC, emails may land in spam at some providers.
+#### ✅ DMARC added (29 Apr 2026)
+TXT record `_dmarc` → `v=DMARC1; p=none; rua=mailto:hello@bomberboat.com.au; fo=1` live in Cloudflare DNS.
 
 ### Facebook post copy
 Ready to post Thu/Fri into Essendon fan groups. Saved to Drive as `bb-fb-post.txt`.
@@ -181,7 +178,6 @@ Rules for future Bomber Boat transactional emails:
 - Engage accountant
 - Lawyer review of Terms of Service before first paying customer
 - Cancel sole trader ABN 78 312 753 967 after Luck Dragon Pty Ltd migration complete
-- Add DMARC record (see above — manual Cloudflare step)
 
 ---
 
