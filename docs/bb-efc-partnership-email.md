@@ -21,7 +21,15 @@
 
 <p>Through our partnership with <a href="https://yarracruises.com.au" style="color:#C8102E;">Yarra Cruises</a> we also have access to the <b>MV John Batman</b> &#8212; a 200-person, four-deck vessel that already runs the Maribyrnong upstream to Essendon. The capacity to scale is there when you need it.</p>
 
-<p>And one more thought &#8212; I think <b>Simon Madden</b> would be an absolutely sensational host for one of the early voyages. 378 games, four premierships, a Norm Smith Medal, 300 good games, 78 great ones &#8212; and a man so woven into the fabric of this club that there is a scoreboard named after him at St Bernard&#39;s College. Though apparently there is some genuine debate within the college walls about whether it might actually be for one of his sons &#8212; Josh, an excellent VAFA footballer, or Isaac. Debatable. Impressive either way. Simon on the water, sharing stories with members on the way to the game &#8212; that is a piece of content the club and the media would love.</p>
+<p style="color:#C8102E;font-weight:bold;font-size:16px;margin-bottom:4px;">SIMON MADDEN</p>
+
+<p>I think <b>Simon Madden</b> would be an absolutely sensational host for one of the early voyages. One of the greatest Essendon footballers to have ever pulled on the red and black &#8212; 378 games, four premierships, a Norm Smith Medal, 300 good games, 78 great ones. A highly regarded public speaker and an extraordinarily gifted storyteller &#8212; word has it that for those who do not even want to watch the game, he will keep going until the sailors have long since gone to Marvel and come back for the return voyage down the Maribyrnong.</p>
+
+<p>He is also a man so woven into the fabric of this football club that there is a scoreboard named after him at St Bernard&#39;s College &#8212; though apparently there is some genuine debate within the college walls about whether it might actually be named after one of his sons. Josh, a Wall of Fame VAFA footballer and regular State Representative, or Isaac, a dangerous small forward for the Saints who did his reputation no harm whatsoever kicking goals against the T&#39;s. Debatable. Impressive either way.</p>
+
+<p>And for what it is worth, his brother Justin played 45 games for the Essendon Football Club before heading across to Carlton for another 287. We will not hold that against the family. Between them, Simon and Justin Madden contributed 710 VFL/AFL games to this competition &#8212; Simon loyal to the red and black for every single one of his.</p>
+
+<p>Simon on the water, sharing stories with members on the way to the game &#8212; that is a piece of content the club and the media would love.</p>
 
 <p>The commercial side is simple &#8212; flat annual fee, no per-head counting, easy to budget and easy to promote. Happy to talk numbers on a call.</p>
 
