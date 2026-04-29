@@ -1,7 +1,7 @@
 # Bomber Boat — Canonical Handover
 
 > **Read this first in every new Bomber Boat chat.**
-> Source of truth lives here, not in Google Drive. Edit via github.dev (press `.` on any repo file) or the GitHub web UI.
+> Source of truth lives here, not in Google Drive. Edit via github.dev (press `.\ on any repo file) or the GitHub web UI.
 
 ---
 
@@ -11,7 +11,7 @@
 - **Worker API:** `bomberboat.com.au/api/*` → worker `bomber-boat-api` (v9.19)
 - **D1 database:** `bomber-boat-db` (UUID `c7dda294-5bba-41c1-a85d-bcc5a9bf1d29`)
 - **Stripe:** Luck Dragon Pty Ltd, AUD, weekly payouts, 2-day delay
-- **Resend (outbound email):** `bookings@bomberboat.com.au` + `hello@bomberboat.com.au` (DKIM+SPF verified)
+- **Resend (outbound email):** `bookings@bomberboat.com.au` + `hello@bomberboat.com.au` (DKIM+SPF+DMARC verified ✅)
 - **Inbound email:** `hello@bomberboat.com.au` → CF Email Routing → `pgallivan@outlook.com`
 - **Active bookable game:** Round 8 — Essendon v Brisbane Lions (Sat 2 May 2026, Marvel Stadium, 12:35pm)
 - **Instagram:** @bomberboat — profile pic set, no posts yet
@@ -69,7 +69,12 @@ bomber-boat/
     ├── ARCHITECTURE.md
     ├── OPERATOR-EMAIL.md
     ├── SETUP-WORKFLOW.yml
-    └── bb-cheer-squad-email.html  # Round 8 cheer squad email (Outlook-safe HTML)
+    ├── bb-cheer-squad-email.html  # Round 8 cheer squad email (Outlook-safe HTML)
+    └── posters/
+        ├── bb-poster-ig.png       # Instagram 1080×1080
+        ├── bb-poster-fb.png       # Facebook 1200×628
+        ├── bb-poster-story.png    # Story 1080×1920
+        └── bb-poster-a3.png       # A3 print
 ```
 
 ---
@@ -120,6 +125,31 @@ Worker secrets currently set: `API_KEY`, `ADMIN_PASSWORD`, `CAPTAIN_PASSWORD`, `
 
 ---
 
+## Corporate / partnership strategy
+
+These are the high-leverage growth plays beyond individual ticket sales. **Do not lose these.**
+
+### 1. Essendon Football Club — annual partnership
+Approach EFC directly for a **yearly deal (~$15–20k/yr)** rather than per-head. EFC officially endorses and promotes Bomber Boat to members. Approach after Saturday's maiden voyage — get photos/proof of concept first, then pitch.
+- Contact: TBD (approach via official channels)
+- Angle: club-endorsed experience, guaranteed revenue, member benefit
+
+### 2. Corporate Friday night charters
+Charter the whole boat for corporate groups. Friday evening sailing as a team outing.
+- Target market: Maribyrnong / Footscray / CBD businesses
+- Sell the whole boat as a private event
+
+### 3. Yarra Cruises fleet partnership
+**Key insight: Yarra Cruises operates the boats — Bomber Boat is the booking platform/brand layer (asset-light, scalable).** Yarra Cruises have 4 big boats. A fleet partnership could scale capacity dramatically beyond a single vessel without owning any assets.
+
+### 4. Beer / beverage sponsorship
+Approach a beer brand (e.g. Carlton, Great Northern, Pure Blonde) for boat branding, subsidised bar prices, co-marketing deal.
+
+### 5. bulldogsboat.com.au (registered)
+Domain already registered — model can be extended to other AFL clubs.
+
+---
+
 ## Marketing assets — Round 8 (created 28–29 Apr 2026)
 
 ### Cheer Squad email
@@ -127,30 +157,33 @@ Worker secrets currently set: `API_KEY`, `ADMIN_PASSWORD`, `CAPTAIN_PASSWORD`, `
 - **To:** cheersquad@essendonfc.com.au
 - **From:** hello@bomberboat.com.au via Resend
 - **Subject:** Bomber Boat — group offer for the Cheer Squad (Sat vs Brisbane)
-- **Scheduled send:** 8:30am Thu 30 Apr 2026 via Asgard scheduled task `bb-cheer-squad-email-r8`
+- **Status:** ✅ **SENT 29 Apr 2026** (Resend ID `cd599bb0`) — sent early (Wed morning), scheduled task `bb-cheer-squad-email-r8` disabled to prevent double-send
 - **Content:** fares ($90 adult return / $40 child / one-way link), Maiden Voyage Bonus (free return trip on any other home game), photographer on board (shooteverything.com.au), 60 seats, CTA → bomberboat.com.au
 - **HTML approach:** HTML 4.01 Transitional doctype, zero VML, zero conditional comments, zero `<div>` inside cells, plain `bgcolor` table button — Outlook-safe.
 
-#### ✅ DMARC added (29 Apr 2026)
-TXT record `_dmarc` → `v=DMARC1; p=none; rua=mailto:hello@bomberboat.com.au; fo=1` live in Cloudflare DNS.
-
-### Facebook post copy
-Ready to post Thu/Fri into Essendon fan groups. Saved to Drive as `bb-fb-post.txt`.
-
 ### Poster assets (4 formats)
-Created 28 Apr 2026, saved to Drive:
-- `bb-poster-ig.png` — Instagram 1080×1080
-- `bb-poster-fb.png` — Facebook 1200×628
-- `bb-poster-story.png` — Story 1080×1920
-- `bb-poster-a3.png` — A3 print
+Created 28 Apr 2026. **Canonical location: `docs/posters/` in this repo** (NOT Drive).
+- `docs/posters/bb-poster-ig.png` — Instagram 1080×1080
+- `docs/posters/bb-poster-fb.png` — Facebook 1200×628
+- `docs/posters/bb-poster-story.png` — Story 1080×1920
+- `docs/posters/bb-poster-a3.png` — A3 print
 
 All feature QR code → bomberboat.com.au, Essendon red/black branding.
+
+### Social post copy
+Full copy (FB post + IG caption) emailed to pgallivan@outlook.com (Resend ID `bc61bffc`) with all 4 posters attached. Ready to go.
+
+#### Facebook post — post to Bombers fan groups Thu/Fri
+Use `bb-poster-fb.png` or `bb-poster-ig.png` as image.
+
+#### Instagram — first post
+Use `bb-poster-ig.png` as image. Story: `bb-poster-story.png`.
 
 ---
 
 ## Outlook email — lessons learnt (28 Apr 2026)
 
-Root cause of raw HTML rendering in Outlook: VML conditional comments (`<!--[if mso]>` + `<!--[if !mso]><!-->`…`<!--<![endif]-->`) leave Outlook's Word-engine parser in an undefined state, causing everything after them to render as raw text.
+Root cause of raw HTML rendering in Outlook: VML conditional comments (`<!--[if mso]>` + `<!--[if !mso]><!-->\ …`<!--<![endif]-->`) leave Outlook's Word-engine parser in an undefined state, causing everything after them to render as raw text.
 
 Rules for future Bomber Boat transactional emails:
 1. Use HTML 4.01 Transitional doctype
@@ -178,14 +211,19 @@ Rules for future Bomber Boat transactional emails:
 - Engage accountant
 - Lawyer review of Terms of Service before first paying customer
 - Cancel sole trader ABN 78 312 753 967 after Luck Dragon Pty Ltd migration complete
+- Add DMARC record — ✅ DONE 29 Apr 2026
 
 ---
 
 ## Marketing — Round 8 launch checklist (Sat 2 May 2026)
 
-- [x] Cheer squad email — scheduled 8:30am Thu 30 Apr
-- [ ] Post to FB Bombers fan groups — Thu/Fri (copy ready in bb-fb-post.txt on Drive)
+- [x] Cheer squad email — sent 29 Apr 2026 (Resend `cd599bb0`)
+- [x] DMARC DNS record added
+- [x] All 4 posters on GitHub (`docs/posters/`)
+- [x] Social post copy emailed to Paddy (FB + IG ready to go)
+- [ ] Post to FB Bombers fan groups — Thu/Fri
 - [ ] First Instagram post
+- [ ] After maiden voyage: approach EFC for annual partnership
 
 ---
 
