@@ -15,9 +15,9 @@
 
 <p style="color:#C8102E;font-weight:bold;font-size:15px;margin-bottom:4px;">THIS SATURDAY</p>
 
-<p>We still have seats available and would love to have Essendon Football Club faces on board for the maiden voyage. Here is a simple way to make that happen: <b>cover half the boat &#8212; 10 seats ($900) &#8212; and give them to members.</b> We fill the other half. One social post from the club, we handle everything on the water.</p>
+<p>We still have seats available and would love to have Essendon Football Club faces on board for the maiden voyage. Here is a simple way to make that happen: <b>cover half the boat &#8212; 30 seats ($2,700) &#8212; and give them to members.</b> We fill the other half. One social post from the club, we handle everything on the water.</p>
 
-<p>If a partnership follows, that $900 comes straight off the annual fee. You get to put members on the boat this Saturday and it ends up costing you nothing.</p>
+<p>If a partnership follows, that $2,700 comes straight off the annual fee. You get to put members on the boat this Saturday and it ends up costing you nothing.</p>
 
 <hr style="border:none;border-top:1px solid #eee;margin:20px 0;">
 
@@ -45,13 +45,9 @@
 
 <p style="color:#C8102E;font-weight:bold;font-size:15px;margin-bottom:4px;">SIMON MADDEN</p>
 
-<p>I think Simon Madden would be an absolutely sensational host for one of the early voyages. One of the greatest Essendon footballers to have ever pulled on the red and black &#8212; 378 games, four premierships, a Norm Smith Medal, 300 good games, 78 great ones. A highly regarded public speaker and an extraordinarily gifted storyteller &#8212; word has it that for those who do not even want to watch the game, he will keep going until the sailors have long since gone to Marvel and come back for the return voyage down the Maribyrnong.</p>
+<p>I think Simon Madden would be an absolutely sensational host for one of the early voyages &#8212; 378 games, four premierships, a Norm Smith Medal, and one of the great storytellers the game has produced. There is also a scoreboard named after him at St Bernard&#39;s College, though apparently there is genuine debate about whether it might be for one of his sons &#8212; Josh, a Wall of Fame VAFA footballer, or Isaac, a dangerous small forward. Debatable. Impressive either way.</p>
 
-<p>He is also a man so woven into the fabric of this football club that there is a scoreboard named after him at St Bernard&#39;s College &#8212; though apparently there is some genuine debate within the college walls about whether it might actually be named after one of his sons. Josh, a Wall of Fame VAFA footballer and regular State Representative, or Isaac, a dangerous small forward who kicked goals for the Saints and did his selection chances no harm whatsoever. Debatable. Impressive either way.</p>
-
-<p>And for what it is worth, his brother Justin played 45 games for the Essendon Football Club before heading across to Carlton for another 287. We will not hold that against the family. Between them, Simon and Justin Madden contributed 710 VFL/AFL games to this competition &#8212; Simon loyal to the red and black for every single one of his.</p>
-
-<p>Simon on the water, sharing stories with members on the way to the game &#8212; the content that would generate for the club, for Simon, and for media is enormous. It is the kind of moment that puts Bomber Boat on the map and gives the Essendon Football Club a story worth telling.</p>
+<p>Simon on the water, sharing stories on the way to the game &#8212; that is content the club and the media would love.</p>
 
 <hr style="border:none;border-top:1px solid #eee;margin:20px 0;">
 
