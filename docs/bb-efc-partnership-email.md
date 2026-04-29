@@ -8,33 +8,26 @@
 <table width="100%" cellpadding="28" cellspacing="0"><tr><td style="font-size:15px;line-height:1.9;">
 
 <p>Hi there,</p>
-<p>I run Bomber Boat &#8212; a boat that sails Essendon fans to the footy on game day. Our maiden voyage is <b>this Saturday, Round 8 against Brisbane at Marvel Stadium</b>.</p>
-<p>Before we post to the Essendon fan groups and our social channels this week, we wanted to reach out to the club first. We would much rather do this with the Essendon Football Club than around it.</p>
 
-<p style="color:#C8102E;font-weight:bold;margin-bottom:4px;">THIS SATURDAY &#8212; AN OFFER FOR YOUR MEMBERS</p>
-<p>The season has been a tough one so far. We would love to do something about that.</p>
-<p>We have the whole boat available this Saturday &#8212; 60 seats, Maribyrnong River, sailing to Marvel for the Brisbane game. We would like to offer the Essendon Football Club a block of complimentary seats to give away to members however you see fit &#8212; a competition, a social post, a thank-you to your most loyal fans. Something to lift the spirits before the game and remind people why they love this club.</p>
-<p>No strings. Just a good day on the water with the red and black faithful.</p>
+<p>This week we are about to post Bomber Boat across every Essendon fan group on Facebook, and we wanted to come to the club first.</p>
 
-<p style="color:#C8102E;font-weight:bold;margin-bottom:4px;">THE EXPERIENCE</p>
-<p>Fans board at the Maribyrnong River and sail to the game. Return trip after the siren. Every passenger gets a welcome drink on board and we have a professional photographer on every trip.</p>
-<p>Fares are <b>$90 adult return / $40 under 15s</b>. One-way fares are also available.</p>
+<p>We would much rather the Essendon Football Club be the ones who bring this to your members than have them hear about it from a Facebook group.</p>
 
-<p style="color:#C8102E;font-weight:bold;margin-bottom:4px;">THE SCALE</p>
-<p>We operate in partnership with <a href="https://yarracruises.com.au" style="color:#C8102E;">Yarra Cruises</a>, and through that relationship we have access to the <b>MV John Batman</b> &#8212; a 200-person, four-deck vessel that already cruises the Maribyrnong River upstream to Essendon. For marquee games we step up to the John Batman and can put 200 members on the water in a single trip.</p>
+<p>Here is what Bomber Boat is: a boat that sails Essendon fans from the Maribyrnong River to Marvel Stadium on game day. Welcome drink on board. Professional photographer on every trip. Return trip after the siren. $90 adult return, $40 under 15s, one-way fares available. Our maiden voyage is <b>this Saturday, Round 8 against Brisbane</b>.</p>
 
-<p style="color:#C8102E;font-weight:bold;margin-bottom:4px;">THE BIGGER IDEA</p>
-<p>Instead of the standard membership merchandise pack, give members a Bomber Boat return trip as a benefit &#8212; one sail to a home game per season, built into a membership tier. Something members genuinely get excited about and post about.</p>
-<p>The commercial arrangement would be a flat annual fee rather than per head &#8212; clean, budgetable, and easy to promote to members as a genuine perk. We can talk numbers on a call.</p>
+<p>We know the season has been tough. Before we go public this week, we would love to offer the Essendon Football Club a block of complimentary seats on Saturday to give to members &#8212; a quick social post, a member giveaway, something to look forward to before the game. You tell us how you want to use them. No strings attached.</p>
 
-<p style="color:#C8102E;font-weight:bold;margin-bottom:4px;">SIMON MADDEN</p>
-<p>I think Simon Madden would be an absolutely sensational host for one of the early voyages. One of the greatest Essendon footballers to have ever pulled on the red and black &#8212; 378 games, four premierships, a Norm Smith Medal (300 games, 78 great ones, but who&#39;s counting) &#8212; and a man so woven into the fabric of this football club that there is a scoreboard named after him at St Bernard&#39;s College. Though we should note there is apparently some genuine debate within the college walls about whether it might actually be named after one of his sons &#8212; Josh, an excellent VAFA footballer, or Isaac. Debatable. Impressive either way.</p>
-<p>Simon sailing fans up the Maribyrnong to the footy and sharing stories on the water &#8212; the content that generates for the club, for Simon, and for media is enormous. It is the kind of moment that puts Bomber Boat on the map and gives the Essendon Football Club a story worth telling.</p>
+<p>But the bigger conversation is this: we want the Essendon Football Club as an official partner. The vision is to make a Bomber Boat trip a genuine membership benefit &#8212; one return sail to a home game per season, built into a tier. Not another piece of merchandise. Something people actually talk about.</p>
 
-<p style="color:#C8102E;font-weight:bold;margin-bottom:4px;">THE BIGGER PICTURE</p>
-<p>The vision is a boat experience for every AFL club in the country. We are already building that out. Getting the Essendon Football Club deeply involved early &#8212; as a partner rather than just a passenger &#8212; is an opportunity to shape what this becomes.</p>
+<p>Through our partnership with <a href="https://yarracruises.com.au" style="color:#C8102E;">Yarra Cruises</a> we also have access to the <b>MV John Batman</b> &#8212; a 200-person, four-deck vessel that already runs the Maribyrnong upstream to Essendon. The capacity to scale is there when you need it.</p>
 
-<p>If you want to take us up on Saturday, just reply and we will sort it immediately. Otherwise, happy to jump on a call any time next week to talk about the longer-term partnership.</p>
+<p>And one more thought &#8212; I think <b>Simon Madden</b> would be an absolutely sensational host for one of the early voyages. 378 games, four premierships, a Norm Smith Medal (300 games, 78 great ones, but who&#39;s counting) &#8212; and a man so woven into the fabric of this club that there is a scoreboard named after him at St Bernard&#39;s College. Though apparently there is some genuine debate within the college walls about whether it might actually be for one of his sons &#8212; Josh, an excellent VAFA footballer, or Isaac. Debatable. Impressive either way. Simon on the water, sharing stories with members on the way to the game &#8212; that is a piece of content the club and the media would love.</p>
+
+<p>The commercial side is simple &#8212; flat annual fee, no per-head counting, easy to budget and easy to promote. Happy to talk numbers on a call.</p>
+
+<p>We are posting to the fan groups this week regardless &#8212; but we would love to do it as Bomber Boat, official partner of the Essendon Football Club. That is a much better story for everyone.</p>
+
+<p>Reply here or call me directly. Happy to make Saturday happen with 24 hours notice.</p>
 
 <p style="margin-top:32px;">Paddy Gallivan<br>
 <b>Bomber Boat</b><br>
