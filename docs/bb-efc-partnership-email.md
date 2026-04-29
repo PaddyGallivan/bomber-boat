@@ -9,11 +9,11 @@
 
 <p>Hi there,</p>
 
-<p>Our maiden voyage is <b>this Saturday, Round 8 vs Brisbane</b> &#8212; a boat sailing Essendon fans from the Maribyrnong to Marvel Stadium. Welcome drink, professional photographer, return after the siren.</p>
+<p>Our maiden voyage is <b>this Saturday, Round 8 vs Brisbane</b> &#8212; a boat sailing Essendon fans from the Maribyrnong to Marvel Stadium. Welcome drink, professional photographer, return after the siren. $90 adult return.</p>
 
-<p>Simple ask: <b>the Essendon Football Club buys the seats for Saturday and gives them to members.</b> One social post, we handle everything on the water.</p>
+<p>Here is the ask: <b>cover half the boat &#8212; 10 seats ($900) &#8212; and give them to members.</b> We will fill the other half. One social post from the club, we handle everything on the water.</p>
 
-<p>If you go on to become an official partner, we take Saturday&#39;s cost straight off the annual fee. You get to try the product, members get a genuine surprise, and it costs you nothing in the long run.</p>
+<p>If a partnership follows, that $900 comes straight off the annual fee. You get to put members on a boat this Saturday and it ends up costing you nothing.</p>
 
 <p>Can make it happen with 24 hours notice. Worth a quick call?</p>
 
