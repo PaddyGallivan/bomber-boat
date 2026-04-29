@@ -8,8 +8,8 @@
 <table width="100%" cellpadding="28" cellspacing="0"><tr><td style="font-size:15px;line-height:1.9;">
 
 <p>Hi there,</p>
-<p>I run Bomber Boat &#8212; a boat that sails Essendon fans to the footy on game day. Our maiden voyage is <b>this Saturday, Round 8 against Brisbane at Marvel Stadium</b>, and I wanted to reach out before we launch.</p>
-<p>I think there is a genuine partnership opportunity here worth a quick conversation &#8212; but first, a thought for this weekend.</p>
+<p>I run Bomber Boat &#8212; a boat that sails Essendon fans to the footy on game day. Our maiden voyage is <b>this Saturday, Round 8 against Brisbane at Marvel Stadium</b>.</p>
+<p>Before we post to the Essendon fan groups and our social channels this week, we wanted to reach out to the club first. We would much rather do this with the Essendon Football Club than around it.</p>
 
 <p style="color:#C8102E;font-weight:bold;margin-bottom:4px;">THIS SATURDAY &#8212; AN OFFER FOR YOUR MEMBERS</p>
 <p>The season has been a tough one so far. We would love to do something about that.</p>
