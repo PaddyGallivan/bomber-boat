@@ -1,28 +1,22 @@
 Hi there,
 
-I run Bomber Boat — a boat experience that sails Essendon fans to the footy on game day. Think of it as the most unique pre-game ritual in the competition.
+I run Bomber Boat — a boat that sails Essendon fans to the footy on game day. Our maiden voyage is this Saturday, Round 8 against Brisbane at Marvel Stadium, and I wanted to reach out before we launch.
 
-Our maiden voyage is Round 8 this Saturday (Essendon v Brisbane, Marvel Stadium). I wanted to reach out before we launch because I think there is a genuine partnership opportunity here worth a quick conversation.
+I think there is a genuine partnership opportunity here that is worth a quick conversation.
 
-THE EXPERIENCE
+Here is the experience: fans board at the Maribyrnong River and sail to Marvel Stadium. Return trip after the siren. Every passenger gets a welcome drink on board. We have a professional photographer on every trip. The boat holds 60 people. Fares are 0 adult return and 0 for under 15s.
 
-Fans board at the Maribyrnong River for Marvel Stadium games, or the Yarra for MCG games. The boat fits 60 people. Every passenger gets a welcome drink on board. We have a professional photographer shooting the trip each game. Return journey after the final siren.
+For MCG home games we run the same experience on the Yarra. And through our partnership with Yarra Cruises — who operate a fleet of four boats including vessels that hold 200 people — we have the capacity to scale for the big games.
 
-Fares are $90 per adult return and $40 per child (under 15). One-way options available.
+The idea for EFC is this: instead of the standard membership merchandise pack, give members a Bomber Boat return trip as a benefit. One sail to a home game per season, built into a membership tier. Something people actually get excited about and post about — not another scarf in a drawer.
 
-THE IDEA FOR EFC
+No other AFL club in the country offers anything like it, and we want EFC to be the first.
 
-Instead of (or alongside) the standard membership merchandise pack — scarf, beanie, sticker — give members a Bomber Boat return trip as an included benefit. One sail to a home game per season, built into a membership tier.
+The commercial arrangement would be a flat annual fee rather than per head — clean and easy to promote to members as a genuine perk. We can talk numbers on a call.
 
-No other AFL club in the country does anything like this. It is the kind of benefit members actually talk about.
+The long-term vision is a boat for every Melbourne AFL club. Bomber Boat is the proof of concept. Getting EFC on board first is a real opportunity to own that.
 
-For EFC the arrangement would be a flat annual fee rather than per head — clean, budgetable, and easy to promote. We cover all home games across both Marvel Stadium and the MCG, so it works across your full fixture.
-
-THE BIGGER PICTURE
-
-We operate asset-light through a partnership with Yarra Cruises, whose fleet has the capacity to scale. The long-term vision is a boat for every Melbourne AFL club — Bomber Boat is the proof of concept. Getting EFC on board first, before anyone else, is a real opportunity to own that.
-
-I would love to put a couple of seats aside for you this Saturday so you can see it firsthand. Otherwise, happy to jump on a call any time next week.
+I would love to put a couple of seats aside for you this Saturday if you want to see it firsthand. Otherwise, happy to jump on a call any time next week.
 
 Paddy Gallivan
 Bomber Boat
