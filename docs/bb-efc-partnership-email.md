@@ -9,9 +9,9 @@
 
 <p>Hi there,</p>
 
-<p>I run Bomber Boat &#8212; a boat that sails Essendon fans to the footy on game day. Our maiden voyage is this Saturday, Round 8 against Brisbane at Marvel Stadium, and I wanted to reach out before we launch.</p>
+<p>This Saturday is the maiden voyage of Bomber Boat &#8212; a boat that sails Essendon fans to the footy on game day. Round 8 against Brisbane at Marvel Stadium.</p>
 
-<p>I think there is a genuine partnership opportunity here worth a quick conversation.</p>
+<p>Before we post to the fan groups this week, I wanted to come to the club officially first. I think there is a genuine partnership opportunity here worth a quick conversation.</p>
 
 <p style="color:#C8102E;font-weight:bold;font-size:15px;margin-bottom:4px;">THIS SATURDAY</p>
 
