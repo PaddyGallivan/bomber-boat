@@ -1,23 +1,30 @@
-Subject: Bomber Boat — a new member benefit for 2026 (not another scarf)
+TO: partnerships@essendonfc.com.au
+FROM: hello@bomberboat.com.au
+SUBJECT: A member benefit better than a scarf (maiden voyage this Saturday)
 
-Hi [Name],
+Hi there,
 
-I'm Paddy Gallivan, founder of Bomber Boat — a boat that sails Essendon fans from the Maribyrnong River to Marvel Stadium on game day.
+I run Bomber Boat — a boat that sails Essendon fans from the Maribyrnong to Marvel on game day.
 
-Our maiden voyage is this Saturday (Round 8 vs Brisbane). I wanted to reach out now because I think there's a natural fit with the EFC membership program that's worth a quick conversation.
+Our maiden voyage is Round 8 this Saturday. I wanted to reach out before we launch because I think there is a natural fit with EFC membership that is worth a quick chat.
 
-**The idea:**
-Instead of (or alongside) the standard membership pack — scarf, beanie, sticker — offer Bomber Boat as an included member benefit. A return boat trip to one home game per season, built into a membership tier. Something genuinely exciting that no other club in the country offers.
+The idea: instead of (or alongside) the standard membership pack, give members a Bomber Boat return trip as a benefit — one sail to a home game, included in a membership tier. Something people actually get excited about. Something they post about. No other AFL club in the country offers anything like it.
 
-For EFC, the value is clear: a standout membership perk, a unique fan experience, and something worth posting about. For Bomber Boat, it's guaranteed volume and the official Essendon endorsement.
+For EFC the arrangement would be a flat annual fee (we are thinking around 5,000–0,000) rather than per head — clean, budgetable, easy to promote to members as a genuine perk.
 
-We're proposing a flat annual arrangement (~5–20k) rather than a per-head model — clean, budgetable, and easy to promote.
+We operate through a partnership with Yarra Cruises, so the infrastructure is already there. The vision long-term is a boat for every Melbourne AFL club — Bomber Boat is the proof of concept.
 
-We currently operate one vessel through a partnership with Yarra Cruises, but their fleet has capacity to scale as demand grows. The vision is boats for every Melbourne AFL club — Bomber Boat is just the first.
-
-I'd love 20 minutes on a call, or better yet — can I put a couple of seats aside for you on Saturday so you can see it firsthand?
+I would love to put a couple of seats aside for you on Saturday if you want to see it firsthand. Otherwise, happy to jump on a call any time next week.
 
 Paddy Gallivan
 Bomber Boat
 hello@bomberboat.com.au
 bomberboat.com.au
+0400 000 000
+
+---
+SEND NOTES:
+- Send from hello@bomberboat.com.au via Resend
+- Best sent Wed 29 Apr or Thu 30 Apr morning (before the game Saturday)
+- Follow up Monday 4 May with photos from the maiden voyage if no reply
+- If they reply asking for more detail, the next conversation is about the multi-club vision
