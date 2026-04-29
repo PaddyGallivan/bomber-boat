@@ -15,9 +15,7 @@
 
 <p style="color:#C8102E;font-weight:bold;font-size:15px;margin-bottom:4px;">THIS SATURDAY</p>
 
-<p>We still have seats available and would love to have Essendon Football Club faces on board for the maiden voyage. Here is a simple way to make that happen: <b>cover half the boat &#8212; 30 seats ($2,700) &#8212; and give them to members.</b> We fill the other half. One social post from the club, we handle everything on the water.</p>
-
-<p>If a partnership follows, that $2,700 comes straight off the annual fee. You get to put members on the boat this Saturday and it ends up costing you nothing.</p>
+<p>We still have seats available and would love to have Essendon Football Club faces on board for the maiden voyage. <b>We would like to offer the club a block of complimentary seats to give to members</b> &#8212; a quick social post, a giveaway, something to look forward to before the game. You tell us how you want to use them. We handle everything on the water.</p>
 
 <hr style="border:none;border-top:1px solid #eee;margin:20px 0;">
 
